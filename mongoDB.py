@@ -6,7 +6,7 @@ from update import update
 
 BASE = Path(__file__).resolve().parent
 path = BASE / "data_sourcing" / "US_FINAL_ETF.csv"
-df = update()
+df = update(write=False)
 
 client = MongoClient(MONGODB_URL)
 db = client["etf_data"]
