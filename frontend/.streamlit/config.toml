@@ -1,0 +1,9 @@
+# InvestMint brand theme.
+# Mint-green accent on a clean light surface with deep-navy text — a
+# professional fintech palette inspired by the InvestMint wordmark.
+[theme]
+primaryColor = "#00C896"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2FBF8"
+textColor = "#0E2A47"
+font = "sans serif"

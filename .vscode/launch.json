@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run US Optimization",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/US Optimization/main.py",
+            "cwd": "${workspaceFolder}/US Optimization",
+            "console": "integratedTerminal"
+        }
+    ]
+}

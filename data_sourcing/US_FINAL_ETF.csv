@@ -1,0 +1,502 @@
+Symbol,BETA,Name,AUM,YIELD,SHARPE,MAX_DD,ANNUAL_VOL,STYLE,AVG_VOLUME_30,DURATION,ER
+RLY,0.57,State Street Multi-Asset Real Return ETF,1211170944,0.0293,2.3995,-0.0388,0.1,Multi Alternative,224816.33,1.56,0.5
+RINF,0.05,ProShares Inflation Expectations ETF,18365016,0.0371,-0.2474,-0.0259,0.04,Multi Alternative,2454.53,4.0,0.3
+RYSE,-0.5,Vest 10 Year Interest Rate Hedge ETF,1663736,0.0182,0.0326,-0.0679,0.12,Multi Alternative,314.9,8.27,0.94
+HYKE,0.13,Vest 2 Year Interest Rate Hedge ETF,1237888,0.0183,1.5279,-0.0089,0.05,Multi Alternative,3.83,1.96,0.93
+AGG,0.25,iShares Core U.S. Aggregate Bond ETF,136455700480,0.04,0.2582,-0.0276,0.04,Investment Grade Bond,8273955.23,3.8,0.03
+BND,0.26,Vanguard Total Bond Market ETF,394429661184,0.0398,0.2306,-0.0268,0.04,Investment Grade Bond,8364237.07,6.0,0.03
+VCIT,0.33,Vanguard Intermediate-Term Corporate Bond ETF,68725825536,0.0482,0.4659,-0.0296,0.04,Intermediate Term Mid Quality,8449575.43,6.5,0.03
+BNDX,0.22,Vanguard Total International Bond ETF,122032054272,0.045,-0.6472,-0.0293,0.03,Investment Grade Bond,5435882.53,6.0,0.07
+VCSH,0.13,Vanguard Short-Term Corporate Bond ETF,50517524480,0.0446,0.2651,-0.014,0.02,Short Term High Quality,4362313.93,2.5,0.03
+BSV,0.09,Vanguard Short-Term Bond ETF,70405529600,0.04,-0.1775,-0.0129,0.02,Short Term Bond,2705037.07,2.5,0.03
+LQD,0.46,iShares iBoxx $ Investment Grade Corporate Bond ETF,29782712320,0.0459,0.3155,-0.0334,0.05,Investment Grade Bond,25653488.37,4.65,0.14
+TIP,0.26,iShares TIPS Bond ETF,15087474688,0.0378,0.2437,-0.0198,0.03,Treasury Bond,1976942.13,1.3,0.18
+MBB,0.26,iShares MBS ETF,38738468864,0.0429,0.5695,-0.0294,0.04,Investment Grade Bond,2330565.7,3.68,0.04
+MUB,0.24,iShares National Muni Bond ETF,44944617472,0.0318,0.9513,-0.0279,0.03,Investment Grade Bond,3273678.6,4.7,0.05
+IGSB,0.12,iShares 1-5 Year Investment Grade Corporate Bond ETF,22039212032,0.0459,0.3307,-0.0146,0.02,Intermediate Term High Quality,3330414.3,4.33,0.04
+SCHP,0.26,Schwab U.S. TIPS ETF,15706115072,0.0401,0.2754,-0.0193,0.03,Treasury Bond,3924324.27,1.29,0.03
+HYG,0.41,iShares iBoxx $ High Yield Corporate Bond ETF,16106322944,0.0593,0.632,-0.0234,0.04,High Yield Bond,35631924.33,6.66,0.49
+EMB,0.52,iShares J.P. Morgan USD Emerging Markets Bond ETF,14162584576,0.0508,1.2392,-0.0451,0.06,Intermediate Term Low Quality,6566112.57,5.69,0.39
+SHY,0.05,iShares 1-3 Year Treasury Bond ETF,25434476544,0.0369,-0.5434,-0.0089,0.01,Short Term Government Bond,3180413.97,2.98,0.15
+JPST,0.01,JPMorgan Ultra-Short Income ETF,38402387968,0.0426,0.5258,-0.0015,0.01,Ultra Short-Low Risk,6771319.47,4.26,0.18
+VTIP,0.1,Vanguard Short-Term Inflation-Protected Securities ETF,70501023744,0.0359,0.4082,-0.007,0.02,Treasury Bond,2702023.1,6.5,0.03
+IUSB,0.26,iShares Core Total USD Bond Market ETF,39763542016,0.0425,0.3572,-0.0253,0.04,Investment Grade Bond,8225237.73,4.08,0.06
+GOVT,0.19,iShares U.S. Treasury Bond ETF,41892425728,0.0359,-0.1056,-0.0283,0.04,Intermediate Term Government Bond,9129063.6,3.22,0.05
+IEF,0.26,iShares 7-10 Year Treasury Bond ETF,48318722048,0.0392,-0.0103,-0.0407,0.05,Intermediate Term Government Bond,7373514.53,4.18,0.15
+TLT,0.53,iShares 20+ Year Treasury Bond ETF,42895949824,0.0461,0.0408,-0.0758,0.1,Long Term Government Bond,25264453.77,3.52,0.15
+VMBS,0.26,Vanguard Mortgage-Backed Securities ETF,17120536576,0.042,0.6555,-0.0268,0.04,Investment Grade Bond,1383085.2,6.0,0.03
+BIV,0.26,Vanguard Intermediate-Term Bond ETF,52178837504,0.0424,0.1841,-0.0317,0.04,Intermediate Term Bond,1616124.7,6.0,0.03
+VTEB,0.25,Vanguard Tax-Exempt Bond ETF,47633162240,0.0336,1.0257,-0.0271,0.03,Investment Grade Bond,7479633.8,6.0,0.03
+MINT,0.02,PIMCO Enhanced Short Maturity Active Exchange-Traded Fund,16230618112,0.0428,2.4506,-0.0005,0.0,Ultra Short-Low Risk,1517654.2,4.21,0.36
+VGSH,0.04,Vanguard Short-Term Treasury ETF,33889439744,0.0388,-0.4644,-0.0088,0.01,Short Term Government Bond,3394364.3,1.9,0.03
+SHV,0.01,iShares Trust iShares 0-1 Year Treasury Bond ETF,20728901632,0.0383,-0.5044,-0.0001,0.0,Ultra Short-Low Risk,2344002.73,0.5,0.15
+BIL,0.08,State Street SPDR Bloomberg 1-3 Month T-Bill ETF,46117830656,0.0386,-0.5731,-0.0001,0.0,Money Market,9712781.03,0.17,0.14
+IGIB,0.33,iShares 5-10 Year Investment Grade Corporate Bond ETF,18218496000,0.0483,0.4892,-0.0301,0.04,Intermediate Term High Quality,2398275.4,5.03,0.04
+IEI,0.14,iShares 3-7 Year Treasury Bond ETF,18490460160,0.0365,-0.2519,-0.025,0.03,Intermediate Term Government Bond,1221178.13,3.48,0.15
+JNK,0.42,State Street SPDR Bloomberg High Yield Bond ETF,7700293120,0.0664,0.7854,-0.0251,0.04,High Yield Bond,2748838.27,7.18,0.4
+VGIT,0.16,Vanguard Intermediate-Term Treasury ETF,49454215168,0.0388,-0.1398,-0.0283,0.03,Intermediate Term Government Bond,3030799.23,5.5,0.03
+SCHZ,0.26,Schwab U.S. Aggregate Bond ETF,10299227136,0.0414,0.2423,-0.0269,0.04,Investment Grade Bond,2290133.77,3.79,0.03
+SCHO,0.05,Schwab Short-Term U.S. Treasury ETF,13237601280,0.0391,-0.4329,-0.0086,0.01,Short Term Government Bond,3655785.17,3.1,0.03
+USHY,0.41,iShares Broad USD High Yield Corporate Bond ETF,26825058304,0.0692,0.7862,-0.0243,0.04,High Yield Bond,9928228.2,6.69,0.08
+SRLN,0.18,State Street Blackstone Senior Loan ETF,5281458688,0.075,0.4742,-0.0326,0.03,Short Term Low Quality,2111743.33,0.2,0.7
+SPSB,0.07,State Street SPDR Portfolio Short Term Corporate Bond ETF,10212393984,0.0441,0.2263,-0.0087,0.01,Short Term High Quality,2537037.1,4.4,0.04
+STIP,0.1,iShares 0-5 Year TIPS Bond ETF,15817490432,0.0432,0.4222,-0.0069,0.01,Treasury Bond,1174272.7,1.13,0.03
+CWB,0.71,State Street SPDR Bloomberg Convertible Securities ETF,6226782720,0.014,2.0241,-0.0752,0.15,Equity,997277.03,2.07,0.4
+BKLN,0.21,Invesco Senior Loan ETF,7154355712,0.0663,0.1992,-0.0307,0.03,Short Term Low Quality,9466403.93,6.48,0.65
+FLOT,0.02,iShares Floating Rate Bond ETF,9512147968,0.0453,1.1761,-0.0043,0.01,Short Term Bond,1518409.6,4.34,0.15
+HYLB,0.41,Xtrackers USD High Yield Corporate Bond ETF,3484869632,0.0651,0.7165,-0.0227,0.04,High Yield Bond,1278645.13,6.61,0.05
+LMBS,0.08,First Trust Low Duration Opportunities ETF,6273047040,0.0411,0.9948,-0.0143,0.02,Ultra Short-Low Risk,466924.6,3.8,0.66
+USIG,0.36,iShares Broad USD Investment Grade Corporate Bond ETF,17378445312,0.0476,0.4129,-0.0279,0.04,Investment Grade Bond,1711514.37,4.66,0.04
+SPAB,0.26,State Street SPDR Portfolio Aggregate Bond ETF,9688899584,0.0406,0.2702,-0.0274,0.04,Investment Grade Bond,2819772.43,3.91,0.03
+SUB,0.08,iShares Short-Term National Muni Bond ETF,11258277888,0.0253,-0.9097,-0.0081,0.01,Short Term Bond,395927.53,4.76,0.07
+ISTB,0.11,iShares Core 1-5 Year USD Bond ETF,4726987776,0.0426,0.0533,-0.0126,0.02,Intermediate Term Bond,602321.9,3.95,0.06
+BLV,0.59,Vanguard Long-Term Bond ETF,8547748864,0.0483,0.2483,-0.0573,0.08,Long Term Bond,631072.93,13.0,0.03
+SPIB,0.21,State Street SPDR Portfolio Intermediate Term Corporate Bond ETF,11578160128,0.0447,0.3827,-0.0202,0.03,Intermediate Term Mid Quality,7228172.3,4.61,0.04
+ICSH,0.01,iShares Ultra Short Duration Bond Active ETF,7595179008,0.0434,0.7929,-0.001,0.0,Ultra Short-Low Risk,1459421.5,4.28,0.08
+SHYG,0.3,iShares 0-5 Year High Yield Corporate Bond ETF,7584448512,0.0703,0.7688,-0.0175,0.03,Short Term High Yield Bond,1274544.67,6.46,0.3
+VCLT,0.66,Vanguard Long-Term Corporate Bond ETF,9216294912,0.0558,0.3778,-0.0525,0.08,Long Term High Quality,5560595.2,13.0,0.03
+ANGL,0.44,VanEck Fallen Angel High Yield Bond ETF,3094623744,0.064,0.8476,-0.0405,0.04,High Yield Bond,687333.77,5.61,0.25
+FIXD,0.28,First Trust Smith Opportunistic Fixed Income ETF,3318624512,0.0471,0.2729,-0.0321,0.04,Investment Grade Bond,443383.7,5.05,0.65
+SHM,0.12,State Street SPDR Nuveen ICE Short Term Municipal Bond ETF,3454033920,0.0267,-0.5404,-0.0113,0.01,Short Term Bond,216630.23,4.85,0.2
+FALN,0.43,iShares Fallen Angels USD Bond ETF,1655630208,0.0648,0.8991,-0.0396,0.05,High Yield Bond,1113812.6,5.62,0.25
+NEAR,0.02,iShares Short Duration Bond Active ETF,4583518208,0.0444,0.061,-0.0113,0.01,Short Term Bond,699296.5,3.91,0.25
+SJNK,0.31,State Street SPDR Bloomberg Short Term High Yield Bond ETF,4769164800,0.0703,0.7068,-0.0173,0.03,Short Term High Yield Bond,2497309.4,6.48,0.4
+SPTL,0.5,State Street SPDR Portfolio Long Term Treasury ETF,10116303872,0.0424,0.0872,-0.0704,0.09,Long Term Government Bond,6507588.23,3.5,0.03
+FTSM,0.01,First Trust Enhanced Short Maturity ETF,6423057408,0.0416,0.3819,-0.0012,0.0,Ultra Short-Low Risk,746457.53,4.35,0.29
+BOND,0.27,PIMCO Active Bond Exchange-Traded Fund,8039182848,0.0521,0.5983,-0.0301,0.04,Investment Grade Bond,474792.0,5.21,0.54
+TFI,0.3,State Street SPDR Nuveen ICE Municipal Bond ETF,3118448896,0.0349,0.8672,-0.0279,0.03,Investment Grade Bond,430791.2,4.73,0.23
+SPMB,0.26,State Street SPDR Portfolio Mortgage Backed Bond ETF,6955073024,0.041,0.609,-0.0287,0.04,Investment Grade Bond,1432365.8,3.68,0.04
+SCHR,0.17,Schwab Intermediate-Term U.S. Treasury ETF,13032732672,0.0394,-0.1447,-0.0279,0.03,Intermediate Term Government Bond,2980188.83,3.58,0.03
+IAGG,0.19,iShares Core International Aggregate Bond ETF,13476039680,0.0367,-0.6376,-0.0232,0.03,Investment Grade Bond,3186806.5,2.67,0.07
+HYD,0.35,VanEck High Yield Muni ETF,4295207424,0.0426,1.0477,-0.032,0.04,High Yield Bond,672085.93,5.03,0.32
+IVOL,0.04,KraneShares Quadratic Interest Rate Volatility and Inflation Hedge ETF,313852288,0.0393,-1.3447,-0.1052,0.07,Multi Alternative,118951.1,1.29,0.98
+EMLC,0.38,VanEck J. P. Morgan EM Local Currency Bond ETF,4880482816,0.0626,0.5872,-0.062,0.07,Intermediate Term Low Quality,2650257.07,5.85,0.3
+SPTS,0.05,State Street SPDR Portfolio Short Term Treasury ETF,5896885248,0.0392,-0.4478,-0.0084,0.01,Short Term Government Bond,1502006.53,3.11,0.03
+SPIP,0.27,State Street SPDR Portfolio TIPS ETF,1020483136,0.0478,0.2383,-0.0204,0.04,Treasury Bond,410187.5,1.3,0.12
+TOTL,0.21,State Street DoubleLine Total Return Tactical ETF,4177129216,0.0532,0.0665,-0.0304,0.03,Multi Alternative,391088.77,4.02,0.55
+SPTI,0.16,State Street SPDR Portfolio Intermediate Term Treasury ETF,10151989248,0.0387,-0.1454,-0.028,0.03,Intermediate Term Government Bond,2437123.43,3.64,0.03
+VWOB,0.5,Vanguard Emerging Markets Government Bond ETF,6584204800,0.0588,1.2024,-0.0448,0.05,Intermediate Term Low Quality,523919.6,6.5,0.15
+GSY,0.02,Invesco Ultra Short Duration ETF,3504480000,0.0434,1.3045,-0.0006,0.0,Ultra Short-Low Risk,498656.37,4.45,0.22
+FTSL,0.15,First Trust Senior Loan Fund,2300497152,0.0647,0.2071,-0.0234,0.02,Short Term Low Quality,193338.23,6.53,0.7
+VNLA,0.03,Janus Henderson Short Duration Income ETF,3282954496,0.0478,1.2504,-0.0043,0.01,Short Term Bond,400693.73,4.79,0.23
+PCY,0.73,Invesco Emerging Markets Sovereign Debt ETF,1385617536,0.059,1.3477,-0.0591,0.07,Intermediate Term Low Quality,289086.93,6.09,0.5
+IGLB,0.65,iShares 10+ Year Investment Grade Corporate Bond ETF,2637048320,0.0529,0.3966,-0.0519,0.08,Long Term High Quality,1151734.57,4.87,0.04
+VGLT,0.5,Vanguard Long-Term Treasury ETF,14807279616,0.0464,0.0816,-0.0701,0.09,Long Term Government Bond,2163792.03,16.0,0.03
+PZA,0.36,Invesco National AMT-Free Municipal Bond ETF,4143966464,0.0364,1.2178,-0.0318,0.04,Investment Grade Bond,1104976.63,4.62,0.28
+SLQD,0.1,iShares 0-5 Year Investment Grade Corporate Bond ETF,2347689472,0.0433,0.2649,-0.0106,0.01,Intermediate Term High Quality,242114.93,4.1,0.06
+GVI,0.14,iShares Intermediate Government/Credit Bond ETF,3762603520,0.0363,-0.0921,-0.0179,0.02,Intermediate Term Government Bond,176079.67,3.8,0.2
+BAB,0.32,Invesco Taxable Municipal Bond ETF,1069345088,0.0412,0.4928,-0.0415,0.06,Investment Grade Bond,173146.1,4.5,0.28
+FLRN,0.02,State Street SPDR Bloomberg Investment Grade Floating Rate ETF,2919404288,0.045,1.3287,-0.0023,0.01,Short Term High Quality,1033226.7,4.3,0.15
+FMB,0.25,First Trust Managed Municipal ETF,2033538048,0.035,1.1682,-0.0273,0.03,Investment Grade Bond,128903.07,4.8,0.39
+HYLS,0.4,First Trust Tactical High Yield ETF,1646621568,0.0672,0.2963,-0.0309,0.04,High Yield Bond,131480.93,6.81,0.69
+JMST,0.03,JPMorgan Ultra-Short Municipal Income ETF,6362158592,0.0265,-1.6525,-0.0025,0.01,Ultra Short-Low Risk,1082885.07,3.96,0.18
+FBND,0.28,Fidelity Total Bond ETF,26057893888,0.0472,0.3482,-0.0266,0.04,Investment Grade Bond,2608088.83,4.21,0.36
+PULS,0.01,PGIM Ultra Short Bond ETF,16276620288,0.0457,1.5862,-0.0009,0.0,Ultra Short-Low Risk,2625041.5,4.45,0.15
+CMF,0.26,iShares California Muni Bond ETF,4423969792,0.0295,0.9589,-0.0291,0.03,Investment Grade Bond,511858.03,4.63,0.08
+ITM,0.28,VanEck Intermediate Muni ETF,2183828480,0.0293,1.0207,-0.0344,0.03,Intermediate Term Bond,215782.77,4.65,0.18
+VUSB,0.03,Vanguard Ultra-Short Bond ETF,8821285888,0.0439,0.784,-0.0037,0.01,Ultra Short-Low Risk,1837768.8,0.4,0.1
+HYMB,0.38,State Street SPDR Nuveen ICE High Yield Municipal Bond ETF,2956567808,0.0455,0.8279,-0.0311,0.04,High Yield Bond,936884.07,5.03,0.35
+ICVT,0.66,iShares Convertible Bond ETF,7107658752,0.0134,2.2439,-0.0755,0.15,Equity,825761.27,2.11,0.2
+HYS,0.32,PIMCO 0-5 Year High Yield Corporate Bond Index Exchange-Traded Fund,1674853760,0.0737,0.8374,-0.0188,0.03,Short Term High Yield Bond,128317.37,6.56,0.56
+GBIL,0.01,ACCESS TREASURY 0-1 YEAR ETF,7601832960,0.0374,-0.4087,-0.0002,0.0,Ultra Short-Low Risk,806113.67,3.34,0.12
+USFR,0.09,WisdomTree Floating Rate Treasury Fund,16985697280,0.0391,0.274,-0.0002,0.0,Ultra Short-Low Risk,4527408.33,3.74,0.15
+FLCB,0.24,Franklin U.S. Core Bond ETF,2915196672,0.0433,0.2286,-0.0284,0.04,Investment Grade Bond,400397.6,3.85,0.15
+EAGG,0.26,iShares ESG Aware US Aggregate Bond ETF,4779801600,0.0402,0.2371,-0.0275,0.04,Investment Grade Bond,479447.87,3.8,0.1
+JPHY,0.27,JPMorgan Active High Yield ETF,2208305152,0.0593,0.7761,-0.0165,0.03,High Yield Bond,34804.17,6.6,0.45
+TLH,0.44,iShares 10-20 Year Treasury Bond ETF,11364227072,0.0451,0.1057,-0.065,0.08,Long Term Government Bond,1628372.47,3.52,0.15
+TDTT,0.13,FlexShares iBoxx 3-Year Target Duration TIPS Index Fund,2583522304,0.0457,0.2541,-0.009,0.02,Treasury Bond,186747.2,1.57,0.18
+PTBD,0.36,Pacer Trendpilot US Bond ETF,86349352,0.0589,-0.1269,-0.0312,0.04,Investment Grade Bond,23621.1,6.74,0.6
+HYEM,0.35,VanEck Emerging Markets High Yield Bond ETF,510681280,0.0654,1.4167,-0.0272,0.04,High Yield Bond,153995.67,7.21,0.4
+EBND,0.4,SPDR Bloomberg Emerging Markets Local Bond ETF,2271235584,0.0589,0.0689,-0.0663,0.07,Intermediate Term Low Quality,300969.47,5.25,0.3
+EDV,0.71,Vanguard Extended Duration Treasury ETF,4279762176,0.0502,0.0238,-0.1254,0.14,Long Term Government Bond,1092837.43,16.0,0.05
+STPZ,0.11,PIMCO 1-5 Year US TIPS Index Exchange-Traded Fund,507262528,0.0412,0.2209,-0.0094,0.02,Treasury Bond,75047.7,1.19,0.2
+LDUR,0.03,PIMCO Enhanced Low Duration Active ETF,1359528576,0.0435,0.252,-0.0094,0.02,Ultra Short-Low Risk,45072.27,5.27,0.54
+DIAL,0.42,Columbia Diversified Fixed Income Allocation ETF,416968736,0.0507,0.5321,-0.0335,0.04,Investment Grade Bond,112944.63,5.61,0.29
+QLTA,0.36,iShares Aaa - A Rated Corporate Bond ETF,1454901248,0.0449,0.2597,-0.0281,0.04,Investment Grade Bond,325835.9,4.43,0.15
+IGOV,0.44,iShares International Treasury Bond ETF,1370959616,0.0143,-0.5347,-0.057,0.08,Intermediate Term Government Bond,752816.77,2.5,0.35
+UITB,0.24,VictoryShares Core Intermediate Bond ETF,2641290496,0.0419,0.2224,-0.028,0.04,Investment Grade Bond,147763.33,4.27,0.25
+AGGY,0.3,WisdomTree Yield Enhanced U.S. Aggregate Bond Fund,874734912,0.045,0.3649,-0.0281,0.04,Investment Grade Bond,90755.13,4.22,0.12
+BNDS,0.37,Infrastructure Capital Bond Income ETF,69661584,0.0797,2.3138,-0.0345,0.04,Investment Grade Bond,20979.23,7.58,0.88
+SUSB,0.12,iShares ESG Aware 1-5 Year USD Corporate Bond ETF,1204537088,0.0451,0.2408,-0.0149,0.02,Intermediate Term Mid Quality,554497.43,4.13,0.12
+IGHG,0.18,ProShares Investment Grade-Interest Rate Hedged,309044864,0.0511,0.6477,-0.0175,0.03,Investment Grade Bond,29193.9,5.41,0.3
+HTRB,0.29,Hartford Total Return Bond ETF,2236403712,0.0464,0.3757,-0.0282,0.04,Investment Grade Bond,284837.3,4.27,0.29
+TIPX,0.18,State Street SPDR Bloomberg 1-10 Year TIPS ETF,1911530368,0.0458,0.3174,-0.0129,0.03,Treasury Bond,380891.37,1.33,0.15
+FLCO,0.36,Franklin Investment Grade Corporate ETF,581303168,0.0467,0.2939,-0.0276,0.04,Investment Grade Bond,71111.67,4.61,0.35
+GTO,0.31,Invesco Total Return Bond ETF,2305815040,0.0478,0.5912,-0.0273,0.03,Investment Grade Bond,203590.63,4.79,0.35
+PHB,0.38,Invesco Fundamental High Yield® Corporate Bond ETF,377571360,0.0584,0.4051,-0.0408,0.04,High Yield Bond,182850.8,5.85,0.23
+SPLB,0.66,State Street SPDR Portfolio Long Term Corporate Bond ETF,1254075648,0.054,0.357,-0.0542,0.08,Long Term High Quality,2963252.63,4.93,0.04
+BWX,0.4,SPDR Bloomberg International Treasury Bond ETF,1480568064,0.0239,-0.9028,-0.0616,0.08,Intermediate Term Government Bond,578704.5,2.73,0.35
+LTPZ,0.65,PIMCO 15+ Year US TIPS Index Exchange-Traded Fund,704980544,0.0528,0.0492,-0.07,0.09,Treasury Bond,111910.2,1.07,0.2
+HYDW,0.33,Xtrackers Low Beta High Yield Bond ETF,65607492,0.0575,0.5143,-0.0209,0.03,High Yield Bond,3483.37,5.83,0.2
+SUSC,0.37,iShares ESG Aware USD Corporate Bond ETF,1423446016,0.0451,0.3362,-0.0288,0.04,Investment Grade Bond,510234.3,4.56,0.18
+IBDR,0.15,iShares iBonds Dec 2026 Term Corporate ETF,3602221056,0.0412,0.6877,-0.0008,0.01,Ultra Short-Low Risk,566762.13,3.5,0.1
+JMBS,0.26,Janus Henderson Mortgage-Backed Securities ETF,6752482816,0.0521,0.7221,-0.0306,0.04,Investment Grade Bond,573136.7,4.58,0.21
+CORP,0.35,PIMCO Investment Grade Corporate Bond Index ETF,1616457984,0.0487,0.3811,-0.0288,0.04,Investment Grade Bond,74034.23,4.16,0.41
+IGBH,0.24,iShares Interest Rate Hedged Long-Term Corporate Bond ETF,189428720,0.0568,1.1777,-0.0424,0.04,Long Term High Quality,75268.2,4.87,0.14
+CMBS,0.17,iShares CMBS ETF,481898016,0.0359,0.2285,-0.0244,0.04,Investment Grade Bond,47397.7,3.55,0.25
+SGOV,0.09,iShares 0-3 Month Treasury Bond ETF,91903229952,0.0385,-0.1319,-0.0001,0.0,Ultra Short-Low Risk,20605459.5,0.13,0.09
+GIGB,0.38,Goldman Sachs Access Investment Grade Corporate Bond ETF,982178240,0.0463,0.3837,-0.0287,0.04,Investment Grade Bond,128876.93,4.57,0.08
+AGZ,0.11,iShares Agency Bond ETF,551168192,0.0373,-0.0716,-0.0136,0.03,Intermediate Term Government Bond,11834.6,4.06,0.2
+UCON,0.17,First Trust Smith Unconstrained Bond ETF,3277164544,0.0467,0.5381,-0.0245,0.03,Multi Alternative,557591.3,5.36,0.86
+FLTR,0.02,VanEck IG Floating Rate ETF,2753814016,0.0474,1.7155,-0.0031,0.01,Short Term High Quality,881533.97,4.52,0.14
+TDTF,0.23,FlexShares iBoxx 5-Year Target Duration TIPS Index Fund,1040176960,0.0474,0.3021,-0.016,0.03,Treasury Bond,182333.1,0.85,0.18
+LQDH,0.2,iShares Interest Rate Hedged Corporate Bond ETF,514826784,0.0596,1.1784,-0.0234,0.03,Investment Grade Bond,31433.4,4.65,0.24
+VTC,0.37,Vanguard Total Corporate Bond ETF,1750517632,0.0495,0.383,-0.0288,0.04,Investment Grade Bond,114033.13,6.0,0.03
+MUNI,0.2,PIMCO Intermediate Municipal Bond Active Exchange-Traded Fund,3004678656,0.0329,1.0139,-0.0229,0.02,Intermediate Term Bond,326100.57,4.44,0.35
+SCHJ,0.13,Schwab 1-5 Year Corporate Bond ETF,795770560,0.0451,0.2568,-0.0147,0.02,Intermediate Term Mid Quality,160375.83,4.22,0.03
+BSCQ,0.15,Invesco BulletShares 2026 Corporate Bond ETF,3814609920,0.0413,0.839,-0.001,0.01,Ultra Short-Low Risk,962033.97,3.51,0.1
+HYGV,0.43,FlexShares High Yield Value-Scored Bond Index Fund,1103925504,0.0742,0.6881,-0.0268,0.04,High Yield Bond,120166.93,7.1,0.37
+BNDW,0.24,Vanguard Total World Bond ETF,1882424320,0.0422,-0.199,-0.027,0.03,Investment Grade Bond,131050.33,3.32,0.05
+PWZ,0.35,Invesco California AMT-Free Municipal Bond ETF,1128916096,0.0358,1.1898,-0.0347,0.04,Investment Grade Bond,241399.97,4.59,0.28
+SPHY,0.39,State Street SPDR Portfolio High Yield Bond ETF,11082396672,0.0728,0.7985,-0.0241,0.04,High Yield Bond,4684580.6,6.73,0.05
+EUSB,0.25,iShares ESG Advanced Universal USD Bond ETF,704351296,0.0398,0.246,-0.0248,0.03,Investment Grade Bond,74822.57,3.89,0.12
+NYF,0.26,iShares New York Muni Bond ETF,1323212544,0.0309,0.9435,-0.0276,0.03,Investment Grade Bond,165262.6,4.66,0.09
+SMMU,0.09,PIMCO Short Term Municipal Bond Active ETF,1110296192,0.0284,-0.2084,-0.0077,0.01,Short Term Bond,120875.4,3.96,0.35
+IBDS,0.2,iShares iBonds Dec 2027 Term Corporate ETF,3781327360,0.0432,0.5691,-0.0043,0.01,Ultra Short-Low Risk,606050.57,3.81,0.1
+LEMB,0.33,iShares J.P. Morgan EM Local Currency Bond ETF,732655616,0.0244,0.6864,-0.06,0.07,Intermediate Term Low Quality,140160.33,5.99,0.3
+CEMB,0.29,iShares J.P. Morgan EM Corporate Bond ETF,431298464,0.0516,0.9008,-0.0288,0.03,Intermediate Term Low Quality,60622.83,5.67,0.5
+IG,0.39,Principal Investment Grade Corporate Active ETF,179916288,0.0511,0.3744,-0.0293,0.05,Investment Grade Bond,25983.17,5.21,0.19
+MMIN,0.31,NYLI MacKay Muni Insured ETF,445150240,0.0413,1.3197,-0.0287,0.04,Investment Grade Bond,79009.73,4.91,0.3
+GNMA,0.26,iShares GNMA Bond ETF,429159424,0.0425,0.5234,-0.026,0.04,Intermediate Term Government Bond,45914.17,3.95,0.1
+EMHY,0.48,iShares J.P. Morgan EM High Yield Bond ETF,591461632,0.0642,1.5557,-0.0433,0.06,High Yield Bond,85360.9,6.65,0.5
+VRIG,0.02,Invesco Variable Rate Investment Grade ETF,1527257856,0.0479,1.9604,-0.0008,0.0,Short Term High Quality,325587.83,4.84,0.3
+ULST,0.02,State Street Ultra Short Term Bond ETF,552474496,0.0429,0.0109,-0.0025,0.01,Ultra Short-Low Risk,127153.83,4.29,0.2
+FTSD,0.04,Franklin Short Duration U.S. Government ETF,287546848,0.0451,0.2138,-0.0045,0.01,Short Term Government Bond,18457.47,4.39,0.25
+WIP,0.5,SPDR FTSE International Government Inflation-Protected Bond ETF,545452544,0.0586,0.546,-0.0516,0.09,Treasury Bond,121754.03,2.03,0.5
+GBF,0.26,iShares Government/Credit Bond ETF,119388400,0.038,0.061,-0.0274,0.04,Intermediate Term Government Bond,6885.37,3.77,0.2
+SHYD,0.21,VanEck Short High Yield Muni ETF,424694656,0.035,0.455,-0.0217,0.03,Short Term High Yield Bond,113859.7,4.89,0.32
+VBND,0.25,Vident U.S. Bond Strategy ETF,510160704,0.0425,0.3225,-0.0282,0.04,Investment Grade Bond,19994.47,5.5,0.41
+GOVZ,0.75,iShares 25+ Year Treasury STRIPS Bond ETF,266612144,0.052,-0.0266,-0.1416,0.16,Long Term Government Bond,310325.03,29.0,0.1
+FLGV,0.18,Franklin U.S. Treasury Bond ETF,988177408,0.0416,-0.032,-0.0282,0.04,Intermediate Term Government Bond,148802.53,3.3,0.09
+SPBO,0.37,State Street SPDR Portfolio Corporate Bond ETF,1973160064,0.0514,0.4411,-0.0287,0.04,Investment Grade Bond,688016.8,4.93,0.03
+ZROZ,0.76,PIMCO 25+ Year Zero Coupon US Treasury Index Exchange-Traded Fund,1404749440,0.0518,-0.0271,-0.1402,0.16,Long Term Government Bond,542976.03,29.0,0.15
+BSCR,0.19,Invesco BulletShares 2027 Corporate Bond ETF,4602492416,0.043,0.5549,-0.0042,0.01,Ultra Short-Low Risk,668794.9,3.76,0.1
+TMF,1.55,Direxion Daily 20+ Year Treasury Bull 3X Shares,2605618432,0.0423,-0.0718,-0.2651,0.28,Long Term Government Bond,3879376.7,3.52,0.9
+NUAG,0.29,Nuveen Enhanced Yield U.S. Aggregate Bond ETF,94079784,0.0452,0.4409,-0.0254,0.04,Investment Grade Bond,12343.8,4.52,0.16
+RAVI,0.01,FlexShares Ultra-Short Income Fund,1398436608,0.0438,1.2127,-0.0012,0.0,Ultra Short-Low Risk,67653.7,4.36,0.25
+ILTB,0.59,iShares Core 10+ Year USD Bond ETF,591447168,0.0499,0.3245,-0.0541,0.08,Long Term Bond,48569.8,4.3,0.06
+FMHI,0.32,First Trust Municipal High Income ETF,975518656,0.0425,1.5045,-0.0235,0.03,High Yield Bond,94794.0,5.02,0.49
+SCHI,0.34,Schwab 5-10 Year Corporate Bond ETF,11449237504,0.0507,0.4668,-0.0301,0.04,Intermediate Term Mid Quality,3598822.73,4.95,0.03
+SMB,0.09,VanEck Short Muni ETF,304693376,0.0271,-0.1336,-0.0117,0.02,Short Term Bond,58559.97,4.68,0.07
+GSST,0.02,Goldman Sachs Ultra Short Bond ETF,1519983232,0.0432,1.008,-0.0015,0.01,Ultra Short-Low Risk,274499.47,4.4,0.16
+SKOR,0.22,FlexShares Credit-Scored US Corporate Bond Index Fund,734112896,0.0468,0.4179,-0.0209,0.03,Investment Grade Bond,70285.57,4.68,0.15
+JPIB,0.24,JPMorgan International Bond Opportunities ETF of Benef Interest,2009665664,0.0504,0.175,-0.0376,0.04,Investment Grade Bond,245414.67,5.18,0.5
+IBDT,0.25,iShares iBonds Dec 2028 Term Corporate ETF,3896203008,0.0456,0.3732,-0.0101,0.02,Short Term High Quality,525327.97,4.25,0.1
+FDHY,0.39,Fidelity Enhanced High Yield ETF,521947392,0.0655,1.1033,-0.0212,0.04,High Yield Bond,81462.0,6.9,0.35
+MEAR,0.03,iShares Short Maturity Municipal Bond Active ETF,1378583296,0.0284,-0.8214,-0.0047,0.01,Ultra Short-Low Risk,143410.1,3.61,0.26
+FLTB,0.1,Fidelity Limited Term Bond ETF,401247840,0.0437,0.2233,-0.0152,0.02,Short Term Bond,54572.6,4.65,0.25
+FCOR,0.37,Fidelity Corporate Bond ETF,342265920,0.0456,0.3769,-0.0306,0.04,Investment Grade Bond,35747.27,4.93,0.36
+FCVT,0.75,First Trust SSI Strategic Convertible Securities ETF,122332096,0.0122,2.347,-0.0847,0.17,Equity,22370.97,2.0,0.95
+DEED,0.27,First Trust Securitized Plus ETF,66069524,0.0428,0.6698,-0.0318,0.04,Investment Grade Bond,9937.73,4.39,0.66
+USTB,0.08,VictoryShares Short-Term Bond ETF,2165647872,0.0458,0.5461,-0.0084,0.01,Short Term Bond,258523.6,4.84,0.34
+FEMB,0.43,First Trust Emerging Markets Local Currency Bond ETF,353257760,0.0614,0.5669,-0.0758,0.08,Intermediate Term Low Quality,73251.37,6.99,0.85
+NUBD,0.25,Nuveen ESG U.S. Aggregate Bond ETF,450755040,0.0401,0.1745,-0.0276,0.04,Investment Grade Bond,61777.63,3.92,0.12
+HCRB,0.27,Hartford Core Bond ETF,365589728,0.042,0.2806,-0.0282,0.04,Investment Grade Bond,33808.97,4.12,0.29
+JAAA,0.04, Janus Henderson AAA CLO ETF,27344457728,0.05,1.325,-0.0039,0.01,Ultra Short-Low Risk,5417692.2,4.99,0.2
+VCEB,0.36,Vanguard ESG U.S. Corporate Bond ETF,1234070784,0.0434,0.1635,-0.0282,0.04,Investment Grade Bond,67681.33,6.0,0.12
+TFLO,0.09,iShares Treasury Floating Rate Bond ETF,6601507328,0.039,-0.0513,-0.0002,0.0,Ultra Short-Low Risk,1458761.3,3.74,0.15
+BGRN,0.23,iShares Trust iShares USD Green Bond ETF,477027456,0.043,0.2739,-0.0223,0.03,Investment Grade Bond,28356.57,3.97,0.2
+MLN,0.44,VanEck Long Muni ETF,709967552,0.0372,1.1951,-0.0253,0.04,Long Term Bond,263448.23,4.74,0.24
+MMIT,0.22,NYLI MacKay Muni Intermediate ETF,1453633664,0.0357,0.9448,-0.0259,0.03,Intermediate Term Bond,487295.3,4.61,0.3
+GCOR,0.26,Goldman Sachs Access U.S. Aggregate Bond ETF,821812736,0.0419,0.2352,-0.0282,0.04,Investment Grade Bond,90907.47,3.61,0.08
+IBD,0.2,Inspire Corporate Bond ETF,466715264,0.0426,0.1672,-0.0215,0.04,Investment Grade Bond,58952.57,3.71,0.41
+PGHY,0.19,Invesco Global ex-US High Yield Corporate Bond ETF,215272224,0.0712,0.6844,-0.0304,0.05,High Yield Bond,51255.53,7.02,0.35
+FLDR,0.04,Fidelity Low Duration Bond Factor ETF,1615700480,0.0443,0.921,-0.0047,0.01,Ultra Short-Low Risk,378013.2,0.4,0.15
+BSCS,0.25,Invesco BulletShares 2028 Corporate Bond ETF,3479137536,0.0447,0.3383,-0.011,0.02,Short Term High Quality,529214.4,4.2,0.1
+AGZD,0.03,WisdomTree Interest Rate Hedged U.S. Aggregate Bond Fund,99533048,0.0398,0.6516,-0.0087,0.03,Investment Grade Bond,65120.37,3.9,0.23
+TIPZ,0.27,PIMCO Broad U.S. TIPS Index ETF,92012128,0.0513,0.2535,-0.0218,0.04,Treasury Bond,34829.2,1.23,0.2
+HMOP,0.24,Hartford Municipal Opportunities ETF,764941760,0.0346,0.9933,-0.027,0.03,Investment Grade Bond,73842.77,4.76,0.29
+FLIA,0.13,Franklin International Aggregate Bond ETF,749883072,0.027,-0.6116,-0.0204,0.03,Investment Grade Bond,90218.63,2.3,0.25
+XMPT,0.67,VanEck CEF Muni Income ETF,214411232,0.0588,0.9952,-0.0657,0.07,Investment Grade Bond,38353.83,5.16,1.97
+BWZ,0.24,SPDR Bloomberg Short Term International Treasury Bond ETF,311691968,0.021,-0.6324,-0.0515,0.07,Short Term Government Bond,44526.23,2.39,0.35
+LDSF,0.13,First Trust Low Duration Strategic Focus ETF,162067584,0.0465,0.4339,-0.0174,0.02,Multi Alternative,23884.33,4.81,0.77
+GHYB,0.41,Goldman Sachs Access High Yield Corporate Bond ETF,130420488,0.0681,0.8137,-0.0267,0.04,High Yield Bond,9723.83,6.45,0.15
+BKAG,0.25,BNY Mellon Core Bond ETF,2127278464,0.0425,0.2484,-0.0276,0.04,Investment Grade Bond,123458.73,3.76,0.0
+GHYG,0.44,iShares US & Intl High Yield Corp Bond ETF,200495472,0.0626,0.3901,-0.0384,0.05,High Yield Bond,24793.4,6.29,0.4
+STOT,0.06,State Street DoubleLine Short Duration Total Return Tactical ETF,461212128,0.0441,0.1742,-0.0076,0.01,Multi Alternative,96181.87,3.99,0.45
+HYZD,0.3,WisdomTree Interest Rate Hedged High Yield Bond Fund,236832176,0.0588,1.0192,-0.0191,0.03,High Yield Bond,59209.73,6.08,0.43
+TAXF,0.27,American Century Diversified Municipal Bond ETF,659461760,0.0377,1.4002,-0.0293,0.03,Investment Grade Bond,49982.5,4.85,0.27
+EMHC,0.52,State Street SPDR Bloomberg Emerging Markets USD Bond ETF,263560816,0.0615,1.287,-0.0437,0.05,Intermediate Term Low Quality,37264.13,5.54,0.23
+OPER,0.11,ClearShares Ultra-Short Maturity ETF,117555648,0.0409,0.1269,-0.0007,0.0,Ultra Short-Low Risk,16227.2,0.4,0.2
+FUMB,0.03,First Trust Ultra Short Duration Municipal ETF,230566704,0.028,-1.784,-0.0022,0.01,Ultra Short-Low Risk,99000.87,4.43,0.29
+EMNT,0.02,PIMCO Enhanced Short Maturity Active ESG Exchange-Traded Fund,211837632,0.04,0.8803,-0.0013,0.0,Ultra Short-Low Risk,7706.5,4.0,0.24
+FSMB,0.11,First Trust Short Duration Managed Municipal ETF,611230208,0.0314,-0.0035,-0.0129,0.01,Short Term Bond,125443.93,4.32,0.34
+JCPB,0.26,JPMorgan Core Plus Bond ETF,12442044416,0.0495,0.4926,-0.0271,0.04,Investment Grade Bond,2270006.87,4.76,0.38
+HYDB,0.39,iShares High Yield Systematic Bond ETF,1626582528,0.0702,0.7739,-0.0283,0.04,High Yield Bond,230393.0,6.85,0.35
+SHAG,0.1,WisdomTree Yield Enhanced U.S. Short-Term Aggregate Bond Fund,42730496,0.0429,-0.0786,-0.0138,0.02,Short Term High Quality,4276.73,3.92,0.12
+FLHY,0.38,Franklin High Yield Corporate ETF,1164373632,0.0648,0.9123,-0.0243,0.04,High Yield Bond,279355.67,7.12,0.4
+IGEB,0.36,iShares Investment Grade Systematic Bond ETF,1363297536,0.0508,0.4001,-0.0288,0.04,Investment Grade Bond,146951.5,5.21,0.18
+IBND,0.44,SPDR Bloomberg International Corporate Bond ETF,470312160,0.0275,-0.2365,-0.0675,0.08,Investment Grade Bond,114096.23,3.0,0.5
+GTIP,0.26,Goldman Sachs Access Inflation Protected USD Bond ETF,276412608,0.0471,0.2732,-0.0202,0.03,Treasury Bond,38228.07,1.12,0.12
+JSCP,0.13,JPMorgan Short Duration Core Plus ETF,1471904640,0.045,0.274,-0.0127,0.02,Short Term High Quality,190440.0,4.87,0.33
+RVNU,0.4,Xtrackers Municipal Infrastructure Revenue Bond ETF,138417840,0.0351,1.129,-0.0246,0.05,Investment Grade Bond,37312.37,4.89,0.15
+KORP,0.24,American Century Diversified Corporate Bond ETF,815961344,0.0513,0.5084,-0.0323,0.04,Investment Grade Bond,83782.47,5.54,0.29
+BYLD,0.26,iShares Yield Optimized Bond ETF,450065984,0.0538,0.7138,-0.0271,0.04,Multi Alternative,181914.63,5.23,0.13
+IBDU,0.29,iShares iBonds Dec 2029 Term Corporate ETF,3800691712,0.0467,0.3858,-0.0158,0.02,Short Term High Quality,709598.33,4.34,0.1
+OVB,0.39,Overlay Shares Core Bond ETF,46860424,0.0703,0.7943,-0.0249,0.06,Investment Grade Bond,15198.0,3.8,0.79
+RIGS,0.21,RiverFront Strategic Income Fund,63565848,0.0491,-0.0035,-0.0456,0.1,Multi Alternative,8172.73,5.51,0.45
+HYHG,0.29,ProShares High Yield-Interest Rate Hedged ETF,173535856,0.0675,0.6512,-0.0202,0.06,High Yield Bond,14863.5,7.27,0.5
+HYGH,0.28,iShares Interest Rate Hedged High Yield Bond ETF,529122368,0.0662,0.9626,-0.0162,0.04,High Yield Bond,61084.53,6.66,0.52
+IBDV,0.34,iShares iBonds Dec 2030 Term Corporate ETF,3118485248,0.0461,0.2952,-0.0207,0.03,Intermediate Term Mid Quality,558383.63,3.88,0.1
+BSJQ,0.3,Invesco BulletShares 2026 High Yield Corp Bond ETF,1041619456,0.0583,0.5262,-0.0056,0.01,Short Term High Yield Bond,294648.17,7.93,0.43
+AFIF,0.11,Anfield Universal Fixed Income ETF,226683568,0.0359,0.3789,-0.0163,0.03,Investment Grade Bond,71483.23,5.53,1.08
+EMBD,0.47,Global X Emerging Markets Bond ETF,256406144,0.0571,0.9343,-0.0423,0.06,Intermediate Term Low Quality,18333.33,5.63,0.39
+IMTB,0.28,iShares Core 5-10 Year USD Bond ETF,279732288,0.0454,0.4781,-0.0286,0.04,Intermediate Term Bond,31642.33,4.2,0.06
+BNDC,0.26,FlexShares Core Select Bond Fund Core Select Bond Fund,169760384,0.0417,0.137,-0.0287,0.04,Investment Grade Bond,13730.27,3.77,0.35
+PICB,0.52,Invesco International Corporate Bond ETF,355841088,0.0337,-0.2448,-0.064,0.08,Investment Grade Bond,77842.6,3.65,0.5
+IBMO,0.13,iShares iBonds Dec 2026 Term Muni Bond ETF,587419392,0.0239,-1.1724,-0.0038,0.01,Ultra Short-Low Risk,66719.43,3.66,0.18
+HYXF,0.4,iShares ESG Advanced High Yield Corporate Bond ETF,205580640,0.0612,0.4095,-0.0257,0.04,High Yield Bond,18289.13,6.16,0.35
+FLMB,0.33,Franklin Municipal Green Bond ETF,82666680,0.0375,1.1917,-0.0325,0.04,Investment Grade Bond,16611.43,4.58,0.3
+ELD,0.4,WisdomTree Emerging Markets Local Debt Fund,134961552,0.0588,0.6553,-0.0715,0.09,Intermediate Term Low Quality,53370.83,6.34,0.55
+BSCT,0.29,Invesco BulletShares 2029 Corporate Bond ETF,2812126464,0.0459,0.3255,-0.0162,0.02,Short Term High Quality,622125.13,4.36,0.1
+PZT,0.37,Invesco New York AMT-Free Municipal Bond ETF,134602880,0.0358,1.2295,-0.0317,0.05,Investment Grade Bond,23452.73,4.47,0.28
+RFCI,0.2,RiverFront Dynamic Core Income ETF,15650385,0.0456,0.1094,-0.0265,0.03,Multi Alternative,1048.87,5.28,0.51
+CBON,0.12,VanEck China Bond ETF,23842196,0.0153,1.429,-0.0134,0.03,Intermediate Term Low Quality,9029.37,2.58,0.5
+FCAL,0.25,First Trust California Municipal High Income ETF,219880816,0.0333,1.1365,-0.0257,0.03,High Yield Bond,23744.93,4.79,0.49
+HTAB,0.29,Hartford Schroders Tax-Aware Bond ETF,302169088,0.0384,0.6997,-0.0285,0.04,Investment Grade Bond,55246.9,4.66,0.39
+MBSD,0.18,FlexShares Disciplined Duration MBS Index Fund,93908472,0.0421,0.2904,-0.0217,0.03,Investment Grade Bond,12214.17,4.1,0.2
+IHY,0.43,VanEck International High Yield Bond ETF,43829952,0.057,0.4118,-0.0475,0.05,High Yield Bond,23332.0,6.11,0.4
+JPIE,0.2,JPMorgan Income ETF,9095104512,0.0563,1.1951,-0.0115,0.02,Investment Grade Bond,1456181.7,5.77,0.39
+IIGD,0.14,Invesco Investment Grade Defensive ETF,30636492,0.0428,0.0165,-0.0167,0.02,Investment Grade Bond,5464.77,3.7,0.13
+NUHY,0.41,Nuveen ESG High Yield Corporate Bond ETF,108274640,0.0666,0.5862,-0.0286,0.04,High Yield Bond,14566.43,6.81,0.3
+FISR,0.27,State Street Fixed Income Sector Rotation ETF,482534016,0.0421,0.1276,-0.0306,0.04,Investment Grade Bond,237905.9,4.16,0.5
+OWNS,0.28,CCM Affordable Housing MBS ETF,104238336,0.0432,0.6469,-0.0303,0.04,Investment Grade Bond,11748.97,4.01,0.3
+UCRD,0.41, VictoryShares Corporate Bond ETF,151223696,0.0419,0.4301,-0.029,0.04,Investment Grade Bond,223.33,4.4,0.4
+MUSI,0.25,American Century Multisector Income ETF,220960416,0.0556,0.5218,-0.0278,0.03,Multi Alternative,20957.77,5.47,0.38
+JMUB,0.22,JPMorgan Municipal ETF,7760870400,0.036,0.8519,-0.0255,0.02,Investment Grade Bond,891560.37,4.72,0.18
+GRNB,0.24,VanEck Green Bond ETF,180679808,0.0425,0.1961,-0.0251,0.03,Investment Grade Bond,26968.5,4.33,0.2
+EMTL,0.33,State Street DoubleLine Emerging Markets Fixed Income ETF,89980192,0.0496,0.5213,-0.02,0.02,Intermediate Term Low Quality,23630.0,5.27,0.65
+HYBB,0.39,iShares BB Rated Corporate Bond ETF,423309216,0.0588,0.7527,-0.0248,0.03,High Yield Bond,121257.13,6.07,0.25
+AVIG,0.28,Avantis Core Fixed Income ETF,1867967872,0.0439,0.2908,-0.0282,0.04,Investment Grade Bond,396487.87,4.48,0.15
+SCHQ,0.5,Schwab Long-Term U.S. Treasury ETF,787615744,0.0482,0.0782,-0.0701,0.09,Long Term Government Bond,782579.83,3.5,0.03
+SHYL,0.3,Xtrackers Short Duration High Yield Bond ETF,265136192,0.0694,0.6146,-0.0159,0.03,Short Term High Yield Bond,29845.47,6.34,0.2
+FFIU,0.33,UVA Unconstrained Medium-Term Fixed Income ETF,53689576,0.0401,0.1631,-0.0479,0.08,Intermediate Term Mid Quality,1490.3,4.34,0.54
+LQDI,0.48,iShares Inflation Hedged Corporate Bond ETF,70475568,0.0462,0.501,-0.0288,0.05,Investment Grade Bond,6416.67,6.0,0.18
+LQDB,0.4,iShares BBB Rated Corporate Bond ETF,56284712,0.0472,0.3836,-0.0267,0.04,Intermediate Term Mid Quality,4032.0,4.58,0.15
+IBMQ,0.2,iShares iBonds Dec 2028 Term Muni Bond ETF,644153280,0.0245,-0.4145,-0.0113,0.01,Short Term Bond,79648.87,4.87,0.18
+ISHG,0.26,iShares 1-3 Year International Treasury Bond ETF,906860544,0.0146,-0.3339,-0.0502,0.07,Short Term Government Bond,112636.23,2.14,0.35
+JPMB,0.49,JPMorgan USD Emerging Markets Sovereign Bond ETF,64207456,0.0582,1.2941,-0.0461,0.05,Intermediate Term Low Quality,7300.07,5.97,0.39
+DYLD,0.26,LeaderShares Dynamic Yield ETF,40459112,0.0405,0.0522,-0.0132,0.03,Multi Alternative,3081.6,4.95,0.75
+RDFI,0.51,Rareview Dynamic Fixed Income ETF,79870456,0.0838,0.5375,-0.0801,0.07,Investment Grade Bond,11625.17,6.21,4.23
+PHYL,0.4,PGIM Active High Yield Bond ETF,1301239424,0.0703,0.9252,-0.0266,0.03,High Yield Bond,130419.8,6.65,0.39
+IBMP,0.17,iShares iBonds Dec 2027 Term Muni Bond ETF,643247104,0.0249,-0.8946,-0.006,0.01,Ultra Short-Low Risk,78691.43,4.91,0.18
+LKOR,0.67,FlexShares Credit-Scored US Long Corporate Bond Index Fund,33638480,0.0575,0.365,-0.054,0.08,Long Term High Quality,3014.4,4.91,0.15
+EMCB,0.27,WisdomTree Emerging Markets Corporate Bond Fund,99356744,0.0537,0.6533,-0.0307,0.04,Intermediate Term Low Quality,4990.47,6.04,0.61
+FLMI,0.27,Franklin Dynamic Municipal Bond ETF,2098840064,0.0388,1.3655,-0.029,0.03,Investment Grade Bond,756578.13,4.79,0.3
+FLBL,0.16,Franklin Senior Loan ETF Franklin Liberty Senior Loan Fund,853201856,0.0758,-0.6929,-0.0318,0.03,Short Term Low Quality,158679.83,0.2,0.45
+ARCM,0.02,Arrow Reserve Capital Management ETF,51046840,0.0373,-0.6576,-0.0012,0.0,Ultra Short-Low Risk,530.3,3.81,0.5
+PBTP,0.1, Invesco 0-5 Yr US TIPS ETF,68104136,0.0312,0.3706,-0.0066,0.02,Treasury Bond,20088.13,1.17,0.07
+SEIX,0.12,Virtus Seix Senior Loan ETF,254416928,0.0724,1.3015,-0.0113,0.02,Short Term Low Quality,84866.03,7.25,0.57
+PVI,-0.34,Invesco Floating Rate Municipal Income ETF,29784340,0.0215,-0.6103,-0.0099,0.03,Short Term Low Quality,11118.63,1.97,0.25
+UBT,1.02,ProShares Ultra 20+ Year Treasury,63955592,0.0404,0.0005,-0.1683,0.19,Long Term Government Bond,62930.77,15.86,0.95
+FEIG,0.41,FlexShares ESG & Climate Investment Grade Corporate Core Index Fund,45069188,0.0477,0.3055,-0.0281,0.04,Investment Grade Bond,3346.83,4.51,0.12
+PFIG,0.23,Invesco Fundamental Investment Grade Corporate Bond ETF,115056696,0.0441,0.2623,-0.0194,0.03,Investment Grade Bond,16526.17,3.94,0.22
+BKHY,0.4,BNY Mellon High Yield ETF,152513168,0.0748,0.8516,-0.0253,0.04,High Yield Bond,16599.03,6.79,0.22
+OVT,0.28,Overlay Shares Short Term Bond ETF,60979324,0.0824,1.1875,-0.0155,0.04,Short Term Bond,13309.23,4.24,0.79
+PIFI,0.13,ClearShares Piton Intermediate Fixed income ETF,101279424,0.0376,-0.1633,-0.0193,0.03,Intermediate Term Mid Quality,1679.93,3.89,0.45
+BSJR,0.39,Invesco BulletShares 2027 High Yield Corporate Bond ETF,848959680,0.0575,0.377,-0.0117,0.02,Short Term High Yield Bond,149969.9,6.7,0.42
+MBND,0.25,State Street Nuveen Municipal Bond ETF,27418192,0.0349,0.4824,-0.0244,0.03,Investment Grade Bond,5923.27,4.55,0.4
+XOVR,1.23,ERShares Private-Public Crossover ETF,2023364608,0.0,0.3901,-0.2432,0.21,Equity,4820260.27,,0.75
+THY,0.19,Toews Agility Shares Dynamic Tactical Income ETF,85494776,0.0542,-0.0688,-0.016,0.03,Multi Alternative,9294.23,6.45,1.03
+OBND,0.32,State Street Loomis Sayles Opportunistic Bond ETF,58138060,0.063,0.6987,-0.0288,0.03,Multi Alternative,5876.17,6.43,0.55
+NUSA,0.1,Nuveen ESG 1-5 Year U.S. Aggregate Bond ETF,33636984,0.0386,-0.1571,-0.0128,0.02,Investment Grade Bond,4859.67,3.92,0.14
+AVSF,0.1,Avantis Short-Term Fixed Income ETF,667714816,0.0437,0.0504,-0.0142,0.02,Short Term High Quality,49457.97,4.07,0.15
+MINO,0.3,PIMCO Municipal Income Opportunities Active Exchange-Traded Fund,669039680,0.0389,1.4713,-0.0241,0.03,Investment Grade Bond,115192.8,4.57,0.39
+IHYF,0.4,Invesco High Yield Bond Factor ETF,150834800,0.0683,0.7174,-0.0295,0.04,High Yield Bond,84093.1,6.62,0.39
+MTGP,0.2,WisdomTree Mortgage Plus Bond Fund,66080096,0.0432,0.4313,-0.0253,0.05,Investment Grade Bond,6568.17,4.24,0.46
+SPSK,0.15,SP Funds Dow Jones Global Sukuk ETF,530824416,0.0425,-0.0865,-0.0285,0.04,Investment Grade Bond,399193.6,4.71,0.5
+TAGG,0.27,T. Rowe Price QM U.S. Bond ETF,1908690048,0.0459,0.2655,-0.0319,0.04,Investment Grade Bond,102623.5,4.1,0.08
+FLRT,0.13,Pacer Aristotle Pacific Floating Rate High Income ETF,615165568,0.0682,1.1097,-0.0178,0.02,Short Term Low Quality,102521.67,7.04,0.6
+SIHY,0.41,Harbor Scientific Alpha High-Yield ETF,140797904,0.0729,0.7584,-0.0317,0.04,High Yield Bond,27422.23,6.64,0.48
+SIFI,0.28,Harbor Scientific Alpha Income ETF,32763564,0.0647,0.9487,-0.0272,0.03,Investment Grade Bond,226.9,4.77,0.5
+LGOV,0.33,First Trust Long Duration Opportunities ETF,664250816,0.0432,0.2563,-0.0561,0.07,Long Term Bond,175198.0,3.17,0.49
+IBTH,0.13,iShares iBonds Dec 2027 Term Treasury ETF,2188717824,0.0383,-0.055,-0.0038,0.01,Ultra Short-Low Risk,366964.0,3.12,0.07
+UJB,0.8,ProShares Ultra High Yield,8680261,0.0337,0.5568,-0.0502,0.07,High Yield Bond,18732.8,3.5,0.95
+BKUI,0.02,BNY Mellon Ultra Short Income ETF,572892608,0.0421,0.602,-0.0013,0.0,Ultra Short-Low Risk,41074.17,4.02,0.12
+BSCU,0.35,Invesco BulletShares 2030 Corporate Bond ETF,2537815296,0.0464,0.2934,-0.0208,0.03,Intermediate Term Mid Quality,632513.37,3.83,0.1
+AVMU,0.26,Avantis Core Municipal Fixed Income ETF,161964256,0.0349,1.43,-0.0332,0.03,Investment Grade Bond,11380.87,4.44,0.15
+PAB,0.27,PGIM Active Aggregate Bond ETF,71826368,0.0458,0.3216,-0.0286,0.04,Investment Grade Bond,44664.07,3.82,0.19
+BSMQ,0.19,Invesco BulletShares 2026 Municipal Bond ETF,294702816,0.0277,-0.7417,-0.0033,0.01,Ultra Short-Low Risk,64721.27,4.54,0.18
+INMU,0.23,iShares Intermediate Muni Income Active ETF,489198208,0.0336,1.2804,-0.0258,0.02,Intermediate Term Bond,182905.03,4.93,0.3
+GSIG,0.12,Goldman Sachs Access Investment Grade Corporate 1-5 Year Bond ETF,9470279,0.0434,0.4008,-0.0134,0.02,Intermediate Term High Quality,1771.83,4.15,0.08
+KHYB,0.16,KraneShares Asia Pacific High Income USD Bond ETF,15689404,0.0816,1.7298,-0.0397,0.03,Investment Grade Bond,4185.13,7.34,0.69
+TYD,0.74,Direxion Daily 7-10 Year Treasury Bull 3x Shares,34807408,0.0325,-0.2079,-0.1356,0.14,Intermediate Term Government Bond,22262.1,4.18,1.07
+TBUX,0.03,T. Rowe Price Ultra Short-Term Bond ETF,1142367872,0.0448,1.3392,-0.001,0.01,Ultra Short-Low Risk,147528.23,4.47,0.17
+HYUP,0.48,Xtrackers High Beta High Yield Bond ETF,43938492,0.0735,0.782,-0.0305,0.04,High Yield Bond,7590.53,7.29,0.2
+NFLT,0.26,Virtus Newfleet Multi-Sector Bond ETF,426192288,0.055,0.8359,-0.0242,0.04,Multi Alternative,90808.1,5.8,0.5
+TOTR,0.29,T. Rowe Price Total Return ETF,561840000,0.0533,0.1536,-0.0256,0.04,Multi Alternative,18210.07,4.37,0.31
+RTAI,0.64,Rareview Tax Advantaged Income ETF,18090546,0.0508,0.9388,-0.0619,0.07,Investment Grade Bond,1863.67,5.18,4.59
+JHCB,0.41,John Hancock Corporate Bond ETF,107278376,0.0497,0.3092,-0.0316,0.04,Investment Grade Bond,18116.17,5.02,0.29
+IBHF,0.29,iShares iBonds 2026 Term High Yield and Income ETF,924213696,0.0654,0.3952,-0.0075,0.02,Short Term High Yield Bond,426178.8,3.96,0.35
+UST,0.49,ProShares Ultra 7-10 Year Treasury,15524252,0.0352,-0.0108,-0.0875,0.09,Intermediate Term Government Bond,9142.9,7.37,0.95
+JHMB,0.22,John Hancock Mortgage-Backed Securities ETF,200028416,0.0475,0.6509,-0.0301,0.04,Investment Grade Bond,51064.43,4.31,0.39
+IBTI,0.16,iShares iBonds Dec 2028 Term Treasury ETF,1711458304,0.0382,-0.2166,-0.011,0.02,Short Term Government Bond,394393.8,3.02,0.07
+BSMS,0.25,Invesco BulletShares 2028 Municipal Bond ETF,303719136,0.0278,0.0696,-0.0105,0.01,Short Term Bond,57737.3,4.92,0.18
+BSMR,0.2,Invesco BulletShares 2027 Municipal Bond ETF,339521216,0.0272,-0.0105,-0.0057,0.01,Ultra Short-Low Risk,58361.17,4.87,0.18
+IBTJ,0.18,iShares iBonds Dec 2029 Term Treasury ETF,1244032640,0.0381,-0.1912,-0.0162,0.02,Short Term Government Bond,266370.93,3.47,0.07
+JHMU,0.22,John Hancock Dynamic Municipal Bond ETF,43196676,0.0372,1.2262,-0.0277,0.03,Investment Grade Bond,5360.03,4.84,0.39
+ADFI,0.26,Anfield Dynamic Fixed Income ETF,50836616,0.0325,-0.0309,-0.0248,0.05,Investment Grade Bond,15280.37,4.4,1.68
+IBTG,0.09,iShares iBonds Dec 2026 Term Treasury ETF,2297927680,0.0395,0.2828,-0.0007,0.01,Ultra Short-Low Risk,373257.07,2.94,0.07
+IBDW,0.4,iShares iBonds Dec 2031 Term Corporate ETF,2389035520,0.0482,0.3828,-0.0242,0.03,Intermediate Term Mid Quality,468657.53,3.75,0.1
+VABS,0.06,Virtus Newfleet ABS/MBS ETF,80990248,0.0518,0.1928,-0.0098,0.02,Investment Grade Bond,47106.8,5.51,0.39
+BSMT,0.28,Invesco BulletShares 2029 Municipal Bond ETF,271308288,0.0274,0.5493,-0.016,0.02,Short Term Bond,57268.73,4.9,0.18
+BSJS,0.42,Invesco BulletShares 2028 High Yield Corporate Bond ETF,693333696,0.0628,0.7349,-0.0164,0.03,Short Term High Yield Bond,123234.73,6.08,0.42
+FMNY,0.29,First Trust New York Municipal High Income ETF,38744960,0.0369,1.0174,-0.0283,0.03,High Yield Bond,7790.27,4.78,0.49
+MIG,0.35,VanEck Moody's Analytics IG Corporate Bond ETF,19259798,0.0478,0.2705,-0.0283,0.04,Investment Grade Bond,2743.03,4.29,0.2
+SSFI,0.29,Day Hagan / Ned Davis Research Smart Sector Fixed Income ETF,28518100,0.0338,0.0907,-0.0264,0.04,Investment Grade Bond,12106.93,4.6,0.76
+IBHG,0.38,iShares iBonds 2027 Term High Yield and Income ETF,437711072,0.0607,0.3299,-0.0073,0.02,Short Term High Yield Bond,175368.7,5.52,0.35
+OVM,0.39,Overlay Shares Municipal Bond ETF,38036096,0.0615,1.6749,-0.0244,0.04,Investment Grade Bond,17953.33,4.7,0.81
+BSMU,0.33,Invesco BulletShares 2030 Municipal Bond ETF,257519664,0.0281,0.6224,-0.0206,0.02,Intermediate Term Bond,35631.17,4.86,0.18
+FIGB,0.28,Fidelity Investment Grade Bond ETF,498595136,0.0412,0.1824,-0.0293,0.04,Investment Grade Bond,72700.87,4.19,0.36
+AAA,0.03,Alternative Access First Priority CLO Bond ETF,39940460,0.0489,0.6319,-0.006,0.02,Short Term Low Quality,9673.93,5.01,0.25
+BILS,0.01,State Street SPDR Bloomberg 3-12 Month T-Bill ETF,3887791872,0.0381,-0.3152,-0.0003,0.0,Money Market,348337.23,0.63,0.14
+MBBB,0.37,VanEck Moody's Analytics BBB Corporate Bond ETF,5371170,0.051,0.2626,-0.0298,0.04,Intermediate Term Mid Quality,9820.23,4.47,0.25
+LDRI,-0.26,iShares iBonds 1-5 Year TIPS Ladder ETF,19474800,0.0353,0.3638,-0.006,0.02,Treasury Bond,8055.67,1.09,0.1
+FSEC,0.29,Fidelity Investment Grade Securitized ETF,4458399744,0.0446,0.5501,-0.0252,0.05,Investment Grade Bond,245272.03,3.95,0.36
+CRDT,0.05,Simplify Opportunistic Income ETF,36798712,0.0634,-0.2719,-0.0718,0.09,Multi Alternative,7732.7,4.0,0.99
+TFJL,0.24,Innovator 20+ Year Treasury Bond 5 Floor ETF - July,7275166,0.0,-0.7777,-0.085,0.08,Long Term Government Bond,3860.1,3.49,0.79
+HYTR,0.25,Counterpoint High Yield Trend ETF,270789760,0.0573,0.3045,-0.0228,0.04,High Yield Bond,56124.87,6.82,0.88
+FPFD,0.41,Fidelity Preferred Securities & Income ETF,83017904,0.0516,0.6065,-0.0275,0.03,Preferred Stock,15272.3,6.1,0.59
+TRSY,0.1,Xtrackers US 0-1 Year Treasury ETF,71250768,0.0372,-0.1416,-0.0007,0.0,Ultra Short-Low Risk,39075.73,3.03,0.06
+CVRT,1.18,Calamos Convertible Equity Alternative ETF,28583778,0.015,2.9952,-0.086,0.22,Equity,7766.97,2.47,0.69
+BNDD,0.33,Quadratic Deflation ETF,6458459,0.0359,-0.0206,-0.0609,0.11,Multi Alternative,206.77,3.5,1.02
+JOJO,0.53,ATAC Credit Rotation ETF,5873443,0.0513,0.8687,-0.0493,0.07,Investment Grade Bond,5942.37,6.64,1.24
+BSCV,0.42,Invesco BulletShares 2031 Corporate Bond ETF,1708623744,0.0471,0.3454,-0.0247,0.03,Intermediate Term Mid Quality,633472.53,3.71,0.1
+BSMV,0.38,Invesco BulletShares 2031 Municipal Bond ETF,183974688,0.029,0.7008,-0.0279,0.02,Intermediate Term Bond,36091.6,4.84,0.18
+BSJT,0.5,Invesco BulletShares 2029 High Yield Corporate Bond ETF,525268160,0.0677,0.687,-0.0248,0.04,Short Term High Yield Bond,179063.8,6.6,0.42
+TBJL,0.36,Innovator 20+ Year Treasury Bond 9 Buffer ETF - July,22795144,0.0,-0.6522,-0.0446,0.06,Long Term Government Bond,15955.43,3.49,0.79
+GGOV,0.21,iShares Global Government Bond USD Hedged Active ETF,44040324,0.0324,-0.2815,-0.0154,0.04,Intermediate Term Government Bond,1915506.3,2.85,0.39
+FLUD,0.01,Franklin Ultra Short Bond ETF,395215104,0.0427,0.2911,-0.0044,0.02,Ultra Short-Low Risk,244662.87,4.57,0.15
+IBTK,0.22,iShares iBonds Dec 2030 Term Treasury ETF,875083008,0.0381,-0.1725,-0.0231,0.03,Intermediate Term Government Bond,219166.13,3.29,0.07
+UBND,0.32,VictoryShares Core Plus Intermediate Bond ETF,1891670016,0.0479,0.3411,-0.0261,0.03,Investment Grade Bond,239563.57,5.04,0.4
+IBTL,45981.17,iShares iBonds Dec 2031 Term Treasury ETF,562116608,0.0398,-0.0739,-0.0283,0.04,Intermediate Term Government Bond,137541.87,3.12,0.07
+RISR,-0.43,FolioBeyond Alternative Income and Interest Rate Hedge ETF,250588960,0.0589,0.2305,-0.0261,0.05,Multi Alternative,100827.77,3.6,1.04
+TYA,0.67,Simplify Intermediate Term Treasury Futures Strategy ETF,72208584,0.0392,-0.1436,-0.118,0.13,Intermediate Term Government Bond,57291.33,5.5,0.25
+DFIP,0.32,Dimensional Inflation-Protected Securities ETF,1109187712,0.0391,0.2858,-0.0206,0.03,Treasury Bond,89796.57,0.93,0.11
+DFNM,0.18,Dimensional National Municipal Bond ETF,2136355712,0.0289,0.6699,-0.0184,0.02,Investment Grade Bond,155677.97,4.78,0.17
+DFSD,0.11,Dimensional Short-Duration Fixed Income ETF,6786203648,0.0398,0.1401,-0.0147,0.02,Short Term High Quality,501282.63,3.98,0.16
+AHYB,0.44,American Century  Select High Yield ETF,60311648,0.0601,0.6853,-0.0241,0.03,High Yield Bond,2458.03,6.31,0.45
+FSIG,0.14,First Trust Limited Duration Investment Grade Corporate ETF,1543949952,0.0485,-0.0172,-0.0155,0.02,Short Term High Quality,301913.73,4.77,0.44
+PTRB,0.35,PGIM Total Return Bond ETF,987404288,0.0476,0.3831,-0.029,0.04,Investment Grade Bond,163445.37,4.51,0.49
+JHPI,0.4,John Hancock Preferred Income ETF,197223312,0.0581,1.1036,-0.0307,0.03,Preferred Stock,58065.1,6.93,0.54
+FCSH,0.13,Federated Hermes Short Duration Corporate ETF,64966872,0.041,0.0377,-0.0124,0.02,Short Term High Quality,1618.47,4.79,0.3
+FHYS,0.26,Federated Hermes Short Duration High Yield ETF,51229952,0.0577,0.7945,-0.0166,0.03,Short Term High Yield Bond,15934.7,6.16,0.5
+MMCA,0.3,NYLI MacKay California Muni Intermediate ETF,87851552,0.0329,0.9029,-0.0301,0.03,Intermediate Term Bond,29659.67,4.51,0.36
+DFCF,0.32,Dimensional Core Fixed Income ETF,10637103104,0.0433,0.3711,-0.0279,0.04,Investment Grade Bond,1468163.07,4.47,0.17
+KDRN,0.3,Kingsbarn Tactical Bond ETF,1168386,0.0312,-0.0998,-0.0177,0.03,Multi Alternative,100.0,5.11,0.62
+JBBB,0.18,Janus Henderson B-BBB CLO ETF,1196930176,0.067,0.1945,-0.0246,0.03,Short Term Low Quality,261801.6,6.6,0.47
+HYRM,0.46,Xtrackers Risk Managed USD High Yield Strategy ETF,4074928,0.0646,0.736,-0.0253,0.04,High Yield Bond,66289.93,6.64,0.3
+AGGH,0.21,Simplify Aggregate Bond ETF,493820288,0.0755,0.7003,-0.031,0.07,Investment Grade Bond,162960.5,3.71,0.3
+HYBL,0.3,State Street Blackstone High Income ETF,563349248,0.0713,0.7736,-0.0241,0.03,Investment Grade Bond,114183.5,6.0,0.7
+CDX,0.33,Simplify High Yield ETF,406852064,0.0837,-0.895,-0.0418,0.06,High Yield Bond,172882.77,3.5,0.25
+FSYD,0.46,Fidelity Sustainable High Yield ETF,125353600,0.0634,1.4041,-0.0267,0.04,High Yield Bond,25963.0,6.12,0.55
+GEMD,0.53,Goldman Sachs Access Emerging Markets USD Bond ETF,33885128,0.0571,1.225,-0.0464,0.06,Intermediate Term Low Quality,3757.7,5.62,0.3
+XHYC,0.46,BondBloxx USD High Yield Bond Consumer Cyclicals Sector ETF,4634973,0.0628,0.7624,-0.0159,0.03,High Yield Bond,2814.17,6.41,0.35
+XHYH,0.48,BondBloxx USD High Yield Bond Healthcare Sector ETF,9780207,0.0657,0.848,-0.0262,0.04,High Yield Bond,3292.4,6.52,0.35
+XHYT,0.49,"BondBloxx USD High Yield Bond Telecom, Media & Technology Sector ETF",17042160,0.072,0.2907,-0.0247,0.04,High Yield Bond,6034.0,6.75,0.35
+CGCP,0.36, Capital Group Core Plus Income ETF,7866884608,0.0518,0.407,-0.0259,0.04,Investment Grade Bond,1572654.17,4.88,0.34
+XHYD,0.4,BondBloxx USD High Yield Bond Consumer Non-Cyclicals Sector ETF,17189004,0.0531,0.3793,-0.0226,0.04,High Yield Bond,4503.3,6.01,0.35
+HISF,0.31,First Trust High Income Strategic Focus ETF,95532416,0.0499,0.5594,-0.029,0.03,Multi Alternative,8488.97,5.12,0.83
+XHYE,0.4,BondBloxx USD High Yield Bond Energy Sector ETF,8951342,0.0579,1.6445,-0.0121,0.03,High Yield Bond,3993.27,7.15,0.35
+XHYF,0.44,BondBloxx USD High Yield Bond Financial & REIT Sector ETF,10267534,0.0627,0.251,-0.0319,0.04,High Yield Bond,3554.47,6.8,0.35
+XHYI,0.43,BondBloxx USD High Yield Bond Industrial Sector ETF,15106354,0.0608,0.4021,-0.0282,0.04,High Yield Bond,6221.7,6.66,0.35
+OACP,0.3,OneAscent Core Plus Bond ETF,263156704,0.044,0.3127,-0.0259,0.04,Investment Grade Bond,51188.47,4.77,0.67
+DBND,0.28,DoubleLine Opportunistic Core Bond ETF,730729664,0.0481,0.1244,-0.0284,0.03,Investment Grade Bond,74206.73,4.2,0.45
+LQIG,0.46,State Street SPDR MarketAxess Investment Grade 400 Corporate Bond ETF,28312672,0.0506,0.4184,-0.0324,0.05,Investment Grade Bond,407.93,4.69,0.07
+MNBD,0.25,ALPS Intermediate Municipal Bond ETF,55785908,0.0331,0.9112,-0.0238,0.02,Intermediate Term Bond,7222.63,4.57,0.44
+PFRL,0.18,PGIM Floating Rate Income ETF,116175984,0.0684,1.1783,-0.0125,0.02,Short Term Low Quality,9928.5,6.46,0.72
+XB,0.47,BondBloxx B-Rated USD High Yield Corporate Bond ETF,45226636,0.071,0.7546,-0.0216,0.04,High Yield Bond,21787.1,7.55,0.3
+XBB,0.44,BondBloxx BB-Rated USD High Yield Corporate Bond ETF,460606144,0.0557,0.5653,-0.028,0.04,High Yield Bond,293858.6,6.05,0.2
+XCCC,0.52,BondBloxx CCC-Rated USD High Yield Corporate Bond ETF,314062560,0.1006,0.3357,-0.0512,0.05,High Yield Bond,378121.53,7.64,0.4
+LONZ,0.15,PIMCO Senior Loan Active Exchange-Traded Fund,534718016,0.0815,0.6,-0.0203,0.02,Short Term Low Quality,183017.73,6.3,0.63
+JCPI,0.27,JPMorgan Inflation Managed Bond ETF,845145856,0.0396,0.351,-0.016,0.03,Investment Grade Bond,74780.93,3.23,0.25
+MBNE,0.27,State Street Nuveen Municipal Bond ESG ETF,8746540,0.0346,0.3975,-0.0198,0.03,Investment Grade Bond,1743.0,4.98,0.43
+CLOI,0.02,VanEck CLO ETF,1340150144,0.0534,1.2328,-0.0062,0.01,Short Term Low Quality,163546.23,5.4,0.36
+AGRH,0.08,iShares Interest Rate Hedged U.S. Aggregate Bond ETF,5259457,0.0419,1.5603,-0.0067,0.01,Investment Grade Bond,939.1,3.8,0.13
+CPII,-0.07,American Beacon Ionic Inflation Protection ETF,11614438,0.0407,0.1538,-0.0162,0.03,Treasury Bond,2293.47,0.83,0.7
+IBDX,0.45,iShares iBonds Dec 2032 Term Corporate ETF,1669201792,0.0485,0.4501,-0.0276,0.04,Intermediate Term Mid Quality,212232.33,4.33,0.1
+XEMD,0.35,BondBloxx JP Morgan USD Emerging Markets 1-10 Year Bond ETF,924847232,0.0585,1.5998,-0.0352,0.05,Intermediate Term Low Quality,177982.47,5.63,0.29
+IRVH,0.22,Global X Interest Rate Volatility & Inflation Hedge ETF,1374769,0.0557,-0.8997,-0.0506,0.05,Multi Alternative,293.43,1.39,0.45
+IBTM,0.32,iShares iBonds Dec 2032 Term Treasury ETF,540974976,0.0397,-0.0163,-0.0326,0.04,Intermediate Term Government Bond,120774.93,3.53,0.07
+SIO,0.31,Touchstone Strategic Income ETF,259547280,0.0694,0.5899,-0.0262,0.04,Multi Alternative,27301.8,4.77,0.5
+TUSI,0.17,Touchstone Ultra Short Income ETF,497140544,0.0457,0.6046,-0.0024,0.01,Ultra Short-Low Risk,233415.97,4.71,0.25
+UTWO,0.04,US Treasury 2 Year Note ETF,438513888,0.035,-0.6827,-0.009,0.01,Short Term Government Bond,65465.13,3.75,0.15
+TBIL,0.08,US Treasury 3 Month Bill ETF,7095121920,0.0382,-0.1545,-0.0002,0.0,Money Market,1793462.0,0.13,0.15
+UTEN,0.33,US Treasury 10 Year Note ETF,286385536,0.0407,0.0201,-0.0457,0.05,Intermediate Term Government Bond,37447.07,4.38,0.15
+HYGW,0.22,iShares High Yield Corporate Bond BuyWrite Strategy ETF,108675232,0.1158,0.8107,-0.0182,0.03,High Yield Bond,42105.1,6.66,0.69
+TLTW,0.54,iShares 20+ Year Treasury Bond BuyWrite Strategy ETF,1972671872,0.1178,0.7648,-0.0597,0.08,Long Term Government Bond,1810999.6,3.52,0.35
+CSHI,0.02,NEOS Enhanced Income 1-3 Month T-Bill ETF,1277623296,0.0491,1.3849,-0.002,0.01,Money Market,585068.23,0.17,0.38
+BNDI,0.32,NEOS Enhanced Income Aggregate Bond ETF,171560160,0.0583,0.6607,-0.0275,0.04,Investment Grade Bond,30624.67,3.82,0.58
+BSCW,0.4,Invesco BulletShares 2032 Corporate Bond ETF,1435356160,0.0485,0.4192,-0.028,0.04,Intermediate Term Mid Quality,336562.73,4.34,0.1
+BSJU,0.42,Invesco BulletShares 2030 High Yield Corporate Bond ETF,275882976,0.0665,0.7264,-0.0253,0.04,Short Term High Yield Bond,71115.63,7.09,0.42
+TAFI,0.11,AB Tax-Aware Short Duration Municipal ETF,1259206272,0.0314,0.0229,-0.0121,0.01,Short Term Bond,420714.6,4.69,0.27
+YEAR,0.01,AB Ultra Short Income ETF,1470660736,0.0414,-0.2143,-0.0023,0.01,Ultra Short-Low Risk,142762.13,4.0,0.25
+XFIV,0.17,BondBloxx Bloomberg Five Year Target Duration US Treasury ETF,423816768,0.0383,-0.149,-0.029,0.03,Intermediate Term Government Bond,94863.07,3.24,0.05
+XHLF,0.08,BondBloxx Bloomberg Six Month Target Duration US Treasury ETF,1925932544,0.0385,-0.2906,-0.0004,0.0,Ultra Short-Low Risk,350434.27,0.38,0.03
+XSVN,0.26,BondBloxx Bloomberg Seven Year Target Duration US Treasury ETF,354318560,0.0412,0.0174,-0.0401,0.05,Intermediate Term Government Bond,76189.5,4.03,0.05
+XTEN,0.39,BondBloxx Bloomberg Ten Year Target Duration US Treasury ETF,1005680704,0.0442,0.0793,-0.0542,0.06,Intermediate Term Government Bond,296577.97,3.72,0.08
+XTRE,0.08,BondBloxx Bloomberg Three Year Target Duration US Treasury ETF,181030352,0.0402,-0.3788,-0.0153,0.02,Short Term Government Bond,59212.33,3.33,0.05
+XTWO,0.03,BondBloxx Bloomberg Two Year Target Duration US Treasury ETF,172753952,0.0405,-0.4723,-0.0091,0.01,Short Term Government Bond,24327.37,3.01,0.05
+XTWY,0.75,BondBloxx Bloomberg Twenty Year Target Duration US Treasury ETF,254881872,0.0473,0.0268,-0.0948,0.12,Long Term Government Bond,79420.43,2.12,0.13
+XONE,0.08,BondBloxx Bloomberg One Year Target Duration US Treasury ETF,754552832,0.0406,-0.3545,-0.0016,0.01,Ultra Short-Low Risk,92401.0,3.11,0.03
+SDSI,0.08,American Century Short Duration Strategic Income ETF,218372928,0.0444,0.5336,-0.0117,0.02,Multi Alternative,30245.43,5.09,0.32
+CGMU,0.3,Capital Group Municipal Income ETF,6106330112,0.0333,1.1553,-0.0255,0.02,Investment Grade Bond,1162206.63,4.66,0.27
+OBIL,0.01,US Treasury 12 Month Bill ETF,317774944,0.0365,-0.2483,-0.0014,0.01,Money Market,37033.53,0.5,0.15
+DFSB,0.33,Dimensional Global Sustainability Fixed Income ETF,701948544,0.0362,0.0496,-0.0304,0.04,Investment Grade Bond,38433.17,3.71,0.24
+HIYS,0.3,Invesco High Yield Select ETF,7933565,0.0625,0.8741,-0.0229,0.03,High Yield Bond,3364.8,6.62,0.48
+ICLO,0.04,Invesco AAA CLO Floating Rate Note ETF,466414688,0.0512,0.9553,-0.0035,0.01,Ultra Short-Low Risk,104510.57,4.82,0.19
+BOXX,0.02,Alpha Architect 1-3 Month Box ETF,12138640384,0.0,0.2563,-0.0007,0.0,Money Market,2275612.97,0.17,0.19
+CLOA,0.04,iShares AAA CLO Active ETF,2153089536,0.0495,1.8948,-0.0018,0.01,Ultra Short-Low Risk,417987.4,5.0,0.2
+CLOZ,0.1,Eldridge BBB-B CLO ETF,668143424,0.074,0.6794,-0.039,0.03,Short Term Low Quality,281398.67,7.73,0.5
+BBAG,0.25,JPMorgan BetaBuilders U.S. Aggregate Bond ETF,1114140800,0.0438,0.2279,-0.0278,0.04,Investment Grade Bond,170031.6,3.65,0.03
+BBCB,0.37,JPMorgan BetaBuilders USD Investment Grade Corporate Bond ETF,45394052,0.0505,0.3881,-0.0295,0.04,Investment Grade Bond,4086.37,4.29,0.04
+BBHY,0.4,JPMorgan BetaBuilders USD High Yield Corporate Bond ETF,608955008,0.0696,0.8101,-0.0237,0.04,High Yield Bond,74306.13,6.58,0.07
+CVSB,0.02,Calvert Ultra-Short Investment Grade ETF,204998672,0.0437,0.6399,-0.0023,0.01,Ultra Short-Low Risk,17329.53,4.31,0.24
+XBIL,0.08,US Treasury 6 Month Bill ETF,741946432,0.0377,-0.344,-0.0004,0.0,Money Market,113708.53,0.25,0.15
+GMUN,0.23,Goldman Sachs Access Municipal Bond ETF,9971144,0.0312,0.417,-0.0281,0.02,Investment Grade Bond,2476.07,6.0,0.08
+VTES,0.13,Vanguard Short-Term Tax Exempt Bond ETF,1995635840,0.0275,-0.3488,-0.0147,0.01,Short Term Bond,169550.23,2.5,0.05
+UFIV,0.12,US Treasury 5 Year Note ETF,29520480,0.0358,-0.3359,-0.0271,0.03,Intermediate Term Government Bond,4591.8,3.88,0.15
+FXED,0.57,Sound Enhanced Fixed Income ETF,39921504,0.0718,0.0233,-0.0536,0.07,Investment Grade Bond,11522.1,5.69,1.89
+BBIB,0.15,JPMorgan BetaBuilders U.S. Treasury Bond 3-10 Year ETF,45996924,0.0393,-0.1427,-0.028,0.03,Intermediate Term Government Bond,8427.5,3.42,0.04
+BBLB,0.71,JPMorgan BetaBuilders U.S. Treasury Bond 20+ Year ETF,31422444,0.0501,0.0734,-0.0753,0.1,Long Term Government Bond,680.2,3.47,0.04
+BBSB,0.02,JPMorgan BetaBuilders U.S. Treasury Bond 1-3 Year ETF,45055360,0.0381,-0.4959,-0.0086,0.01,Short Term Government Bond,7444.5,3.06,0.04
+HYFI,0.33,AB High Yield ETF,341045440,0.0666,0.9131,-0.0249,0.04,High Yield Bond,36990.97,6.55,0.4
+BINC,0.17,iShares Flexible Income Active ETF,16837871616,0.0588,0.6529,-0.0269,0.02,Multi Alternative,3145820.4,5.36,0.4
+PYLD,0.29,PIMCO Multisector Bond Active Exchange-Traded Fund,13692821504,0.0631,1.0118,-0.0325,0.03,Multi Alternative,3963397.4,4.88,0.64
+SCYB,0.32,Schwab High Yield Bond ETF,2536398336,0.0696,0.7624,-0.0244,0.04,High Yield Bond,1134147.37,6.58,0.03
+CLOX,0.03,Eldridge AAA CLO ETF,283930624,0.0498,0.8281,-0.0066,0.01,Ultra Short-Low Risk,132678.73,4.96,0.2
+VETZ,0.31,Academy Veteran Bond ETF,113410192,0.0616,0.6165,-0.0273,0.05,Investment Grade Bond,27151.6,3.77,0.35
+GOVI,0.34,Invesco Equal Weight 0-30 Year Treasury ETF,1184560640,0.0385,0.0105,-0.0544,0.06,Long Term Government Bond,293010.37,3.65,0.15
+TBLL,0.01,Invesco Short Term Treasury ETF,2517748480,0.0381,-0.3718,-0.0001,0.0,Short Term Government Bond,358401.23,2.79,0.08
+HYSA,0.3,BondBloxx USD High Yield Bond Sector Rotation ETF,31046430,0.0677,0.4895,-0.0315,0.05,High Yield Bond,37492.5,3.5,0.55
+VSHY,0.34,Virtus Newfleet Short Duration High Yield Bond ETF,30535012,0.0639,0.8596,-0.0173,0.03,Short Term High Yield Bond,3439.7,6.76,0.39
+SMTH,0.15,ALPS | Smith Core Plus Bond ETF,2749217792,0.0442,0.2681,-0.0274,0.04,Investment Grade Bond,369640.03,4.88,0.59
+CPLS,0.17,AB Core Plus Bond ETF,214710448,0.0463,0.227,-0.0248,0.04,Investment Grade Bond,13526.6,4.57,0.3
+EYEG,0.23,AB Corporate Bond ETF,26543620,0.0496,0.334,-0.0284,0.04,Investment Grade Bond,260.0,6.0,0.3
+TAFL,0.23,AB Tax-Aware Long Municipal ETF,57715928,0.0409,1.071,-0.0276,0.04,Long Term Bond,19141.3,4.81,0.28
+TAFM,0.19,AB Tax-Aware Intermediate Municipal ETF,612296832,0.0364,1.018,-0.0269,0.03,Intermediate Term Bond,208177.13,4.79,0.28
+ZTEN,0.25,F/M 10-Year Investment Grade Corporate Bond Etf,30306576,0.0509,0.5535,-0.0332,0.05,Investment Grade Bond,2056.97,5.27,0.15
+ZTWO,0.03,F/M 2-Year Investment Grade Corporate Bond Etf,18146600,0.0412,0.0164,-0.0093,0.01,Investment Grade Bond,1698.37,4.41,0.15
+BBBI,0.21,BondBloxx BBB Rated 5-10 Year Corporate Bond ETF,167776416,0.0482,0.5224,-0.0294,0.04,Intermediate Term Mid Quality,16538.8,5.18,0.19
+BBBL,0.45,BondBloxx BBB Rated 10+ Year Corporate Bond ETF,4817996,0.0577,0.3994,-0.0545,0.08,Long Term Mid Quality,443.6,5.1,0.19
+BBBS,0.07,BondBloxx BBB Rated 1-5 Year Corporate Bond ETF,176478992,0.0459,0.2756,-0.0145,0.02,Intermediate Term Mid Quality,48239.97,4.46,0.19
+DCRE,0.04,DoubleLine Commercial Real Estate ETF,450971520,0.0475,0.658,-0.0068,0.01,Real Estate,34456.17,4.63,0.39
+JLQD,0.38,Janus Henderson Corporate Bond ETF,14437534,0.0546,0.4746,-0.0287,0.04,Investment Grade Bond,538.5,5.43,0.2
+SYFI,0.19,AB Short Duration High Yield ETF,899002752,0.0614,0.7282,-0.0194,0.03,Short Term High Yield Bond,126574.97,6.17,0.4
+SDFI,0.05,AB Short Duration Income ETF,174093616,0.0462,0.0388,-0.012,0.02,Short Term Bond,27113.77,4.44,0.3
+BMDL,0.12,VictoryShares WestEnd Economic Cycle Bond ETF,113366000,0.0396,0.6622,-0.0075,0.04,Multi Alternative,27.03,3.69,0.4
+FLXR,0.1,TCW Flexible Income ETF,3210198784,0.0582,0.8061,-0.0146,0.02,Multi Alternative,479009.73,5.35,0.4
+CGHM,0.25,Capital Group Municipal High-Income ETF,3067049472,0.0381,1.7053,-0.0255,0.03,Investment Grade Bond,439851.0,4.8,0.34
+MMKT,-0.04,Texas Capital Government Money Market ETF,75152944,0.0373,-0.6764,-0.0002,0.0,Money Market,9788.97,0.1,0.2
+EDGF,-0.29,3EDGE Dynamic Fixed Income ETF,467770912,0.0346,-0.2635,-0.0064,0.02,Investment Grade Bond,172401.47,2.59,0.79
+HYBI,-0.44,NEOS Enhanced Income Credit Select ETF,225892336,0.084,0.9227,-0.0143,0.03,Investment Grade Bond,32961.63,6.68,0.68
+TLTP,0.58,Amplify TLT U.S. Treasury 12% Option Income ETF,21505628,0.132,0.2569,-0.0576,0.07,Intermediate Term Government Bond,33118.27,3.68,0.39
+TLTI,0.87,NEOS Enhanced Income 20+ Year Treasury Bond ETF,15416230,0.0634,0.2233,-0.066,0.09,Long Term Government Bond,10497.87,4.13,0.58
+HIMU,0.43,iShares High Yield Muni Active ETF,2251360768,0.0515,0.6995,-0.0329,0.04,High Yield Bond,423746.03,5.5,0.39
+RBIL,-0.11,F/m Ultrashort Treasury Inflation-Protected Security (TIPS) ETF,112496216,0.046,0.6343,-0.0027,0.01,Ultra Short-Low Risk,41060.63,0.4,0.17
+PRIV,0.28,SPDR SSGA IG Public & Private Credit ETF,852806720,0.0461,0.5651,-0.0254,0.04,Investment Grade Bond,47086.27,5.17,0.55
+BMAX,-1.94,REX Bitcoin Corporate Treasury Convertible Bond ETF,5879346,0.0,-1.0183,-0.3132,0.25,Cryptocurrency,705.6,,1.14
+VCRM,0.3,Vanguard Core Tax-Exempt Bond ETF,1632155648,0.0364,1.3685,-0.0272,0.03,Investment Grade Bond,307775.1,6.0,0.12
+VSDM,0.16,Vanguard Short Duration Tax-Exempt Bond ETF,679297664,0.031,0.6361,-0.0146,0.01,Short Term Bond,103396.67,2.5,0.12
+ZTOP,-0.35,F/m High Yield 100 ETF,16594942,0.0626,0.6919,-0.0252,0.03,High Yield Bond,1070.0,7.64,0.39
+ACVT,0.41,Advent Convertible Bond ETF,32273824,0.0165,1.009,-0.0481,0.06,Equity,962.17,1.68,0.65
