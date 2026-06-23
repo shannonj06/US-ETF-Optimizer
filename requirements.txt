@@ -20,4 +20,5 @@ matplotlib==3.10.9
 
 # Database / config (data automation)
 pymongo==3.12.0
+dnspython==1.16.0     # required by pymongo to resolve mongodb+srv:// URIs
 python-dotenv==1.2.2
