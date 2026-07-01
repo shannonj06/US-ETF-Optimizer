@@ -7,10 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import streamlit as st
-from build_portfolios import build_portfolios
-from config.profiles import PORTFOLIO_PROFILES
-from Optimizer_Class.optimizer_weights import OPTIMIZER_CONFIG
-from theme import apply_theme, section
+from functions import build_portfolios, PORTFOLIO_PROFILES, OPTIMIZER_CONFIG, apply_theme, section
 
 apply_theme("Develop a Portfolio",
             "Screen, score, and optimize a US ETF portfolio.")

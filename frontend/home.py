@@ -10,9 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import re
 
 import streamlit as st
-from theme import apply_theme
-from storage import load_portfolios, delete_portfolio, obj_to_df
-from pdf_export import build_pdf
+from functions import apply_theme, load_portfolios, delete_portfolio, obj_to_df, build_pdf
 
 apply_theme("US Portfolio Optimizer",
             "Build an optimized portfolio, or evaluate one you already hold.")

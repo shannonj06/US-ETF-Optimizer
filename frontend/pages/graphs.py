@@ -1,5 +1,5 @@
 import streamlit as st
-from theme import apply_theme, show_fig
+from functions import apply_theme, show_fig
 
 apply_theme("Portfolio Graphs",
             "Compare optimizers across every chart — side by side, one view at a time.")

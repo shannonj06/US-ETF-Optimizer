@@ -8,9 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
 import streamlit as st
-from build_portfolios import evaluate_custom_weights
-from storage import save_portfolio
-from theme import apply_theme, section, show_fig
+from functions import evaluate_custom_weights, save_portfolio, apply_theme, section, show_fig
 
 apply_theme("Input Your Portfolio",
             "Enter the ETFs you hold and get the same metrics and stress charts as the optimizer.")

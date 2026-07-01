@@ -1,8 +1,7 @@
 #here i wanna have a tab for the graphs, run the joint otpimization, a tab for the metrics
 import pandas as pd
 import streamlit as st
-from theme import apply_theme
-from storage import save_portfolio
+from functions import apply_theme, save_portfolio
 
 apply_theme("Optimization Results", "Weights and metrics for each optimizer.")
 
