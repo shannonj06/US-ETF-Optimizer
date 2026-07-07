@@ -34,10 +34,23 @@ def load_etf_data():
     is excluded so downstream code is unchanged. Connecting here (not at import
     time) keeps the frontend importable even if the database is unreachable.
     """
+    import certifi
     from pymongo import MongoClient
     from configuration import MONGODB_URL
 
-    client = MongoClient(MONGODB_URL)
+    if not MONGODB_URL:
+        raise RuntimeError(
+            "MONGODB_URL is not set. On Streamlit Cloud, add it under "
+            "Manage app -> Settings -> Secrets; locally it comes from the .env file."
+        )
+
+    # tlsCAFile pins the CA bundle so the Atlas handshake works in cloud venvs;
+    # the short timeout turns an unreachable DB into a fast, clear error.
+    client = MongoClient(
+        MONGODB_URL,
+        tlsCAFile=certifi.where(),
+        serverSelectionTimeoutMS=10000,
+    )
     try:
         docs = list(client[MONGO_DB][MONGO_COLLECTION].find({}, {"_id": 0}))
     finally:

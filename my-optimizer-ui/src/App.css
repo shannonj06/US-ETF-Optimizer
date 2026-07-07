@@ -161,6 +161,18 @@
   }
 }
 
+.hint {
+  font-size: 13px;
+  color: var(--text-h, #888);
+  margin: 4px 0;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #d32f2f;
+  margin: 8px 0 0;
+}
+
 .ticks {
   position: relative;
   width: 100%;

@@ -13,7 +13,14 @@ function GuestPanel(){
         </section>
     );
 }
-
+function CreateAccountPanel(){
+    const navigate = useNavigate();
+    return(
+        <section className="panel">
+            <button onClick={() => navigate("/CreateAccount")}>Create Account</button>
+        </section>
+    );
+}
 function LoginPanel(){
     const navigate = useNavigate();
     return(
@@ -38,6 +45,7 @@ function HomePage(){
         </main>
         <div className="action-panels">
             <LoginPanel />
+            <CreateAccountPanel />
             <GuestPanel />
         </div>
     </div>
