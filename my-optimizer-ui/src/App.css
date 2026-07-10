@@ -1,196 +1,308 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* ============================================================
+   InvestMint — layout & component styles
+   ============================================================ */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* ---------- Top header bar ---------- */
+.site-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 16px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+.site-header h1 {
+  margin: 0;
+  font-size: 24px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.03em;
 }
+.site-header p { margin: 0; color: var(--muted); font-size: 14px; }
 
-#center {
+/* ---------- App shell: sidebar + content ---------- */
+.app-shell {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.sidebar {
+  width: 232px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
+  gap: 4px;
+  padding: 22px 14px;
+  background: var(--surface);
   border-right: 1px solid var(--border);
+}
+.sidebar a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-weight: 550;
+  font-size: 15px;
+  transition: background .15s ease, color .15s ease;
+}
+.sidebar a:hover { background: var(--mint-50); color: var(--mint-700); }
 
-  @media (max-width: 1024px) {
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: 32px 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- Home / landing ---------- */
+.home-page {
+  flex: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  padding: 48px 24px;
+  text-align: center;
+  background:
+    radial-gradient(1100px 500px at 50% -8%, var(--mint-100), transparent 60%),
+    var(--bg);
+}
+.home-page .brand {
+  font-size: clamp(40px, 7vw, 68px);
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+.home-main { max-width: 540px; }
+.home-main p { font-size: 18px; color: var(--muted); }
+.action-panels { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.panel { margin: 0; }
+.panel button { padding: 13px 26px; font-size: 16px; }
+/* first panel (Login) = solid; others = outline for hierarchy */
+.action-panels .panel:not(:first-child) button {
+  background: var(--surface);
+  color: var(--mint-700);
+  border: 1px solid var(--mint-300);
+  box-shadow: var(--shadow-sm);
+}
+.action-panels .panel:not(:first-child) button:hover { background: var(--mint-50); }
+
+/* ---------- Auth forms ---------- */
+.Login, .createAccount {
+  max-width: 400px;
+  margin: 56px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+.Login h1, .createAccount h1 { text-align: center; margin-bottom: 6px; }
+.Login input, .createAccount input { width: 100%; }
+
+/* ---------- Build page ---------- */
+.buildPage {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.buildPage > h1 { margin-bottom: 28px; }
+.buildOption {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(360px, 90%);
+  margin: 12px;
+  padding: 26px 24px;
+  text-align: left;
+  vertical-align: top;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.buildOption:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--mint-200); }
+.buildOption h2 { margin: 0; }
+.buildOption p { color: var(--muted); flex: 1; }
+
+/* ---------- Guest ---------- */
+.guestPage { max-width: 640px; margin: 40px auto; text-align: center; }
+
+/* ---------- Optimizer form ---------- */
+.portfolioOptimizerPage { max-width: 720px; margin: 0 auto; }
+.optimizer-form { display: flex; flex-direction: column; gap: 16px; }
+
+/* collapsible config cards */
+.screening-values, .score-weights, .optimizer-config {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.screening-values summary, .score-weights summary, .optimizer-config summary {
+  cursor: pointer;
+  font-weight: 650;
+  color: var(--ink);
+  padding: 12px 0;
+  list-style: none;
+}
+.screening-values summary::-webkit-details-marker,
+.score-weights summary::-webkit-details-marker,
+.optimizer-config summary::-webkit-details-marker { display: none; }
+.screening-values summary::before,
+.score-weights summary::before,
+.optimizer-config summary::before {
+  content: "▸";
+  color: var(--mint-500);
+  display: inline-block;
+  margin-right: 10px;
+  transition: transform .15s ease;
+}
+details[open] > summary::before { transform: rotate(90deg); }
+
+.screening-values label, .score-weights label, .optimizer-config label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.screening-values h3, .optimizer-config h3 { margin-top: 12px; }
+
+/* portfolio style dropdown */
+.portfolioOptimizerPage select { min-width: 220px; }
+.portfolioOptimizerPage > div > label { font-weight: 600; color: var(--ink); display: block; margin-bottom: 2px; }
+
+/* ---------- Tabs (results / graphs / charts) ---------- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.tabs .tab {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  box-shadow: none;
+  font-weight: 600;
+}
+.tabs .tab:hover { background: var(--mint-50); color: var(--mint-700); border-color: var(--mint-200); }
+.tabs .active-tab {
+  background: var(--mint-500);
+  color: #fff;
+  border-color: var(--mint-500);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Results / method blocks ---------- */
+.results-page, .graphs-page { max-width: 100%; }
+.method-block, .method-graphs {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.see-results { margin: 8px 8px 8px 0; }
+
+/* ---------- Charts / graphs ---------- */
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
+.charts figure {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.charts img { display: block; width: 100%; border-radius: 6px; }
+.charts figcaption { margin-top: 8px; text-align: center; color: var(--muted); font-size: 13px; font-weight: 600; }
+
+/* ---------- Input ETFs page ---------- */
+.input-your-portfolio { max-width: 720px; margin: 0 auto; }
+.input-your-portfolio > div {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--mint-500);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.text-blurb { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+.holding-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.holding-row input:first-child { flex: 2; }
+.holding-row input:last-child { flex: 1; }
+.add-ticker-button {
+  background: var(--surface);
+  color: var(--mint-700);
+  border: 1px dashed var(--mint-300);
+  box-shadow: none;
+  margin-top: 6px;
+}
+.add-ticker-button:hover { background: var(--mint-50); }
+.history-window, .risk-free-rate { margin-top: 12px; }
+.history-window p, .risk-free-rate p { font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.option {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mint-700);
+  background: var(--mint-50);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Save portfolio ---------- */
+.save-portfolio { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 18px 0; }
+.saved-note { color: var(--mint-600); font-weight: 650; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  .app-shell { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.hint {
-  font-size: 13px;
-  color: var(--text-h, #888);
-  margin: 4px 0;
-}
-
-.error-message {
-  font-size: 14px;
-  color: #d32f2f;
-  margin: 8px 0 0;
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+  .app-content { padding: 22px 18px; }
+  .site-header { flex-direction: column; gap: 2px; padding: 14px 18px; }
 }

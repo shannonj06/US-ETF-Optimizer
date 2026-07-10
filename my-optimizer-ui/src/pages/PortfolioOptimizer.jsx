@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PORTFOLIO_PROFILES, OPTIMIZER_CONFIG } from "../config/profiles.js";
+import SavePortfolioButton from "../components/save_button.jsx";
 
 // FastAPI backend (uvicorn defaults to port 8000). Override with VITE_API_URL in .env.
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
@@ -52,6 +53,9 @@ function OptimizerForm({ style }){
     const [error, setError] = useState("");
     const [result, setResult] = useState(null);
 
+    // The values that produced the result — saved with the portfolio and passed forward.
+    const inputs = { profile: style, screening, score_weights: scoreWeights, optimizer_weights: slsqpWeights };
+
     async function runOptimization(){
         setLoading(true);
         setError("");
@@ -93,14 +97,17 @@ function OptimizerForm({ style }){
 
             {error && <p className="error-message">{error}</p>}
 
-            {/* Appears once the run finishes; carries the result to the results page. */}
+            {/* Appears once the run finishes; carries result + inputs to the results page. */}
             {result && (
-                <button
-                    className="see-results"
-                    onClick={() => navigate("/results", { state: { result } })}
-                >
-                    See Results
-                </button>
+                <>
+                    <button
+                        className="see-results"
+                        onClick={() => navigate("/results", { state: { result, inputs } })}
+                    >
+                        See Results
+                    </button>
+                    <SavePortfolioButton type="optimize" inputs={inputs} results={result} />
+                </>
             )}
         </div>
     );

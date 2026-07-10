@@ -1,10 +1,5 @@
 import {useNavigate} from 'react-router-dom'
 
-function Header(){
-    return(
-        <h1>InvestMint</h1>
-    );
-}
 function GuestPanel(){
     const navigate =useNavigate();
     return(
@@ -39,7 +34,7 @@ function IntroBlurb(){
 function HomePage(){
     return(
     <div className="home-page">
-        <Header />
+        <h1 className="brand">InvestMint</h1>
         <main className="home-main">
             <IntroBlurb />
         </main>
