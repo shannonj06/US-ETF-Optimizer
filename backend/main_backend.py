@@ -15,6 +15,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+@app.get("/")
+def root():
+    return {"message": "US ETF Optimizer API is running"}
 
 @app.get("/profiles")
 def get_profiles():
