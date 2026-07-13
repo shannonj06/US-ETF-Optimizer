@@ -1,7 +1,8 @@
 import { useState } from "react";
 import SavePortfolioButton from "../components/save_button.jsx";
 
-const API_URL = "http://localhost:8000";
+// FastAPI backend (uvicorn defaults to port 8000). Override with VITE_API_URL in .env.
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 function InputEtfsPage() {
   // Each holding is { ticker, weight }. weight is a string so "" means "not entered".
