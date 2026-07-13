@@ -41,7 +41,9 @@ __all__ = [
 # Origins allowed to call the API (your React dev servers). Tighten for prod.
 ALLOWED_ORIGINS = [
     "http://localhost:5173",   # Vite
-    "http://localhost:3000",   # Create React App / Next
+    "http://localhost:3000", 
+    "us-etf-optimizer-mil0313e5-shannonj06s-projects.vercel.app",
+        # Create React App / Next
 ]
 
 # Which charts to ship per portfolio, and their display labels.
