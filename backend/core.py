@@ -42,7 +42,7 @@ __all__ = [
 ALLOWED_ORIGINS = [
     "http://localhost:5173",   # Vite
     "http://localhost:3000", 
-    "us-etf-optimizer-mil0313e5-shannonj06s-projects.vercel.app",
+    "https://us-etf-optimizer.vercel.app",
         # Create React App / Next
 ]
 
