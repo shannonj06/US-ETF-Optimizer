@@ -1,6 +1,10 @@
 # Web app
 streamlit==1.58.0
 
+# API backend (FastAPI served by uvicorn — used by the React frontend)
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
 # Data & numerics
 pandas==3.0.3
 numpy==2.4.6
