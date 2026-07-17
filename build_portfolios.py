@@ -120,7 +120,7 @@ def evaluate_custom_weights(weights, period="5y", rf=0.04):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     from models.monte_carlo import (
-        monte_carlo_simulation, monte_carlo_metrics, back_testing,
+        monte_carlo_simulation, monte_carlo_metrics, back_testing, return_distribution_chart,
     )
 
     tickers = list(weights)
@@ -147,14 +147,16 @@ def evaluate_custom_weights(weights, period="5y", rf=0.04):
     paths = monte_carlo_simulation(returns_df, w_arr, 1_000_000, years=5, simulations=1000)
     _, mc_fig, mc_dist_fig = monte_carlo_metrics(paths, 1_000_000, show=False)
     *_, bt_fig = back_testing(returns_df, w_arr, 1_000_000, benchmark, show=False)
+    dist_fig = return_distribution_chart(returns_df, w_arr, benchmark, show=False)
     rh_fig = _rate_hike_fig(_stress_window_returns(returns_df.columns.tolist()),
                             weights_df)
 
     figs = {
-        "monte_carlo":      mc_fig,
-        "monte_carlo_dist": mc_dist_fig,
-        "backtest":         bt_fig,
-        "rate_hike":        rh_fig,
+        "monte_carlo":         mc_fig,
+        "monte_carlo_dist":    mc_dist_fig,
+        "backtest":            bt_fig,
+        "return_distribution": dist_fig,
+        "rate_hike":           rh_fig,
     }
     plt.close("all")
     return {
@@ -235,6 +237,7 @@ def build_portfolios(profile, screening=None, score_weights=None,
         monte_carlo_simulation,
         monte_carlo_metrics,
         back_testing,
+        return_distribution_chart,
         walk_forward_backtest,
     )
 
@@ -258,13 +261,15 @@ def build_portfolios(profile, screening=None, score_weights=None,
         paths = monte_carlo_simulation(returns_df, w, 1_000_000, years=5, simulations=1000)
         _, mc_fig, mc_dist_fig = monte_carlo_metrics(paths, 1_000_000, show=False)
         *_, bt_fig = back_testing(returns_df, w, 1_000_000, benchmark, show=False)
+        dist_fig = return_distribution_chart(returns_df, w, benchmark, show=False)
         rh_fig = _rate_hike_fig(stress_rets, weights_df)
         return {
-            "monte_carlo":      mc_fig,
-            "monte_carlo_dist": mc_dist_fig,
-            "backtest":         bt_fig,
-            "walk_forward":     wf_fig,
-            "rate_hike":        rh_fig,
+            "monte_carlo":         mc_fig,
+            "monte_carlo_dist":    mc_dist_fig,
+            "backtest":            bt_fig,
+            "return_distribution": dist_fig,
+            "walk_forward":        wf_fig,
+            "rate_hike":           rh_fig,
         }
 
     result = {

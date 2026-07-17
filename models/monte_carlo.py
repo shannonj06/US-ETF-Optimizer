@@ -5,10 +5,26 @@ from scipy.optimize import minimize
 from sklearn.covariance import LedoitWolf
 from Optimizer_Class.optimizer2 import portfolio_optimizer
 
+# Shared "growth of $1"-style palette (portfolio vs. benchmark), used by
+# back_testing()'s growth panel and return_distribution_chart().
+_PORTFOLIO_COLOR = "#8BAE46"   # olive green
+_BENCHMARK_COLOR = "#4D4D4D"   # dark gray
+
 
 def _drawdown(path: np.ndarray) -> np.ndarray:
     peak = np.maximum.accumulate(path)
     return (path - peak) / (peak + 1e-10)
+
+
+def _style_growth_axes(ax):
+    """Clean editorial look shared by the growth-of-$1 style charts: no top/right
+    spines, dashed horizontal gridlines only, light axis lines."""
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    ax.grid(axis="y", linestyle="--", alpha=0.4, color="#999999")
+    ax.set_axisbelow(True)
+    ax.tick_params(axis="both", length=0)
 
 
 def monte_carlo_simulation(
@@ -72,18 +88,18 @@ def monte_carlo_metrics(paths: np.ndarray, initial_value: float, show: bool = Tr
              verticalalignment="top",
              bbox=dict(facecolor="lightblue", alpha=0.5, boxstyle="round"))
     ax1.set_ylabel("Portfolio Value ($)")
-    ax1.set_title("Monte Carlo Simulation")
+    ax1.set_title("5-Year Projection (1,000 Simulated Scenarios)")
     ax1.grid(alpha=0.3)
     ax1.legend()
 
-    ax2.fill_between(x, dd_p5, 0, alpha=0.2, color="red", label="Worst 5% drawdown")
-    ax2.plot(dd.mean(axis=0),           color="red",     linewidth=2,   label="Expected drawdown")
+    ax2.fill_between(x, dd_p5, 0, alpha=0.2, color="red", label="Worst 5% of scenarios")
+    ax2.plot(dd.mean(axis=0),           color="red",     linewidth=2,   label="Average scenario")
     ax2.plot(dd[np.argmin(ending)],     color="darkred", linewidth=1,
-             linestyle="--",                                             label="Worst case drawdown")
+             linestyle="--",                                             label="Worst scenario")
     ax2.axhline(0, color="black", linewidth=0.8)
-    ax2.set_xlabel("Days")
-    ax2.set_ylabel("Drawdown")
-    ax2.set_title("Drawdown Distribution")
+    ax2.set_xlabel("Days Into the Future")
+    ax2.set_ylabel("Decline From Peak")
+    ax2.set_title("Simulated Declines From Peak Value")
     ax2.grid(alpha=0.3)
     ax2.legend()
 
@@ -96,11 +112,11 @@ def monte_carlo_metrics(paths: np.ndarray, initial_value: float, show: bool = Tr
     ax3.hist(ending, bins=50, density=True, alpha=0.75, color="steelblue")
     ax3.axvline(metrics["expected_ending"], color="green",  linewidth=2,              label="Expected")
     ax3.axvline(metrics["median_ending"],   color="orange", linewidth=2,              label="Median")
-    ax3.axvline(metrics["p5_ending"],       color="red",    linewidth=2, linestyle="--", label="5th pct")
-    ax3.axvline(initial_value,              color="black",  linewidth=2, linestyle="--", label="Initial")
-    ax3.set_xlabel("Ending Portfolio Value ($)")
-    ax3.set_ylabel("Density")
-    ax3.set_title("Distribution of Ending Values")
+    ax3.axvline(metrics["p5_ending"],       color="red",    linewidth=2, linestyle="--", label="Bottom 5% of outcomes")
+    ax3.axvline(initial_value,              color="black",  linewidth=2, linestyle="--", label="Starting value")
+    ax3.set_xlabel("Portfolio Value After 5 Years ($)")
+    ax3.set_ylabel("Likelihood")
+    ax3.set_title("Range of Possible 5-Year Outcomes")
     ax3.grid(alpha=0.3)
     ax3.legend()
     plt.tight_layout()
@@ -132,16 +148,27 @@ def back_testing(
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
 
-    ax1.plot(portfolio_returns.index, port_path,  label="Optimized Portfolio", color="purple")
-    ax1.plot(benchmark_returns.index, bench_path, label="Benchmark",           color="blue")
-    ax1.axhline(initial_value, color="black", linestyle="--", linewidth=1, label="Initial")
+    # "Growth of $1" style: both series filled from 0, benchmark drawn on top so
+    # it reads as a base layer with the portfolio's excess growth shown above it
+    # wherever the portfolio is ahead (falls back to plain overlap elsewhere).
+    ax1.fill_between(portfolio_returns.index, 0, port_path,  color=_PORTFOLIO_COLOR, zorder=1)
+    ax1.fill_between(benchmark_returns.index, 0, bench_path, color=_BENCHMARK_COLOR, zorder=2)
+    ax1.plot(portfolio_returns.index, port_path,  color=_PORTFOLIO_COLOR, linewidth=0.8, zorder=3)
+    ax1.plot(benchmark_returns.index, bench_path, color=_BENCHMARK_COLOR, linewidth=0.8, zorder=3)
     ax1.text(1.02, 0.95, text, transform=ax1.transAxes, fontsize=11,
              verticalalignment="top",
              bbox=dict(facecolor="lightblue", alpha=0.5, boxstyle="round"))
-    ax1.set_ylabel("Portfolio Value ($)")
-    ax1.set_title("Backtest")
-    ax1.grid(True, alpha=0.3)
-    ax1.legend()
+    ax1.set_ylabel("Value of $1 Invested")
+    ax1.set_title("Growth of $1", loc="left", fontweight="bold")
+    ax1.set_ylim(bottom=0)
+    ax1.margins(x=0)
+    _style_growth_axes(ax1)
+    handles = [
+        plt.Rectangle((0, 0), 1, 1, color=_PORTFOLIO_COLOR),
+        plt.Rectangle((0, 0), 1, 1, color=_BENCHMARK_COLOR),
+    ]
+    ax1.legend(handles, ["Portfolio", "Benchmark"], loc="upper left",
+               frameon=False, ncol=2, bbox_to_anchor=(0, 1.12))
 
     ax2.plot(portfolio_returns.index, port_dd,  color="purple", label="Portfolio Drawdown")
     ax2.plot(benchmark_returns.index, bench_dd, color="blue",   label="Benchmark Drawdown")
@@ -159,6 +186,125 @@ def back_testing(
         plt.show()
 
     return port_path, bench_path, fig
+
+
+def _nice_step(raw_step: float) -> float:
+    """Round a raw bucket width up to a human-friendly step (1/2/2.5/5 x10^n)."""
+    if raw_step <= 0:
+        return 0.01
+    magnitude = 10 ** np.floor(np.log10(raw_step))
+    for m in (1, 2, 2.5, 5, 10):
+        if raw_step <= m * magnitude:
+            return m * magnitude
+    return 10 * magnitude
+
+
+def _return_buckets(all_returns: np.ndarray, target_buckets: int = 7) -> list:
+    """Build bucket edges sized to the ACTUAL spread of the data, instead of a
+    fixed set of bands. A bond-heavy conservative portfolio might range 1%-6%
+    annualized — fixed 10%-wide equity-scale buckets would dump nearly
+    everything into one bin. Returns a list of (lo, hi, label) triples."""
+    lo, hi = float(all_returns.min()), float(all_returns.max())
+    if lo == hi:
+        lo, hi = lo - 0.01, hi + 0.01
+    step = _nice_step((hi - lo) / target_buckets)
+    start = np.floor(lo / step) * step
+    edges = [start]
+    while edges[-1] < hi:
+        edges.append(edges[-1] + step)
+
+    decimals = 0 if step >= 0.01 else 1
+    def fmt(v):
+        return f"{v * 100:.{decimals}f}%"
+
+    return [(edges[i], edges[i + 1], f"{fmt(edges[i])} to {fmt(edges[i + 1])}")
+            for i in range(len(edges) - 1)]
+
+
+def _bucket_counts(annualized_returns: np.ndarray, buckets: list) -> list:
+    counts = []
+    for i, (lo, hi, _) in enumerate(buckets):
+        mask = (annualized_returns >= lo) & (annualized_returns <= hi if i == len(buckets) - 1
+                                              else annualized_returns < hi)
+        counts.append(int(mask.sum()))
+    return counts
+
+
+def return_distribution_chart(
+    portfolio_returns: pd.DataFrame,
+    weights: np.ndarray,
+    benchmark_returns: pd.Series,
+    window_years: int = 3,
+    trading_days_per_year: int = 252,
+    show: bool = True,
+):
+    """Bucket rolling `window_years`-annualized returns for the portfolio and an
+    equal-weighted benchmark into return-range bins, and plot how many rolling
+    periods fell in each bin — a distribution of outcomes rather than a single
+    point-in-time return.
+    """
+    window = window_years * trading_days_per_year
+    port_daily = portfolio_returns.values @ weights
+    bench_daily = benchmark_returns.values
+
+    n = len(port_daily)
+    if n <= window:
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.text(0.5, 0.5, "Not enough history for a rolling return distribution.",
+                ha="center", va="center", transform=ax.transAxes, color="#666666")
+        ax.axis("off")
+        if show:
+            plt.show()
+        return fig
+
+    def rolling_annualized(daily):
+        path = np.cumprod(1 + daily)
+        total = path[window:] / path[:-window]
+        return total ** (trading_days_per_year / window) - 1
+
+    port_ann = rolling_annualized(port_daily)
+    bench_ann = rolling_annualized(bench_daily)
+
+    # Buckets are sized to this data's own range (see _return_buckets), so the
+    # chart always spreads meaningfully across its width regardless of whether
+    # the portfolio is a low-volatility bond mix or a wide-swinging equity one.
+    buckets = _return_buckets(np.concatenate([port_ann, bench_ann]))
+    port_counts = _bucket_counts(port_ann, buckets)
+    bench_counts = _bucket_counts(bench_ann, buckets)
+    labels = [b[2] for b in buckets]
+
+    x = np.arange(len(labels))
+    bar_width = 0.38
+
+    fig, ax = plt.subplots(figsize=(max(10, len(labels) * 1.1), 5.5))
+    port_bars = ax.bar(x - bar_width / 2, port_counts, bar_width, color=_PORTFOLIO_COLOR)
+    bench_bars = ax.bar(x + bar_width / 2, bench_counts, bar_width, color=_BENCHMARK_COLOR)
+
+    for bars in (port_bars, bench_bars):
+        for bar in bars:
+            h = bar.get_height()
+            if h > 0:
+                ax.text(bar.get_x() + bar.get_width() / 2, h + 0.5, str(int(h)),
+                        ha="center", va="bottom", fontsize=9, color="#333333")
+
+    ax.set_title(f"How Often {window_years}-Year Returns Landed in Each Range", loc="left", fontweight="bold")
+    ax.set_xlabel(f"{window_years}-Year Annualized Return")
+    ax.set_ylabel(f"Number of {window_years}-Year Periods")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=30, ha="right")
+    ax.set_ylim(bottom=0)
+    _style_growth_axes(ax)
+    handles = [
+        plt.Rectangle((0, 0), 1, 1, color=_PORTFOLIO_COLOR),
+        plt.Rectangle((0, 0), 1, 1, color=_BENCHMARK_COLOR),
+    ]
+    ax.legend(handles, ["Portfolio", "Benchmark"], loc="upper right", frameon=False)
+
+    plt.tight_layout()
+    if show:
+        plt.show()
+
+    return fig
 
 
 def walk_forward_backtest(
@@ -214,16 +360,16 @@ def walk_forward_backtest(
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
 
-    ax1.plot(indices, path,       label="Optimized Portfolio", color="purple")
-    ax1.plot(indices, bench_path, label="Benchmark",           color="blue")
-    ax1.axhline(initial_value, color="black", linestyle="--", linewidth=1, label="Initial")
+    ax1.plot(indices, path,       label="Portfolio",  color="purple")
+    ax1.plot(indices, bench_path, label="Benchmark",  color="blue")
+    ax1.axhline(initial_value, color="black", linestyle="--", linewidth=1, label="Starting value")
     for d in rebal_dates:
         ax1.axvline(d, color="gray", alpha=0.3, linestyle="--")
     ax1.text(1.02, 0.95, text, transform=ax1.transAxes, fontsize=11,
              verticalalignment="top",
              bbox=dict(facecolor="lightblue", alpha=0.5, boxstyle="round"))
     ax1.set_ylabel("Portfolio Value ($)")
-    ax1.set_title("Walk-Forward Backtest")
+    ax1.set_title("Performance If Re-Optimized Every Quarter")
     ax1.grid(True, alpha=0.3)
     ax1.legend()
 
@@ -379,16 +525,16 @@ def rate_hike_stress_test(
 
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
 
-    ax1.plot(stress_ret.index, port_path,  label="Optimized Portfolio", color="purple")
-    ax1.plot(stress_ret.index, bench_path, label="Benchmark",           color="blue")
-    ax1.axhline(initial_value, color="black",  linestyle="--", linewidth=1,   label="Initial")
-    ax1.axhline(mean_val,      color="green",  linestyle="--", linewidth=1.5, label=f"Mean (${mean_val:,.0f})")
-    ax1.axhline(median_val,    color="orange", linestyle="--", linewidth=1.5, label=f"Median (${median_val:,.0f})")
+    ax1.plot(stress_ret.index, port_path,  label="Portfolio", color="purple")
+    ax1.plot(stress_ret.index, bench_path, label="Benchmark", color="blue")
+    ax1.axhline(initial_value, color="black",  linestyle="--", linewidth=1,   label="Starting value")
+    ax1.axhline(mean_val,      color="green",  linestyle="--", linewidth=1.5, label=f"Average (${mean_val:,.0f})")
+    ax1.axhline(median_val,    color="orange", linestyle="--", linewidth=1.5, label=f"Typical (${median_val:,.0f})")
     ax1.text(1.02, 0.95, text, transform=ax1.transAxes, fontsize=11,
              verticalalignment="top",
              bbox=dict(facecolor="lightblue", alpha=0.5, boxstyle="round"))
     ax1.set_ylabel("Portfolio Value ($)")
-    ax1.set_title(f"Rate Hike Stress Test  ({start} – {end})")
+    ax1.set_title(f"How the Portfolio Would Have Fared in the {start[:4]} Rate Hikes")
     ax1.grid(True, alpha=0.3)
     ax1.legend()
 

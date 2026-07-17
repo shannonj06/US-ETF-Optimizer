@@ -1,5 +1,6 @@
 
 import base64
+import gc
 import io
 import json
 import sys
@@ -48,11 +49,12 @@ ALLOWED_ORIGINS = [
 
 # Which charts to ship per portfolio, and their display labels.
 CHART_LABELS = {
-    "monte_carlo":      "Monte Carlo",
-    "monte_carlo_dist": "Monte Carlo Distribution",
-    "backtest":         "Backtest",
-    "walk_forward":     "Walk Forward",
-    "rate_hike":        "Rate Hike Stress",
+    "monte_carlo":         "Monte Carlo",
+    "monte_carlo_dist":    "Monte Carlo Distribution",
+    "backtest":            "Growth of $1",
+    "return_distribution": "Return Distribution",
+    "walk_forward":        "Walk Forward",
+    "rate_hike":           "Rate Hike Stress",
 }
 
 
@@ -123,16 +125,24 @@ def serialize_optimize(result, include_charts=True):
             block["charts"] = figs_to_b64(result[f"{method}_figs"])
             block["core4"]["charts"] = figs_to_b64(result[f"{method}4_figs"])
         out["methods"][method] = block
+    # A single /optimize call closes 30+ matplotlib Figures above (5 charts x 6
+    # method/core4 combos). plt.close() deregisters them from pyplot but Figure/
+    # Axes/Canvas hold each other in reference cycles that refcounting alone
+    # won't free — nudge the cyclic collector once per request (not per-figure,
+    # which would be wasteful) so memory doesn't creep up run after run.
+    gc.collect()
     return out
 
 
 def serialize_evaluate(res):
     """evaluate_custom_weights() result -> JSON-ready dict."""
     start, end = res["window"]
-    return {
+    out = {
         "weights": df_records(res["weights"]),
         "metrics": df_records(res["metrics"], keep_index=True),
         "dropped": res["dropped"],
         "window":  [str(start), str(end)],
         "charts":  figs_to_b64(res["figs"]),
     }
+    gc.collect()
+    return out
