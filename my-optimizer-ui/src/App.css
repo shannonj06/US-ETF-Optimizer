@@ -50,6 +50,11 @@
   transition: background .15s ease, color .15s ease;
 }
 .sidebar a:hover { background: var(--mint-50); color: var(--mint-700); }
+.sidebar a.active {
+  background: var(--mint-100, var(--mint-50));
+  color: var(--mint-700);
+  font-weight: 700;
+}
 
 .app-content {
   flex: 1;
@@ -183,6 +188,9 @@ details[open] > summary::before { transform: rotate(90deg); }
   font-size: 14px;
   color: var(--muted);
 }
+.unit-input { display: flex; align-items: center; gap: 8px; }
+.unit-input input { flex: 1; min-width: 0; }
+.unit-suffix { font-size: 13px; color: var(--muted); white-space: nowrap; }
 .screening-values h3, .optimizer-config h3 { margin-top: 12px; }
 
 /* portfolio style dropdown */

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PORTFOLIO_PROFILES, OPTIMIZER_CONFIG } from "../config/profiles.js";
+import { SCREENING_LABELS, SCORE_WEIGHT_LABELS, OPTIMIZER_WEIGHT_LABELS } from "../config/labels.js";
+import { formatCurrency } from "../config/format.js";
 import SavePortfolioButton from "../components/save_button.jsx";
 
 // FastAPI backend (uvicorn defaults to port 8000). Override with VITE_API_URL in .env.
@@ -50,6 +52,7 @@ function OptimizerForm({ style }){
 
     // Request state.
     const [loading, setLoading] = useState(false);
+    const [elapsed, setElapsed] = useState(0);
     const [error, setError] = useState("");
     const [result, setResult] = useState(null);
 
@@ -60,6 +63,10 @@ function OptimizerForm({ style }){
         setLoading(true);
         setError("");
         setResult(null);
+        setElapsed(0);
+        // The backend pulls live price history per ETF one at a time, so a full run
+        // routinely takes a couple of minutes — this ticks so it doesn't look hung.
+        const timer = setInterval(() => setElapsed((s) => s + 1), 1000);
         try {
             const res = await fetch(`${API_URL}/optimize`, {
                 method: "POST",
@@ -81,6 +88,7 @@ function OptimizerForm({ style }){
         } catch (e) {
             setError(e.message);
         } finally {
+            clearInterval(timer);
             setLoading(false);
         }
     }
@@ -92,8 +100,14 @@ function OptimizerForm({ style }){
             <SelectOptimizerConfig weights={slsqpWeights} setWeights={setSlsqpWeights} />
 
             <button onClick={runOptimization} disabled={loading}>
-                {loading ? "Running…" : "Run Optimization"}
+                {loading ? `Running… (${elapsed}s)` : "Run Optimization"}
             </button>
+            {loading && (
+                <p className="section-hint">
+                    Pulling live price history for every screened ETF and running all three optimizers —
+                    this typically takes 2–4 minutes. Please keep this tab open.
+                </p>
+            )}
 
             {error && <p className="error-message">{error}</p>}
 
@@ -113,55 +127,88 @@ function OptimizerForm({ style }){
     );
 }
 
+// Renders one config field per its unit: percent fields are edited/displayed as
+// whole percentages (state stays a 0-1 fraction underneath), currency fields keep
+// a raw dollar input with a formatted "$200M"-style preview, everything else is a
+// plain number. Shared by the three config sections below.
+function ConfigField({ fieldKey, value, meta, onChange }){
+    if (meta.unit === "percent") {
+        const display = Number((value * 100).toFixed(4));
+        return (
+            <label title={meta.hint}>
+                {meta.label}
+                <div className="unit-input">
+                    <input type="number" step="0.01" value={display}
+                        onChange={(e) => onChange(fieldKey, Number(e.target.value) / 100)} />
+                    <span className="unit-suffix">%</span>
+                </div>
+                <span className="field-hint">{meta.hint}</span>
+            </label>
+        );
+    }
+    if (meta.unit === "currency") {
+        return (
+            <label title={meta.hint}>
+                {meta.label}
+                <div className="unit-input">
+                    <input type="number" step="1000000" value={value}
+                        onChange={(e) => onChange(fieldKey, Number(e.target.value))} />
+                    <span className="unit-suffix">{formatCurrency(value)}</span>
+                </div>
+                <span className="field-hint">{meta.hint}</span>
+            </label>
+        );
+    }
+    return (
+        <label title={meta.hint}>
+            {meta.label}
+            <div className="unit-input">
+                <input type="number" step="0.1" value={value}
+                    onChange={(e) => onChange(fieldKey, Number(e.target.value))} />
+                {meta.unit === "years" && <span className="unit-suffix">yrs</span>}
+            </div>
+            <span className="field-hint">{meta.hint}</span>
+        </label>
+    );
+}
+
 function SelectScreeningValues({ values, setValues }){
-    const update = (key, value) =>
-        setValues((prev) => ({ ...prev, [key]: Number(value) }));
+    const update = (key, value) => setValues((prev) => ({ ...prev, [key]: value }));
     return(
         <details className="screening-values">
             <summary>Screening Values</summary>
-            <label>Minimum AUM ($)
-                <input type="number" value={values.aum_min}
-                    onChange={(e) => update("aum_min", e.target.value)} />
-            </label>
-            <label>Max Expense Ratio
-                <input type="number" step="0.0001" value={values.max_expense}
-                    onChange={(e) => update("max_expense", e.target.value)} />
-            </label>
-            <label>Max Duration (years)
-                <input type="number" step="0.1" value={values.max_duration}
-                    onChange={(e) => update("max_duration", e.target.value)} />
-            </label>
+            <p className="section-hint">Filters applied before any ETF is scored — funds outside these limits are excluded entirely.</p>
+            {Object.entries(values).map(([key, value]) => (
+                <ConfigField key={key} fieldKey={key} value={value}
+                    meta={SCREENING_LABELS[key] ?? { label: key, hint: "" }} onChange={update} />
+            ))}
         </details>
     );
 }
 
 function SelectScoreWeights({ weights, setWeights }){
-    const update = (key, value) =>
-        setWeights((prev) => ({ ...prev, [key]: Number(value) }));
+    const update = (key, value) => setWeights((prev) => ({ ...prev, [key]: value }));
     return(
         <details className="score-weights">
             <summary>Scoring Weights</summary>
+            <p className="section-hint">Controls which ETFs get picked in the first place — higher weight means that factor matters more when ranking candidates.</p>
             {Object.entries(weights).map(([key, value]) => (
-                <label key={key}>{key}
-                    <input type="number" step="0.01" value={value}
-                        onChange={(e) => update(key, e.target.value)} />
-                </label>
+                <ConfigField key={key} fieldKey={key} value={value}
+                    meta={SCORE_WEIGHT_LABELS[key] ?? { label: key, hint: "" }} onChange={update} />
             ))}
         </details>
     );
 }
 
 function SelectOptimizerConfig({ weights, setWeights }){
-    const update = (key, value) =>
-        setWeights((prev) => ({ ...prev, [key]: Number(value) }));
+    const update = (key, value) => setWeights((prev) => ({ ...prev, [key]: value }));
     return(
         <details className="optimizer-config">
             <summary>Optimizer Weights</summary>
+            <p className="section-hint">Controls how the final portfolio allocation is built from the selected ETFs.</p>
             {Object.entries(weights).map(([key, value]) => (
-                <label key={key}>{key}
-                    <input type="number" step="0.01" value={value}
-                        onChange={(e) => update(key, e.target.value)} />
-                </label>
+                <ConfigField key={key} fieldKey={key} value={value}
+                    meta={OPTIMIZER_WEIGHT_LABELS[key] ?? { label: key, hint: "" }} onChange={update} />
             ))}
         </details>
     );

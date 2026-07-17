@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SavePortfolioButton from "../components/save_button.jsx";
+import { formatPercent } from "../config/format.js";
 
 // FastAPI backend (uvicorn defaults to port 8000). Override with VITE_API_URL in .env.
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
@@ -13,6 +14,7 @@ function InputEtfsPage() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
 
   function addTicker() {
     setEtfs([...etfs, { ticker: "", weight: "" }]);
@@ -98,6 +100,10 @@ function InputEtfsPage() {
     }
 
     setLoading(true);
+    setElapsed(0);
+    // Fetches live price history per ETF one at a time, so this can take a while
+    // for a large holding list — this ticks so it doesn't look hung.
+    const timer = setInterval(() => setElapsed((s) => s + 1), 1000);
     try {
       const res = await fetch(`${API_URL}/evaluate`, {
         method: "POST",
@@ -119,6 +125,7 @@ function InputEtfsPage() {
     } catch (e) {
       setError(e.message);
     } finally {
+      clearInterval(timer);
       setLoading(false);
     }
   }
@@ -142,8 +149,13 @@ function InputEtfsPage() {
       />
 
       <button onClick={evaluate} disabled={loading}>
-        {loading ? "Evaluating..." : "Evaluate Portfolio"}
+        {loading ? `Evaluating… (${elapsed}s)` : "Evaluate Portfolio"}
       </button>
+      {loading && (
+        <p className="text-blurb">
+          Pulling live price history for each ETF — this can take a minute or two for a longer list.
+        </p>
+      )}
 
       {error && <p className="error">{error}</p>}
       {result && (
@@ -259,7 +271,7 @@ function WeightsTable({result}){
                 {weights.map((row) => (
                     <tr key={row.ETF}>
                         <td>{row.ETF}</td>
-                        <td>{row.Weight}</td>
+                        <td>{formatPercent(row.Weight)}</td>
                     </tr>
                 ))}
             </tbody>
@@ -307,9 +319,14 @@ function Charts({result}){
                     Monte Carlo Distribution
                 </button>
 
-                <button className={activeTab == "Backtest" ? "tab active-tab" : "tab"}
-                onClick={() =>setActiveTab('Backtest')}>
-                    Backtest
+                <button className={activeTab == "Growth of $1" ? "tab active-tab" : "tab"}
+                onClick={() =>setActiveTab('Growth of $1')}>
+                    Growth of $1
+                </button>
+
+                <button className={activeTab == "Return Distribution" ? "tab active-tab" : "tab"}
+                onClick={() =>setActiveTab('Return Distribution')}>
+                    Return Distribution
                 </button>
 
                 <button className={activeTab == "Stress Test" ? "tab active-tab" : "tab"}
@@ -319,7 +336,8 @@ function Charts({result}){
             </div>
             {activeTab == "Monte Carlo" && <MonteCarlo result={result} />}
             {activeTab == "Monte Carlo Distribution" && <MonteCarloDist result={result} />}
-            {activeTab == "Backtest" && <Backtest result={result} />}
+            {activeTab == "Growth of $1" && <Backtest result={result} />}
+            {activeTab == "Return Distribution" && <ReturnDistribution result={result} />}
             {activeTab == "Stress Test" && <StressTest result={result} />}
         </div>
     )
@@ -352,7 +370,18 @@ function Backtest({ result }){
     if (!chart) return <p>No chart.</p>;
     return (
         <figure className="charts">
-            <img alt="Backtest" src={`data:image/png;base64,${chart}`}
+            <img alt="Growth of $1" src={`data:image/png;base64,${chart}`}
+                style={{ maxWidth: "100%" }} />
+        </figure>
+    );
+}
+
+function ReturnDistribution({ result }){
+    const chart = result.charts.return_distribution;
+    if (!chart) return <p>No chart.</p>;
+    return (
+        <figure className="charts">
+            <img alt="Return Distribution" src={`data:image/png;base64,${chart}`}
                 style={{ maxWidth: "100%" }} />
         </figure>
     );

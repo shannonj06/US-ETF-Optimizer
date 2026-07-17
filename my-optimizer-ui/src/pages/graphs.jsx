@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SavePortfolioButton from "../components/save_button.jsx";
+import { METHOD_LABELS, CHART_LABELS } from "../config/labels.js";
 
 function GraphsPage(){
     const location = useLocation();
@@ -40,22 +41,26 @@ function GraphsTab({ result }){
                 <button
                     className={activeTab === "cvxpy" ? "tab active-tab" : "tab"}
                     onClick={() => setActiveTab("cvxpy")}
+                    title={METHOD_LABELS.cvxpy.hint}
                 >
-                    CVXPY
+                    {METHOD_LABELS.cvxpy.label}
                 </button>
                 <button
                     className={activeTab === "slsqp" ? "tab active-tab" : "tab"}
                     onClick={() => setActiveTab("slsqp")}
+                    title={METHOD_LABELS.slsqp.hint}
                 >
-                    SLSQP
+                    {METHOD_LABELS.slsqp.label}
                 </button>
                 <button
                     className={activeTab === "hrp" ? "tab active-tab" : "tab"}
                     onClick={() => setActiveTab("hrp")}
+                    title={METHOD_LABELS.hrp.hint}
                 >
-                    HRP
+                    {METHOD_LABELS.hrp.label}
                 </button>
             </div>
+            <p className="section-hint">{METHOD_LABELS[activeTab].hint}</p>
 
             <MethodCharts charts={result.methods[activeTab].charts} />
         </div>
@@ -69,9 +74,9 @@ function MethodCharts({ charts }){
         <div className="charts">
             {Object.entries(charts).map(([name, b64]) => (
                 <figure key={name}>
-                    <img alt={name} src={`data:image/png;base64,${b64}`}
+                    <img alt={CHART_LABELS[name] ?? name} src={`data:image/png;base64,${b64}`}
                         style={{ maxWidth: "100%" }} />
-                    <figcaption>{name}</figcaption>
+                    <figcaption>{CHART_LABELS[name] ?? name}</figcaption>
                 </figure>
             ))}
         </div>

@@ -1,12 +1,15 @@
 import { listPortfolios, deletePortfolio} from "../config/portfolios"
 import { useNavigate } from "react-router-dom"
 import {useEffect, useState} from "react"
+import { METHOD_LABELS } from "../config/labels.js"
+import { formatPercent } from "../config/format.js"
 
 function SavedPortfoliosPage(){
     const [portfolios, setPortfolios] = useState([]);
     const [selectedPortfolio, setSelectedPortfolio] = useState(null);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
+    const [confirmingDelete, setConfirmingDelete] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,9 +33,15 @@ function SavedPortfoliosPage(){
             await deletePortfolio(id);
             setPortfolios((prev) => prev.filter((p) => p.id !== id));
             setSelectedPortfolio(null);
+            setConfirmingDelete(false);
         } catch (e) {
             setError(e.message);
         }
+    }
+
+    function selectPortfolio(portfolio){
+        setSelectedPortfolio(portfolio);
+        setConfirmingDelete(false);
     }
 
     if (loading) return <p>Loading…</p>;
@@ -43,7 +52,7 @@ function SavedPortfoliosPage(){
             <h2>Your Saved Portfolios</h2>
             <Portfolios
                 portfolios={portfolios}
-                setSelectedPortfolio={setSelectedPortfolio}
+                setSelectedPortfolio={selectPortfolio}
             />
             {selectedPortfolio && (
                 <div>
@@ -72,7 +81,16 @@ function SavedPortfoliosPage(){
                     <button onClick={() => navigate("/results", { state: { result: selectedPortfolio.results, inputs: selectedPortfolio.inputs } })}>
                         View Results
                     </button>
-                    <button onClick={() => handleDelete(selectedPortfolio.id)}>Delete</button>
+
+                    {confirmingDelete ? (
+                        <span className="confirm-delete">
+                            <span>Delete "{selectedPortfolio.name}"? This can't be undone.</span>
+                            <button className="danger" onClick={() => handleDelete(selectedPortfolio.id)}>Yes, delete</button>
+                            <button onClick={() => setConfirmingDelete(false)}>Cancel</button>
+                        </span>
+                    ) : (
+                        <button onClick={() => setConfirmingDelete(true)}>Delete</button>
+                    )}
                 </div>
             )}
 
@@ -109,7 +127,7 @@ function EvaluatedPortfolioDetails({portfolio}){
     return(
         <div>
             <p>Period: {inputs.period}</p>
-            <p>Risk Free Rate: {inputs.rf}</p>
+            <p>Risk Free Rate: {formatPercent(inputs.rf)}</p>
             <h3>Weights and Metrics</h3>
             <table>
                 <thead>
@@ -122,7 +140,7 @@ function EvaluatedPortfolioDetails({portfolio}){
                     {inputs.etfs.map((etf) =>(
                         <tr key= {etf.ticker}>
                             <td>{etf.ticker}</td>
-                            <td>{etf.weight}</td>
+                            <td>{formatPercent(etf.weight)}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -158,7 +176,7 @@ function OptimizedPortfolioDetails({portfolio}){
         <div>
             <p>Style: {inputs.profile}</p>
             <h3>Weights and Metrics</h3>
-            <h4>SLSQP Method</h4>
+            <h4>{METHOD_LABELS.slsqp.label}</h4>
             <table>
                 <thead>
                     <tr>
@@ -170,7 +188,7 @@ function OptimizedPortfolioDetails({portfolio}){
                     {results.methods.slsqp.core4.weights.map((etf) =>(
                         <tr key= {etf.ETF}>
                             <td>{etf.ETF}</td>
-                            <td>{etf.Weight}</td>
+                            <td>{formatPercent(etf.Weight)}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -195,7 +213,7 @@ function OptimizedPortfolioDetails({portfolio}){
 
             </table>
 
-            <h4>CVXPY Method</h4>
+            <h4>{METHOD_LABELS.cvxpy.label}</h4>
             <table>
                 <thead>
                     <tr>
@@ -207,7 +225,7 @@ function OptimizedPortfolioDetails({portfolio}){
                     {results.methods.cvxpy.core4.weights.map((etf) =>(
                         <tr key= {etf.ETF}>
                             <td>{etf.ETF}</td>
-                            <td>{etf.Weight}</td>
+                            <td>{formatPercent(etf.Weight)}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -232,7 +250,7 @@ function OptimizedPortfolioDetails({portfolio}){
 
             </table>
 
-            <h4>HRP Method</h4>
+            <h4>{METHOD_LABELS.hrp.label}</h4>
             <table>
                 <thead>
                     <tr>
@@ -244,7 +262,7 @@ function OptimizedPortfolioDetails({portfolio}){
                     {results.methods.hrp.core4.weights.map((etf) =>(
                         <tr key= {etf.ETF}>
                             <td>{etf.ETF}</td>
-                            <td>{etf.Weight}</td>
+                            <td>{formatPercent(etf.Weight)}</td>
                         </tr>
                     ))}
                 </tbody>

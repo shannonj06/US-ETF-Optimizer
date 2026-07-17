@@ -154,6 +154,8 @@ tbody tr:hover { background: var(--surface-2); }
 
 /* ---------- Utility text ---------- */
 .hint { font-size: 13px; color: var(--muted); margin: 4px 0; }
+.section-hint { font-size: 13px; color: var(--muted); margin: 0 0 12px; max-width: 60ch; }
+.field-hint { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 2px; }
 .error, .error-message {
   font-size: 14px;
   color: var(--danger);
@@ -162,6 +164,21 @@ tbody tr:hover { background: var(--surface-2); }
   border-radius: var(--radius-sm);
   padding: 8px 12px;
   margin: 8px 0;
+}
+
+/* ---------- Delete confirmation ---------- */
+.confirm-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--danger);
+  margin-left: 8px;
+}
+button.danger {
+  background: var(--danger);
+  color: #fff;
+  border-color: var(--danger);
 }
 
 pre {

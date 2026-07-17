@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { METHOD_LABELS } from "../config/labels.js";
+import { formatPercent } from "../config/format.js";
 
 function ResultsPage(){
     const location = useLocation();
@@ -42,24 +44,28 @@ function ResultsTab({result}){
             <button
           className={activeTab === "cvxpy" ? "tab active-tab" : "tab"}
           onClick={() => setActiveTab("cvxpy")}
+          title={METHOD_LABELS.cvxpy.hint}
         >
-            CVXPY
+            {METHOD_LABELS.cvxpy.label}
             </button>
 
             <button
           className={activeTab === "slsqp" ? "tab active-tab" : "tab"}
           onClick={() => setActiveTab("slsqp")}
+          title={METHOD_LABELS.slsqp.hint}
         >
-            SLSQP
+            {METHOD_LABELS.slsqp.label}
             </button>
 
             <button
           className={activeTab === "hrp" ? "tab active-tab" : "tab"}
           onClick={() => setActiveTab("hrp")}
+          title={METHOD_LABELS.hrp.hint}
         >
-            HRP
+            {METHOD_LABELS.hrp.label}
             </button>
         </div>
+        <p className="section-hint">{METHOD_LABELS[activeTab].hint}</p>
         {activeTab == "cvxpy" && (
             <>
                 <CVXPY4Table result={result}/>
@@ -106,7 +112,7 @@ function CVXPYTable({result}){
                     <tr key={row.ETF}>
                         <td>{index}</td>
                         <td>{row.ETF}</td>
-                        <td>{row.Weight}</td>
+                        <td>{formatPercent(row.Weight)}</td>
                     </tr>
                 ))}
             </tbody>
@@ -133,7 +139,7 @@ function SLSQPTable({result}){
                     <tr key={row.ETF}>
                         <td>{index}</td>
                         <td>{row.ETF}</td>
-                        <td>{row.Weight}</td>
+                        <td>{formatPercent(row.Weight)}</td>
                     </tr>
                 ))}
             </tbody>
@@ -161,7 +167,7 @@ function HRPTable({result}){
                     <tr key={row.ETF}>
                         <td>{index}</td>
                         <td>{row.ETF}</td>
-                        <td>{row.Weight}</td>
+                        <td>{formatPercent(row.Weight)}</td>
                     </tr>
                 ))}
             </tbody>
@@ -186,7 +192,7 @@ function CVXPY4Table({result}){
                     <tr key={row.ETF}>
                         <td>{index}</td>
                         <td>{row.ETF}</td>
-                        <td>{row.Weight}</td>
+                        <td>{formatPercent(row.Weight)}</td>
                     </tr>
                 ))}
             </tbody>
@@ -211,7 +217,7 @@ function SLSQP4Table({result}){
                     <tr key={row.ETF}>
                         <td>{index}</td>
                         <td>{row.ETF}</td>
-                        <td>{row.Weight}</td>
+                        <td>{formatPercent(row.Weight)}</td>
                     </tr>
                 ))}
             </tbody>
@@ -236,7 +242,7 @@ function HRP4Table({result}){
                     <tr key={row.ETF}>
                         <td>{index}</td>
                         <td>{row.ETF}</td>
-                        <td>{row.Weight}</td>
+                        <td>{formatPercent(row.Weight)}</td>
                     </tr>
                 ))}
             </tbody>
