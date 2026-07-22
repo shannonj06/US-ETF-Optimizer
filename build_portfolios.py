@@ -34,6 +34,23 @@ MARKET_CSV_FALLBACK = {
     "CA": _BASE_DIR / "data_sourcing" / "CA_Final_ETF_Data.csv",
 }
 
+# Per-market optimizer overrides, applied on top of OPTIMIZER_CONFIG. Markets not
+# listed here (US) use OPTIMIZER_CONFIG unchanged.
+#
+# Canadian bond yields are structurally lower than US: the richest portfolio the
+# CA universe can reach under the 20% per-name cap is ~4.2%, and the HHI cap
+# pulls that lower still. The US floors (3/4/5%) therefore make `strategic`
+# arithmetically infeasible in Canada. These scale the same ladder into the
+# Canadian yield environment, preserving the conservative < enhanced < strategic
+# ordering.
+MARKET_OPTIMIZER_OVERRIDES = {
+    "CA": {
+        "conservative": {"yield_floor": 0.025},
+        "enhanced":     {"yield_floor": 0.032},
+        "strategic":    {"yield_floor": 0.040},
+    },
+}
+
 # Rate-hike stress window (Fed hiking cycle of 2022).
 _RH_START, _RH_END = "2022-01-01", "2022-12-31"
 
@@ -217,6 +234,14 @@ def build_portfolios(profile, screening=None, score_weights=None,
     # copy the shared config so frontend overrides never mutate the module globals
     profiles = copy.deepcopy(PORTFOLIO_PROFILES)
     config = copy.deepcopy(OPTIMIZER_CONFIG)
+
+    # Market-specific optimizer overrides (e.g. Canada's lower yield floors).
+    # Applied before the caller's overrides below so the frontend still wins.
+    market = str(market).upper()
+    for prof, overrides in MARKET_OPTIMIZER_OVERRIDES.get(market, {}).items():
+        if prof in config:
+            config[prof].update(overrides)
+
     if screening:
         profiles[profile].update(screening)
     if score_weights:
@@ -232,9 +257,26 @@ def build_portfolios(profile, screening=None, score_weights=None,
 
     # 2. prices -> returns; drop tickers with gaps, then realign top_etf_df to survivors
     #    (the optimizer raises if yields/expenses don't cover every returns column)
-    price_df = fetch_prices(top_etf_df["Symbol"].tolist(), period)
+    requested = top_etf_df["Symbol"].tolist()
+    price_df = fetch_prices(requested, period)
     returns_df = returns_matrix(price_df).replace([np.inf, -np.inf], np.nan).dropna(axis=1)
     top_etf_df = top_etf_df[top_etf_df["Symbol"].isin(returns_df.columns)].reset_index(drop=True)
+
+    # A throttled/partial Yahoo response yields columns with no overlapping dates,
+    # so the dropna above can leave 0 rows. Left unchecked that surfaces as an
+    # opaque LedoitWolf "0 sample(s)" error from deep inside the optimizer, with
+    # no hint that the download was the problem.
+    _MIN_TICKERS = 5          # need >= 5 names to reach 100% at the 20% weight cap
+    if returns_df.shape[0] == 0 or returns_df.shape[1] < _MIN_TICKERS:
+        raise RuntimeError(
+            f"Insufficient price history to optimize the {market} universe: "
+            f"requested {len(requested)} tickers, got {returns_df.shape[1]} usable "
+            f"with {returns_df.shape[0]} overlapping dates (need >= {_MIN_TICKERS} "
+            f"tickers and >= 1 date).\n"
+            "This is almost always upstream rate limiting from Yahoo Finance "
+            "rather than bad input — retry in a few minutes. It happens far more "
+            "often from datacenter IPs (Railway) than from a local machine."
+        )
 
     # 3. build the optimizer and run the three methods
     yield_df = top_etf_df.set_index("Symbol")["YIELD"]

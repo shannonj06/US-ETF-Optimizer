@@ -122,7 +122,11 @@ def profile_defaults(profile):
 def serialize_optimize(result, include_charts=True):
     """build_portfolios() result -> JSON-ready dict (weights + metrics + charts
     for each method, full and core-4)."""
-    out = {"profile": result.get("profile"), "methods": {}}
+    out = {
+        "profile": result.get("profile"),
+        "market": result.get("market", "US"),   # so the UI can confirm which universe ran
+        "methods": {},
+    }
     for method in ("slsqp", "cvxpy", "hrp"):
         block = {
             "weights": df_records(result[method]),

@@ -21,32 +21,25 @@ function PortfolioOptimizerPage(){
     return(
     <div className='portfolioOptimizerPage'>
         <h1>Develop a Portfolio</h1>
-        <MarketSwitch market={market} setMarket={setMarket} />
+        <MarketDropDown market={market} setMarket={setMarket} />
         <PortfolioStyleDropDown style={style} setStyle={setStyle} className="portfolio_drop_box"/>
         <OptimizerForm key={`${market}-${style}`} style={style} market={market} />
     </div>
     );
 }
 
-// US / Canada toggle. Chooses which ETF universe the optimizer screens.
-function MarketSwitch({ market, setMarket }){
+// Chooses which ETF universe the optimizer screens. Same shape as the style
+// dropdown below so the two controls read as a pair.
+function MarketDropDown({ market, setMarket }){
     return (
-        <div className="market_switch">
-            <label>ETF Universe</label>
+        <div>
+            <label>Select ETF Universe</label>
             <p>Which market's ETFs to screen and optimize</p>
-            <div role="group" aria-label="ETF universe">
+            <select value={market} onChange={(e) => setMarket(e.target.value)}>
                 {MARKETS.map((m) => (
-                    <button
-                        key={m.code}
-                        type="button"
-                        onClick={() => setMarket(m.code)}
-                        aria-pressed={market === m.code}
-                        className={market === m.code ? "market_btn active" : "market_btn"}
-                    >
-                        {m.label}
-                    </button>
+                    <option key={m.code} value={m.code}>{m.label}</option>
                 ))}
-            </div>
+            </select>
         </div>
     );
 }
@@ -84,6 +77,8 @@ function OptimizerForm({ style, market = "US" }){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [result, setResult] = useState(null);
+
+    const marketLabel = MARKETS.find((m) => m.code === market)?.label ?? market;
 
     // The values that produced the result — saved with the portfolio and passed forward.
     const inputs = { profile: style, market, screening, score_weights: scoreWeights, optimizer_weights: slsqpWeights };
@@ -125,7 +120,9 @@ function OptimizerForm({ style, market = "US" }){
             <SelectOptimizerConfig weights={slsqpWeights} setWeights={setSlsqpWeights} />
 
             <button onClick={runOptimization} disabled={loading}>
-                {loading ? "Running…" : "Run Optimization"}
+                {loading
+                    ? `Running ${marketLabel} optimization…`
+                    : `Run ${marketLabel} Optimization`}
             </button>
 
             {error && <p className="error-message">{error}</p>}
@@ -133,6 +130,14 @@ function OptimizerForm({ style, market = "US" }){
             {/* Appears once the run finishes; carries result + inputs to the results page. */}
             {result && (
                 <>
+                    {/* Echoed by the backend, so it reflects the universe that actually ran. */}
+                    <p className="run-summary">
+                        Optimized the{" "}
+                        <strong>
+                            {MARKETS.find((m) => m.code === (result.market ?? market))?.label ?? market}
+                        </strong>{" "}
+                        ETF universe.
+                    </p>
                     <button
                         className="see-results"
                         onClick={() => navigate("/results", { state: { result, inputs } })}
