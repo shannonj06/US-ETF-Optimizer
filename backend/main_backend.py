@@ -1,3 +1,5 @@
+import gc
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -19,6 +21,11 @@ app.add_middleware(
 def root():
     return {"message": "US ETF Optimizer API is running"}
 
+@app.get("/markets")
+def get_markets():
+    """Selectable ETF universes for the frontend's US/Canada switch."""
+    return {"markets": core.market_options()}
+
 @app.get("/profiles")
 def get_profiles():
     return {
@@ -39,17 +46,34 @@ class OptimizeRequest(BaseModel):
     score_weights: dict
     optimizer_weights: dict
     include_charts: bool = True
+    market: str = "US"          # "US" or "CA" — which ETF universe to optimize
 
 #post request because sending over the data
 @app.post("/optimize")
 def optimize(request: OptimizeRequest):
     if request.profile not in core.PORTFOLIO_PROFILES:
         raise HTTPException(status_code=404, detail="Profile not found")
-    result = core.build_portfolios(request.profile, request.screening, request.score_weights, request.optimizer_weights)
-    return core.serialize_optimize(
-        result,
-        include_charts=request.include_charts,
-    )
+    market = request.market.upper()
+    if market not in core.MARKETS:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unknown market '{request.market}'. Expected one of {sorted(core.MARKETS)}.",
+        )
+    try:
+        result = core.build_portfolios(
+            request.profile, request.screening, request.score_weights,
+            request.optimizer_weights, market=market,
+        )
+        return core.serialize_optimize(
+            result,
+            include_charts=request.include_charts,
+        )
+    finally:
+        # The optimizer builds dozens of matplotlib figures per run. They are
+        # closed after encoding, but the Figure/Axes reference cycles are only
+        # reclaimed by a full collection — without this the worker grows
+        # unbounded across runs and eventually gets OOM-killed.
+        gc.collect()
 
 class EvaluateRequest(BaseModel):
     weights: dict[str, float]
@@ -58,8 +82,11 @@ class EvaluateRequest(BaseModel):
 
 @app.post("/evaluate")
 def evaluate(request: EvaluateRequest):
-    result = core.evaluate_custom_weights(request.weights, request.period, request.rf)
-    return core.serialize_evaluate(result)
+    try:
+        result = core.evaluate_custom_weights(request.weights, request.period, request.rf)
+        return core.serialize_evaluate(result)
+    finally:
+        gc.collect()   # same figure reference-cycle cleanup as /optimize
 
 @app.get("/portfolios")
 def get_portfolios():

@@ -1,16 +1,33 @@
-# React + Vite
+# ETF Optimizer React Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory contains the React 19/Vite user interface for the ETF Portfolio Optimization Platform. It communicates with the FastAPI service in `../backend` and optionally uses Supabase for authentication.
 
-Currently, two official plugins are available:
+For complete setup, architecture, API, data, and troubleshooting documentation, see the repository's [main README](../../README.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Local development
 
-## React Compiler
+```powershell
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Vite normally serves the application at `http://localhost:5173`.
 
-## Expanding the ESLint configuration
+Create `.env.local` when non-default values are needed:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```dotenv
+VITE_API_URL=http://127.0.0.1:8000
+VITE_SUPABASE_URL=https://<project-id>.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=<supabase-publishable-key>
+```
+
+Do not put database passwords, Supabase service-role keys, or other server secrets in Vite environment variables. Values prefixed with `VITE_` are included in browser-accessible code.
+
+## Commands
+
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start the development server with hot reload. |
+| `npm run build` | Create a production bundle in `dist/`. |
+| `npm run lint` | Run ESLint over the client source. |
+| `npm run preview` | Serve the production bundle locally for verification. |

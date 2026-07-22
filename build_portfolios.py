@@ -7,6 +7,7 @@ instead — this module only imports what the pipeline actually needs.
 """
 
 import copy
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -19,45 +20,77 @@ from Optimizer_Class.optimizer_weights import OPTIMIZER_CONFIG
 from Optimizer_Class.hrp_optimization import hrp_allocate, hrp_core4
 from Optimizer_Class.get_portfolio_metrics import get_portfolio_metrics
 
-# MongoDB collection holding the screening universe (populated by mongoDB.py).
+_BASE_DIR = Path(__file__).resolve().parent
+
+# MongoDB collections holding the screening universe (populated by mongoDB.py),
+# one per market. Both share the identical 12-column schema, so the whole
+# pipeline below is market-agnostic.
 MONGO_DB, MONGO_COLLECTION = "etf_data", "US_ETF_DATA"
+MARKET_COLLECTIONS = {"US": "US_ETF_DATA", "CA": "CA_ETF_DATA"}
+
+# Canadian data ships as a CSV so it works before the Mongo collection is
+# populated (and on a deploy with no CA collection). US stays Mongo-only.
+MARKET_CSV_FALLBACK = {
+    "CA": _BASE_DIR / "data_sourcing" / "CA_Final_ETF_Data.csv",
+}
 
 # Rate-hike stress window (Fed hiking cycle of 2022).
 _RH_START, _RH_END = "2022-01-01", "2022-12-31"
 
 
-def load_etf_data():
-    """Load the ETF screening universe from MongoDB instead of the CSV.
+def load_etf_data(market="US"):
+    """Load the ETF screening universe for `market` ("US" or "CA").
 
-    Reads every document from `etf_data.US_ETF_DATA` (refreshed by mongoDB.py)
-    and returns a DataFrame with the same columns the CSV had. The Mongo `_id`
-    is excluded so downstream code is unchanged. Connecting here (not at import
-    time) keeps the frontend importable even if the database is unreachable.
+    Reads every document from the market's collection in `etf_data` (refreshed
+    by mongoDB.py) and returns a DataFrame. The Mongo `_id` is excluded so
+    downstream code is unchanged. Connecting here (not at import time) keeps the
+    frontend importable even if the database is unreachable.
+
+    Markets with a CSV fallback (currently CA) fall back to that file when the
+    collection is missing/empty or the database can't be reached, so the
+    Canadian universe works before it has been loaded into Mongo.
     """
+    market = str(market).upper()
+    if market not in MARKET_COLLECTIONS:
+        raise ValueError(
+            f"Unknown market {market!r}. Expected one of {sorted(MARKET_COLLECTIONS)}."
+        )
+    collection = MARKET_COLLECTIONS[market]
+    fallback_csv = MARKET_CSV_FALLBACK.get(market)
+
+    def _load_fallback(reason):
+        if fallback_csv is None or not fallback_csv.exists():
+            raise RuntimeError(reason)
+        return pd.read_csv(fallback_csv)
+
     import certifi
     from pymongo import MongoClient
     from configuration import MONGODB_URL
 
     if not MONGODB_URL:
-        raise RuntimeError(
-            "MONGODB_URL is not set. On Streamlit Cloud, add it under "
-            "Manage app -> Settings -> Secrets; locally it comes from the .env file."
+        return _load_fallback(
+            "MONGODB_URL is not set. On Railway add it under the service's "
+            "Variables tab; locally it comes from the .env file."
         )
 
     # tlsCAFile pins the CA bundle so the Atlas handshake works in cloud venvs;
     # the short timeout turns an unreachable DB into a fast, clear error.
-    client = MongoClient(
-        MONGODB_URL,
-        tlsCAFile=certifi.where(),
-        serverSelectionTimeoutMS=10000,
-    )
     try:
-        docs = list(client[MONGO_DB][MONGO_COLLECTION].find({}, {"_id": 0}))
-    finally:
-        client.close()
+        client = MongoClient(
+            MONGODB_URL,
+            tlsCAFile=certifi.where(),
+            serverSelectionTimeoutMS=10000,
+        )
+        try:
+            docs = list(client[MONGO_DB][collection].find({}, {"_id": 0}))
+        finally:
+            client.close()
+    except Exception as e:
+        return _load_fallback(f"Could not reach MongoDB for {market}: {e}")
+
     if not docs:
-        raise RuntimeError(
-            f"No ETF data in MongoDB ({MONGO_DB}.{MONGO_COLLECTION} is empty). "
+        return _load_fallback(
+            f"No ETF data in MongoDB ({MONGO_DB}.{collection} is empty). "
             "Run mongoDB.py to populate it."
         )
     return pd.DataFrame(docs)
@@ -167,7 +200,8 @@ def evaluate_custom_weights(weights, period="5y", rf=0.04):
 
 
 def build_portfolios(profile, screening=None, score_weights=None,
-                     optimizer_weights=None, period="5y", top_n=40):
+                     optimizer_weights=None, period="5y", top_n=40,
+                     market="US"):
     """End-to-end pipeline for the frontend: from a profile + optional user
     overrides, run SLSQP / CVXPY / HRP and return everything a page needs.
 
@@ -175,6 +209,7 @@ def build_portfolios(profile, screening=None, score_weights=None,
     screening         : dict overriding aum_min / max_expense / max_duration
     score_weights     : dict overriding the per-metric selection weights
     optimizer_weights : dict overriding the SLSQP objective weights (auto-renormalized)
+    market            : "US" or "CA" — which ETF universe to optimize
 
     Returns a dict: slsqp / cvxpy / hrp weight DataFrames, plus returns_df, corr,
     and top_etf_df so the caller can compute metrics / charts.
@@ -192,7 +227,7 @@ def build_portfolios(profile, screening=None, score_weights=None,
         config[profile]["slsqp_weights"] = {k: v / total for k, v in sw.items()} if total else sw
 
     # 1. select the universe (applies the screening gates + scoring weights above)
-    df = load_etf_data()
+    df = load_etf_data(market)
     top_etf_df = select_top_etfs(df, profiles, profile, top_n)
 
     # 2. prices -> returns; drop tickers with gaps, then realign top_etf_df to survivors
@@ -204,7 +239,13 @@ def build_portfolios(profile, screening=None, score_weights=None,
     # 3. build the optimizer and run the three methods
     yield_df = top_etf_df.set_index("Symbol")["YIELD"]
     expense_df = top_etf_df.set_index("Symbol")["ER"] / 100
-    optimizer = portfolio_optimizer(returns_df, config, yield_df, expense_df, top_etf_df)
+    # yield_floor lives in OPTIMIZER_CONFIG per profile, but portfolio_optimizer
+    # defaults it to 0.04 — pass it explicitly or every profile silently runs at
+    # 4% (which no Canadian universe can clear).
+    optimizer = portfolio_optimizer(
+        returns_df, config, yield_df, expense_df, top_etf_df,
+        yield_floor=config[profile].get("yield_floor", 0.04),
+    )
 
     slsqp_df, _ = optimizer.run_custom_slsqp_optimization(None, profile)
     cvxpy_df, _ = optimizer.run_cvxpy_optimization(profile)
@@ -269,6 +310,7 @@ def build_portfolios(profile, screening=None, score_weights=None,
 
     result = {
         "profile": profile,
+        "market": market,
         "config": config,            # deep-copied config w/ frontend overrides applied
         "slsqp": slsqp_df,
         "cvxpy": cvxpy_df,

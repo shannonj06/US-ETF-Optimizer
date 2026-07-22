@@ -19,7 +19,9 @@ for _p in (_ROOT, _FRONTEND):
         sys.path.insert(0, str(_p))
 
 # ── Pipeline + config (project root) ─────────────────────────────────────────
-from build_portfolios import build_portfolios, evaluate_custom_weights, load_etf_data
+from build_portfolios import (
+    build_portfolios, evaluate_custom_weights, load_etf_data, MARKET_COLLECTIONS,
+)
 from config.profiles import PORTFOLIO_PROFILES
 from Optimizer_Class.optimizer_weights import OPTIMIZER_CONFIG
 
@@ -34,8 +36,19 @@ __all__ = [
     "df_records", "fig_to_b64", "figs_to_b64",
     "profile_names", "profile_defaults",
     "serialize_optimize", "serialize_evaluate",
-    "ALLOWED_ORIGINS",
+    "ALLOWED_ORIGINS", "MARKETS", "market_options",
 ]
+
+# ── Markets ──────────────────────────────────────────────────────────────────
+# Selectable ETF universes. Both share the identical 12-column schema, so the
+# optimizer is market-agnostic — only the source collection/CSV differs.
+MARKETS = dict(MARKET_COLLECTIONS)
+MARKET_LABELS = {"US": "United States", "CA": "Canada"}
+
+
+def market_options():
+    """[{code, label}] for the frontend's market switch."""
+    return [{"code": c, "label": MARKET_LABELS.get(c, c)} for c in MARKETS]
 
 # ── API settings ─────────────────────────────────────────────────────────────
 # Origins allowed to call the API (your React dev servers). Tighten for prod.

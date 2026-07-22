@@ -183,7 +183,13 @@ def walk_forward_backtest(
         train = portfolio_returns.iloc[start : start + training_days]
         test  = portfolio_returns.iloc[start + training_days : start + training_days + testing_days]
 
-        opt = portfolio_optimizer(train, type_specific_weights, etf_yields, etf_expenses, top_etf_df)
+        # match build_portfolios: use the profile's configured yield_floor rather
+        # than portfolio_optimizer's 0.04 default, or every walk-forward window
+        # re-optimizes against the wrong (and for CA, infeasible) floor.
+        opt = portfolio_optimizer(
+            train, type_specific_weights, etf_yields, etf_expenses, top_etf_df,
+            yield_floor=type_specific_weights[key].get("yield_floor", 0.04),
+        )
         weights_df, _ = opt.run_custom_slsqp_optimization(None, key)
         w = weights_df.set_index("ETF").reindex(portfolio_returns.columns)["Weight"].values
 

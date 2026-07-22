@@ -1,0 +1,189 @@
+Symbol,BETA,Name,AUM,YIELD,SHARPE,MAX_DD,ANNUAL_VOL,STYLE,AVG_VOLUME_30,DURATION,ER
+ACAA.TO,0.1089,Arrow Long/Short Alternative Fund,18232500.0,0.0,1.3929,-0.05,0.13,Multi Alternative,123.6,7.65,0.65
+AGG.TO,0.0629,Evolve Canadian Aggregate Bond Enhanced Yield Fund,51529750.0,0.0652,-0.3596,-0.0263,0.04,Long Term Bond,596.67,3.49,0.45
+ATSX.TO,0.3186,Accelerate Canadian Long Short Equity Fund,3809000.0,0.0,2.1147,-0.0893,0.19,Equity,297.97,,1.03
+BESG.TO,0.071,Invesco ESG Canadian Core Plus Bond ETF,121730250.0,0.0418,0.1305,-0.0331,0.05,Long Term Mid Quality,2713.33,4.47,0.35
+BSKT.TO,0.0589,Manulife Smart Core Bond ETF,694984000.0,0.0353,-0.0914,-0.0283,0.05,Long Term High Quality,38550.5,3.93,0.24
+BXF.TO,0.0249,CI 1-5 Year Laddered Government Strip Bond Index ETF,39273377.13,0.0298,-0.3176,-0.0155,0.03,Short Term High Quality,1940.0,2.89,0.2
+CACB.TO,0.0399,CIBC Active Investment Grade Corporate Bond ETF,2121654000.0,0.0446,0.1228,-0.0259,0.04,Long Term Mid Quality,15296.67,4.79,0.25
+CAGG.TO,0.0413,CI Canadian Aggregate Bond Index ETF,969190947.42,0.0356,-0.0258,-0.0273,0.04,Long Term Mid Quality,1943.33,3.51,0.07
+CAGS.TO,0.0119,CI Canadian Short-Term Aggregate Bond Index ETF,16709000.0,0.0328,-0.4499,-0.0133,0.02,Short Term Mid Quality,663.33,3.38,0.07
+CALB.TO,0.0403,CIBC Canadian Government Long-Term Bond ETF,1901000.0,0.0277,-0.2258,-0.0594,0.09,Long Term High Quality,320.0,2.66,0.2
+CBH.TO,0.0463,iShares 1-10 Year Laddered Corporate Bond Index ETF,592942500.0,0.0339,-0.0843,-0.0214,0.03,Intermediate Term Mid Quality,7760.0,3.85,0.25
+CBIL.TO,0.0005,Global X 0-3 Month T-Bill ETF,1590905320.81,0.0225,-6.7482,-0.0004,0.0,Short Term High Quality,133738.27,0.13,0.1
+CBND.TO,0.0754,Manulife Smart Corporate Bond ETF,220156500.0,0.0406,0.2009,-0.0274,0.04,Long Term High Quality,7738.57,4.6,0.27
+CBO.TO,0.0428,iShares 1-5 Year Laddered Corporate Bond Index ETF,786520000.0,0.0347,-0.1374,-0.0161,0.02,Short Term Mid Quality,22175.03,3.86,0.28
+CCAD.TO,0.0032,CIBC Premium Cash Management ETF,242742500.0,0.0257,-4.4205,-0.0008,0.0,Ultra short- Low risk,15096.13,,0.12
+CCBI.TO,0.0552,CIBC Canadian Bond Index ETF,113326500.0,0.0335,-0.004,-0.0272,0.04,Investment Grade Bond,18794.33,3.64,0.06
+CCNS.TO,0.025,CIBC Conservative Fixed Income Pool,5454000.0,0.0391,-0.1785,-0.0191,0.02,Intermediate Term Mid Quality,284.63,4.1,0.3
+CCRE.TO,0.0644,CIBC Core Fixed Income Pool,96176640.0,0.0432,0.0545,-0.0208,0.03,Intermediate Term Mid Quality,2420.0,4.39,0.3
+CEQY.TO,0.6392,CIBC All-Equity ETF Portfolio,1285200.0,0.0138,1.7974,-0.0806,0.13,Equity,2402.87,,0.15
+CLF.TO,0.029,iShares 1-5 Year Laddered Government Bond Index ETF,615300000.0,0.0226,-0.6016,-0.0135,0.02,Short Term High Quality,13041.43,2.58,0.17
+CLG.TO,0.052,iShares 1-10 Year Laddered Government Bond Index ETF,847867000.0,0.0256,-0.2705,-0.0193,0.03,Intermediate Term High Quality,9476.67,2.9,0.17
+CMNY.TO,0.002,CI Money Market ETF,75045000.0,0.0249,-4.5275,-0.0005,0.0,Money Market,2440.0,0.1,0.14
+CMR.TO,0.0002,iShares Premium Money Market ETF,2513002500.0,0.0245,-7.3297,-0.0009,0.0,Money Market,103877.93,0.1,0.24
+CORE.TO,0.0519,PIMCO Canadian Core Bond Fund,137700000.0,0.0336,0.3246,-0.0299,0.04,Long Term Bond,14720.0,4.29,0.29
+CPD.TO,0.2354,iShares S&P/TSX Canadian Preferred Share Index ETF,1063680000.0,0.0498,2.0207,-0.027,0.04,Preferred Stock,41868.7,5.0,0.5
+CSBI.TO,0.025,CIBC Canadian Short-Term Bond Index ETF,354483000.0,0.0309,-0.4303,-0.0139,0.02,Short Term Bond,6326.03,3.3,0.07
+CTMA.TO,0.0102,CI Target 2028 Investment Grade Bond Fund,1000000.0,0.0206,-1.6878,-0.0065,0.01,Investment Grade Bond,0.0,3.47,0.15
+CTMB.TO,0.0541,CI Target 2029 Investment Grade Bond Fund,1000000.0,0.0205,-0.8958,-0.0177,0.02,Investment Grade Bond,16.67,3.64,0.15
+CTMC.TO,0.0631,CI Target 2030 Investment Grade Bond Fund,1000000.0,0.0202,-0.7439,-0.0208,0.03,Investment Grade Bond,16.67,3.59,0.15
+CVD.TO,0.1214,iShares Convertible Bond Index ETF,109531500.0,0.0489,0.6082,-0.0395,0.07,Short Term Mid Quality,3200.0,5.73,0.49
+CXF.TO,0.0676,CI Canadian Convertible Bond ETF,57804493.95,0.045,0.4927,-0.0379,0.1,Intermediate Term Mid Quality,1616.67,5.92,0.65
+DCBC.TO,0.0387,Desjardins Canadian Corporate Bond Index ETF,751160000.0,0.038,0.0214,-0.0257,0.04,Investment Grade Bond,610.0,4.37,0.15
+DCC.TO,0.0257,Desjardins 1-5 year Laddered Canadian Corporate Bond Index ETF,8121750.0,0.0332,-0.1743,-0.0173,0.03,Short Term Mid Quality,306.67,3.86,0.25
+DCG.TO,0.0102,Desjardins 1-5 year Laddered Canadian Government Bond Index ETF,121109500.0,0.022,-0.4842,-0.0161,0.02,Short Term High Quality,3526.67,2.38,0.15
+DCP.TO,0.0678,Desjardins Canadian Preferred Share Index ETF,40040500.0,0.0483,1.6325,-0.0259,0.06,Long Term Mid Quality,533.33,5.0,0.4
+DCS.TO,0.0102,Desjardins Canadian Short Term Bond Index ETF,42009000.0,0.0278,-0.658,-0.0126,0.02,Short Term High Quality,910.0,3.07,0.09
+DCU.TO,0.0445,Desjardins Canadian Universe Bond Index ETF,1635417000.0,0.0317,-0.0697,-0.0276,0.04,Long Term High Quality,6846.7,3.41,0.47
+DIVS.TO,0.1161,Evolve Active Canadian Preferred Share Fund,32422594.5,0.0531,1.745,-0.0221,0.05,Preferred Stock,203.33,8.88,0.65
+DRCU.TO,0.0272,Desjardins RI Active Canadian Bond - Net-Zero Emissions Pathway ETF,58435000.0,0.0343,0.0113,-0.0261,0.04,Long Term High Quality,686.67,3.93,0.35
+DXB.TO,0.0593,Dynamic Active Tactical Bond ETF,137152250.0,0.0432,0.2411,-0.0205,0.04,Long Term High Quality,1203.33,3.94,0.55
+DXBB.TO,0.0681,Dynamic Active Bond ETF,110936000.0,0.0426,0.1158,-0.0279,0.04,Investment Grade Bond,4340.0,4.49,0.3
+DXBC.TO,0.0827,Dynamic Active Canadian Bond ETF,93439000.0,0.0335,-0.1189,-0.0263,0.04,High Yield Bond,4169.83,3.71,0.4
+DXBG.TO,0.0092,Dynamic Global Fixed Income Fund,1001500.0,0.0489,-0.3273,-0.0139,0.02,Investment Grade Bond,5553.33,5.65,0.6
+DXCB.TO,0.002,Dynamic Active Corporate Bond ETF,52173000.0,0.0455,0.3605,-0.0139,0.04,Investment Grade Bond,1543.6,5.36,0.35
+DXDB.TO,0.0661,Dynamic Active Discount Bond ETF,705878250.0,0.0419,0.3196,-0.0211,0.03,Investment Grade Bond,8148.93,3.69,0.35
+DXO.TO,0.1336,Dynamic Active Crossover Bond ETF,93876500.0,0.0533,0.4398,-0.0241,0.03,Intermediate Term Low Quality,1710.0,5.98,0.5
+DXP.TO,0.1968,Dynamic Active Preferred Shares ETF,588961500.0,0.0437,2.3066,-0.024,0.04,Preferred Stock,6727.6,5.52,0.58
+DXV.TO,0.0147,Dynamic Active Ultra Short Term Bond ETF,320119250.0,0.031,-0.3776,-0.003,0.02,Multi Alternative,15043.33,3.17,0.3
+ESGB.TO,0.0411,BMO ESG Corporate Bond Index ETF,80268300.0,0.0403,0.0915,-0.0247,0.04,Long Term Mid Quality,1813.33,4.2,0.15
+FCMI.TO,0.1491,Fidelity Canadian Monthly High Income ETF,14600000.0,0.0329,2.5872,-0.0355,0.06,Investment Grade Bond,1827.63,4.1,0.5
+FGOV.TO,0.023,Franklin Canadian Government Bond Fund,9355500.0,0.0324,-0.0887,-0.0299,0.05,Long Term Government Bond,1075.6,3.58,0.15
+FHIS.TO,0.0058,Franklin Canadian Ultra Short Term Bond Fund,296018000.0,0.0325,-1.0218,-0.0029,0.01,Short Term High Quality,47512.0,4.28,0.15
+FIE.TO,0.6526,iShares Canadian Financial Monthly Income ETF,1284214500.0,0.0424,3.2278,-0.072,0.09,Investment Grade Bond,108925.6,4.42,0.81
+FLCI.TO,0.0441,Franklin Canadian Corporate Bond Fund,59961000.0,0.0446,0.3118,-0.0227,0.04,Long Term Mid Quality,1793.33,5.24,0.3
+FLCP.TO,0.0837,Franklin Canadian Core Plus Bond Fund,110331000.0,0.0375,-0.0009,-0.0264,0.04,Long Term Mid Quality,6273.33,4.47,0.63
+FLSD.TO,0.0097,Franklin Canadian Short Term Bond Fund,64722000.0,0.0355,-0.1006,-0.0149,0.02,Intermediate Term Mid Quality,2236.67,4.12,0.46
+GCBD.TO,0.0727,Guardian Canadian Bond Fund,55405457.85,0.0327,-0.0623,-0.0279,0.05,Intermediate Term Mid Quality,773.33,3.67,0.3
+GCTB.TO,-0.001,Guardian Ultra-Short Canadian T-Bill Fund,235141000.0,0.0226,-6.4671,-0.0004,0.0,Money Market,3086.67,0.1,0.12
+GIGC.TO,0.027,Guardian Investment Grade Corporate Bond Fund,16590800.0,0.0434,0.2209,-0.0191,0.04,Investment Grade Bond,206.13,4.84,0.4
+HAD.TO,0.0724,Global X Active Canadian Bond ETF,46808907.28,0.0375,-0.1095,-0.0305,0.05,Long Term Mid Quality,1270.77,3.69,0.3
+HBB.TO,0.0762,Global X Canadian Select Universe Bond Index Corporate Class ETF,3442770212.2,0.0,-0.1925,-0.0278,0.04,Long Term High Quality,20396.67,6.0,0.09
+HFR.TO,0.0131,Global X Active Ultra-Short Term Investment Grade Bond ETF,513421416.56,0.0364,-0.4879,-0.004,0.01,Intermediate Term Mid Quality,41449.4,3.65,0.4
+HLPR.TO,0.2336,Global X Laddered Canadian Preferred Share Index Corporate Class ETF,111899380.68,0.0,2.9373,-0.0249,0.04,Preferred Stock,3800.07,5.0,0.3
+HMP.TO,0.0422,Global X Active Canadian Municipal Bond ETF,31734472.84,0.0318,-0.0731,-0.0143,0.04,Short Term Mid Quality,5496.67,3.13,0.29
+HPR.TO,0.2303,Global X Active Preferred Share ETF,932777387.3,0.0474,2.6866,-0.0222,0.04,Preferred Stock,17306.73,5.52,0.55
+HSAV.TO,0.0055,Global X Cash Maximizer Corporate Class ETF,1917185000.0,0.0,-1.2923,-0.0059,0.01,Investment Grade Bond,28123.9,6.0,0.18
+ICCB.TO,0.0316,Invesco Canadian Core Plus Bond ETF,24990000.0,0.0415,-0.1184,-0.0247,0.04,Investment Grade Bond,131.9,5.0,0.45
+ICPB.TO,0.039,IA Clarington Agile Core Plus Bond Fund,77315000.0,0.046,0.0739,-0.0217,0.04,Short Term Low Quality,8594.67,5.13,0.5
+IFRF.TO,-0.0135,IA Clarington Loomis Floating Rate Income Fund,1947500.0,0.0642,-2.6626,-0.0599,0.04,Short Term Low Quality,163.33,0.2,0.7
+IGCF.TO,0.0194,PIMCO Investment Grade Credit Fund (Canada),8295000.0,0.0368,-0.1111,-0.0375,0.06,Long Term Mid Quality,480.0,4.91,0.75
+ISIF.TO,0.1054,IA Clarington Strategic Income Fund,2262750.0,0.0249,0.5532,-0.0464,0.07,Multi Alternative,300.0,5.59,0.7
+LYCT.TO,0.0355,Lysander-Canso Corporate Treasury ActivETF,22575000.0,0.0167,-0.6235,-0.0217,0.03,Short Term High Quality,116.67,5.5,0.25
+LYFR.TO,-0.0321,Lysander-Canso Floating Rate ActivETF,6084000.0,0.0261,-0.8583,-0.0049,0.02,Short Term High Quality,40.0,0.2,0.35
+MCOR.TO,0.0344,Manulife Core Plus Bond Fund,1265000.0,0.0371,0.6068,-0.0127,0.03,Investment Grade Bond,136.43,4.74,0.45
+MCSB.TO,0.0087,Mackenzie Canadian Short Term Fixed Income ETF,36852000.0,0.0313,-0.2523,-0.0149,0.02,Short Term High Quality,2850.0,3.32,0.35
+MKB.TO,0.071,Mackenzie Canadian Strategic Fixed Income ETF,883806000.0,0.0353,-0.032,-0.0299,0.04,Long Term Mid Quality,23704.37,3.96,0.4
+NCPB.TO,0.0999,NBI Canadian Core Plus Bond Fund,59959200.0,0.0152,-0.5198,-0.0292,0.05,Intermediate Term Mid Quality,4123.33,3.62,0.45
+NPRF.TO,0.2202,NBI Active Canadian Preferred Shares ETF,157664250.0,0.0453,0.6276,-0.0399,0.06,Preferred Stock,4053.33,5.0,0.5
+NSCB.TO,0.0686,NBI Sustainable Canadian Bond ETF,2845380000.0,0.0325,-0.3583,-0.0316,0.05,Long Term High Quality,1866.17,4.0,0.55
+NSCC.TO,0.0521,NBI Sustainable Canadian Corporate Bond ETF,157607400.0,0.033,-0.0828,-0.0244,0.04,Intermediate Term Mid Quality,1153.33,4.06,0.55
+NSSB.TO,0.0125,NBI Sustainable Canadian Short Term Bond ETF,47709000.0,0.0317,-0.1403,-0.0158,0.04,Short Term High Quality,5331.0,3.73,0.25
+NTGA.TO,0.0102,NBI Target 2026 Investment Grade Bond Fund,3950700.0,0.0136,-1.0438,-0.0039,0.01,Investment Grade Bond,2039.83,1.91,0.15
+NTGB.TO,0.0135,NBI Target 2027 Investment Grade Bond Fund,3045000.0,0.0141,-0.8548,-0.0054,0.01,Investment Grade Bond,2060.27,2.05,0.15
+NTGC.TO,0.0139,NBI Target 2028 Investment Grade Bond Fund,2946400.0,0.0159,-0.4961,-0.0102,0.02,Investment Grade Bond,366.67,2.12,0.15
+NTGD.TO,0.0163,NBI Target 2029 Investment Grade Bond Fund,1000000.0,0.0183,-1.4336,-0.0079,0.02,Investment Grade Bond,14.03,2.76,0.15
+NTGE.TO,0.0379,NBI Target 2030 Investment Grade Bond Fund,3900000.0,0.0132,-0.9075,-0.0204,0.03,Investment Grade Bond,394.17,2.27,0.15
+NTGF.TO,0.0523,NBI Target 2031 Investment Grade Bond Fund,3009000.0,0.0145,-0.7623,-0.0257,0.04,Investment Grade Bond,1460.0,2.38,0.15
+PAYL.TO,0.033,Global X Long-Term Government Bond Premium Yield ETF,1791161.19,0.0905,-0.3502,-0.0505,0.08,Long Term High Quality,114.8,3.06,0.5
+PAYM.TO,0.0724,Global X Mid-Term Government Bond Premium Yield ETF,12978370.8,0.0732,-0.3815,-0.0268,0.04,Intermediate Term Mid Quality,329.8,3.04,0.45
+PAYS.TO,0.011,Global X Short-Term Government Bond Premium Yield ETF,83064945.08,0.0549,-0.7352,-0.0079,0.02,Short Term Government Bond,2793.33,3.02,0.4
+PCON.TO,0.0113,PIMCO Managed Conservative Bond Pool,16938500.0,0.0575,-0.1152,-0.0223,0.05,Short Term Mid Quality,1690.0,5.1,0.59
+PCOR.TO,0.0536,PIMCO Managed Core Bond Pool,289298000.0,0.0491,0.1793,-0.0306,0.06,Long Term High Quality,9276.67,4.86,0.59
+PFL.TO,0.002,Invesco Canadian Government Floating Rate Index ETF,268686000.0,0.0264,-1.6166,-0.0015,0.01,Short Term High Quality,12393.33,0.2,0.12
+PLDI.TO,0.013,PIMCO Low Duration Monthly Income Fund (Canada),36874500.0,0.0408,0.0456,-0.0203,0.05,Intermediate Term High Quality,7666.67,5.04,0.75
+PMIF.TO,0.0883,PIMCO Monthly Income Fund (Canada),4118336000.0,0.0554,0.3552,-0.0322,0.04,Investment Grade Bond,185969.63,5.13,0.75
+PMNT.TO,0.0008,PIMCO Global Short Maturity Fund (Canada),35625000.0,0.0434,-0.4855,-0.0063,0.02,Intermediate Term High Quality,2691.87,4.17,0.35
+PR.TO,0.1082,Lysander-Slater Preferred Share ActivETF,84881034.0,0.05,1.2692,-0.0139,0.04,Preferred Stock,3280.1,3.1,0.65
+PREF.TO,0.1363,Quadravest Preferred Split Share ETF,43607100.0,0.0658,0.466,-0.0151,0.04,Short Term Mid Quality,28854.5,5.0,0.5
+PSA.TO,0.0009,Purpose High Interest Savings Fund,3223144500.0,0.023,-7.5139,-0.0002,0.0,Short Term High Quality,100974.37,,0.15
+PSB.TO,0.0412,Invesco 1-5 Year Laddered Investment Grade Corporate Bond Index ETF,526759775.0,0.0321,0.02,-0.0138,0.03,Short Term Mid Quality,5076.8,3.49,0.25
+QASH.TO,0.0034,Mackenzie Canadian Ultra Short Bond Index ETF,149238400.0,0.035,-3.1754,-0.0006,0.0,Ultra Short-Low Risk,7970.0,3.02,0.15
+QBB.TO,0.0578,Mackenzie Canadian Aggregate Bond Index ETF,1298121000.0,0.0315,-0.072,-0.0281,0.04,Long Term High Quality,4280.17,3.32,0.07
+QLB.TO,0.0098,Mackenzie Canadian Government Long Bond Index ETF,68747000.0,0.0347,-0.3872,-0.0563,0.09,Long Term Government Bond,238.93,3.26,0.0
+QSB.TO,0.023,Mackenzie Canadian Short-Term Bond Index ETF,49900000.0,0.0283,-0.4562,-0.0126,0.02,Short Term High Quality,3543.33,2.89,0.08
+RATE.TO,-0.0002,Arrow EC Income Advantage Alternative Fund,115369800.0,0.0465,-0.3254,-0.008,0.02,Multi Alternative,3256.87,4.66,0.95
+RBO.TO,0.0302,RBC 1-5 Year Laddered Canadian Corporate Bond ETF,185823000.0,0.0391,-0.3811,-0.0175,0.02,Short Term Mid Quality,6196.67,3.89,0.25
+RGQO.TO,0.0154,RBC Target 2026 Canadian Government Bond ETF,86444500.0,0.0242,-1.886,-0.0055,0.01,Long Term Government Bond,666.67,2.0,0.15
+RGQP.TO,0.0074,RBC Target 2027 Canadian Government Bond ETF,101234000.0,0.0225,-1.2517,-0.0058,0.01,Long Term Government Bond,2053.33,2.36,0.15
+RGQQ.TO,0.0334,RBC Target 2028 Canadian Government Bond ETF,75628000.0,0.0277,-0.7971,-0.0107,0.02,Long Term Government Bond,593.33,2.83,0.15
+RGQR.TO,0.0251,RBC Target 2029 Canadian Government Bond ETF,65056000.0,0.0287,-0.5793,-0.0147,0.02,Long Term Government Bond,643.33,3.01,0.15
+RGQS.TO,0.031,RBC Target 2030 Canadian Government Bond ETF,99406000.0,0.0183,-0.2832,-0.0188,0.03,Intermediate Term Government Bond,1292.83,1.87,0.15
+RGQT.TO,0.1012,RBC Target 2031 Canadian Government Bond ETF,46953000.0,0.0178,-0.1362,-0.0241,0.04,Investment Grade Bond,2853.33,1.78,0.15
+RIFI.TO,0.0595,Russell Investments Fixed Income Pool,21384000.0,0.0371,-0.0743,-0.0245,0.05,Short Term High Quality,1767.83,3.94,0.5
+RIRA.TO,0.3764,Russell Investments Real Assets,7068750.0,0.0383,2.3941,-0.044,0.09,Multi Alternative,2441.3,2.79,0.9
+RLB.TO,0.0278,RBC 1-5 Year Laddered Canadian Bond ETF,161338500.0,0.0348,-0.4657,-0.0148,0.02,Short Term Mid Quality,3033.33,3.43,0.22
+RPF.TO,0.2416,RBC Canadian Preferred Share ETF,634148200.0,0.049,2.961,-0.0211,0.04,Preferred Stock,7004.43,3.65,0.53
+RQO.TO,0.0051,RBC Target 2026 Canadian Corporate Bond Index ETF,742573500.0,0.0303,-2.085,-0.002,0.01,Long Term High Quality,12980.0,3.23,0.2
+RQP.TO,0.0215,RBC Target 2027 Canadian Corporate Bond Index ETF,822976000.0,0.037,-0.9526,-0.0065,0.01,Long Term High Quality,14378.27,3.69,0.2
+RQQ.TO,0.0416,RBC Target 2028 Canadian Corporate Bond Index ETF,653486000.0,0.0408,-0.5328,-0.0136,0.02,Long Term Bond,10091.43,4.2,0.2
+RQR.TO,0.0494,RBC Target 2029 Canadian Corporate Bond Index ETF,482666500.0,0.0408,-0.2533,-0.018,0.02,Long Term Bond,10372.63,4.17,0.2
+RQS.TO,0.0839,RBC Target 2030 Canadian Corporate Bond Index ETF,310964000.0,0.0186,-0.5651,-0.0207,0.03,Investment Grade Bond,11272.57,3.91,0.2
+RQT.TO,0.0726,RBC Target 2031 Canadian Corporate Bond ETF,216827500.0,0.0326,0.0874,-0.0242,0.04,Long Term Mid Quality,10970.0,3.49,0.2
+RUST.TO,0.0057,RBC Canadian Ultra Short Term Bond ETF,8730750.0,0.0331,-1.083,-0.0066,0.01,Ultra Short-Low Risk,1568.87,3.24,0.2
+SPFD.TO,0.2982,Mulvihill Enhanced Split Preferred Share ETF,24747395.82,0.1012,2.2078,-0.0207,0.06,Preferred Stock,38569.93,5.0,0.65
+SPLT.TO,0.1284,Brompton Split Corp. Preferred Share ETF,630894330.0,0.06,0.4828,-0.0182,0.03,Preferred Stock,48311.6,5.37,0.5
+TBCF.TO,0.0055,TD Target 2026 Investment Grade Bond ETF,147824400.0,0.0191,-1.3901,-0.0011,0.01,Investment Grade Bond,5516.67,2.39,0.2
+TBCG.TO,0.0102,TD Target 2027 Investment Grade Bond ETF,191536800.0,0.0236,-0.5222,-0.0061,0.01,Investment Grade Bond,4133.33,2.39,0.2
+TBCH.TO,0.0334,TD Target 2028 Investment Grade Bond ETF,49267200.0,0.0195,-0.485,-0.014,0.02,Investment Grade Bond,1286.27,2.23,0.2
+TBCI.TO,0.0272,TD Target 2029 Investment Grade Bond ETF,20496000.0,0.0264,-0.15,-0.0167,0.02,Investment Grade Bond,665.93,2.94,0.2
+TBCJ.TO,0.0413,TD Target 2030 Investment Grade Bond ETF,19661200.0,0.0234,-0.0594,-0.0218,0.03,Investment Grade Bond,2080.63,2.82,0.2
+TBIL.TO,0.0031,Harvest Canadian T-Bill ETF,105042000.0,0.0102,-7.8986,-0.0002,0.0,Money Market,6151.07,0.1,0.0
+TCLB.TO,0.1392,TD Canadian Long Term Federal Bond ETF,288444895.97,0.0338,-0.1297,-0.0557,0.09,Long Term High Quality,683.33,2.83,0.2
+TCSB.TO,0.0361,TD Select Short Term Corporate Bond Ladder ETF,514873750.0,0.0367,-0.0458,-0.0164,0.02,Short Term Mid Quality,38472.97,4.67,0.25
+TCSH.TO,0.0025,TD Cash Management ETF,511020000.0,0.026,-3.0547,-0.001,0.0,Long Term High Quality,184971.73,4.45,0.15
+TDB.TO,0.0834,TD Canadian Aggregate Bond Index ETF,2851862205.64,0.035,-0.1004,-0.0274,0.04,Long Term High Quality,121192.7,3.46,0.07
+TERM.TO,0.0342,Manulife Smart Short-Term Bond ETF,451888000.0,0.0362,-0.0243,-0.0148,0.03,Short Term High Yield Bond,52109.67,4.3,0.2
+TPRF.TO,0.2471,TD Active Preferred Share ETF,387391687.5,0.045,2.7223,-0.0249,0.04,Preferred Stock,16545.77,5.0,0.45
+VAB.TO,0.0862,Vanguard Canadian Aggregate Bond Index ETF,6555638000.0,0.0335,-0.1036,-0.0283,0.04,Long Term High Quality,152740.83,3.46,0.08
+VCB.TO,0.0719,Vanguard Canadian Corporate Bond Index ETF,540189190.35,0.0391,0.0497,-0.0245,0.04,Long Term Mid Quality,14846.67,4.3,0.15
+VGV.TO,0.0799,Vanguard Canadian Government Bond Index ETF,155312400.0,0.0317,-0.0975,-0.0293,0.05,Long Term High Quality,4630.0,3.24,0.1
+VLB.TO,0.1556,Vanguard Canadian Long-Term Bond Index ETF,296773600.0,0.0399,0.0115,-0.049,0.08,Long Term High Quality,10446.47,3.79,0.15
+VSB.TO,0.0275,Vanguard Canadian Short-Term Bond Index ETF,1356597000.0,0.0301,-0.4782,-0.0143,0.02,Short Term High Quality,93527.17,3.13,0.1
+VSC.TO,0.0406,Vanguard Canadian Short-Term Corporate Bond Index ETF,1304373000.0,0.0371,-0.1248,-0.0153,0.02,Short Term Mid Quality,57635.3,4.06,0.1
+VVSG.TO,0.0015,Vanguard Canadian Ultra-Short Government Bond Index ETF,149880500.0,0.024,-4.7441,-0.0014,0.0,Ultra Short-Low Risk,6965.6,0.4,0.1
+XBB.TO,0.0861,iShares Core Canadian Universe Bond Index ETF,9118208000.0,0.0344,-0.0626,-0.0273,0.04,Long Term High Quality,145367.77,3.5,0.1
+XCB.TO,0.0936,iShares Core Canadian Corporate Bond Index ETF,2803878000.0,0.0418,0.0543,-0.0249,0.04,Long Term Mid Quality,179688.73,4.42,0.24
+XCBG.TO,0.0487,iShares ESG Advanced Canadian Corporate Bond Index ETF,98410000.0,0.0397,-0.0565,-0.0203,0.03,Long Term Mid Quality,1224.37,4.28,0.17
+XFLB.TO,0.1376,iShares Core Canadian 15+ Year Federal Bond Index ETF,51037000.0,0.0315,-0.2178,-0.0704,0.1,High Yield Bond,1150.67,2.7,0.15
+XFR.TO,0.0023,iShares Floating Rate Index ETF,747305500.0,0.0273,-1.466,-0.001,0.01,Long Term High Quality,37881.8,0.2,0.12
+XGB.TO,0.0833,iShares Core Canadian Government Bond Index ETF,1858574000.0,0.0313,-0.1259,-0.0286,0.05,Long Term High Quality,43732.53,3.2,0.2
+XHB.TO,0.0539,iShares Canadian HYBrid Corporate Bond Index ETF,221778000.0,0.0456,0.4595,-0.0242,0.03,Long Term Mid Quality,7370.0,5.12,0.5
+XLB.TO,0.1675,iShares Core Canadian Long Term Bond Index ETF,838409000.0,0.0411,-0.0158,-0.0485,0.08,Long Term High Quality,28794.1,3.88,0.2
+XQB.TO,0.078,iShares High Quality Canadian Bond Index ETF,521675000.0,0.0344,-0.1346,-0.027,0.04,Long Term High Quality,12047.13,3.56,0.13
+XRB.TO,0.119,iShares Canadian Real Return Bond Index ETF,248050000.0,0.0242,-0.0732,-0.0386,0.07,Long Term High Quality,5799.13,2.48,0.39
+XSAB.TO,0.063,iShares ESG Aware Canadian Aggregate Bond Index ETF,216840000.0,0.033,-0.1219,-0.0272,0.04,Long Term High Quality,10883.4,3.45,0.17
+XSB.TO,0.031,iShares Core Canadian Short Term Bond Index ETF,3570828000.0,0.0311,-0.4073,-0.0147,0.02,Short Term High Quality,130655.1,3.16,0.1
+XSH.TO,0.0408,iShares Core Canadian Short Term Corporate Bond Index ETF,2200716000.0,0.0392,-0.0944,-0.0151,0.02,Short Term Mid Quality,58142.93,4.11,0.09
+XSHG.TO,0.0285,iShares ESG Advanced 1-5 Year Canadian Corporate Bond Index ETF,39540000.0,0.0374,-0.3083,-0.0144,0.02,Long Term High Quality,2157.33,4.02,0.15
+XSMB.TO,-0.003,iShares Core Canadian Short-Mid Term Universe Bond Index ETF,10007500.0,0.0341,-0.2717,-0.0191,0.03,Intermediate Term High Quality,392.67,3.3,0.15
+XSTB.TO,0.0275,iShares ESG Aware Canadian Short Term Bond Index ETF,132995000.0,0.0288,-0.6532,-0.0135,0.02,Short Term High Quality,3740.0,2.99,0.17
+XTR.TO,0.3461,iShares Diversified Monthly Income ETF,366210000.0,0.0392,1.0645,-0.0385,0.06,Investment Grade Bond,11333.0,4.29,0.61
+ZAG.TO,0.0859,BMO Aggregate Bond Index ETF,12200805399.38,0.0344,-0.0783,-0.0279,0.04,Long Term High Quality,593339.53,3.48,0.08
+ZBBB.TO,,BMO BBB Corporate Bond Index ETF,31602480.0,0.0396,,0.0,,Intermediate Term Mid Quality,0.0,4.46,0.15
+ZCB.TO,0.0578,BMO Corporate Bond Index ETF,1702192700.0,0.0415,0.0639,-0.0255,0.04,Long Term Mid Quality,6161.93,4.36,0.15
+ZCDB.TO,0.0218,BMO Corporate Discount Bond ETF,53962411.41,0.0199,-0.1405,-0.0198,0.03,Intermediate Term Mid Quality,830.47,2.33,0.15
+ZCM.TO,0.0948,BMO Mid Corporate Bond Index ETF,1327723932.6,0.043,0.2221,-0.0308,0.05,Long Term Mid Quality,11886.9,4.66,0.3
+ZCS.TO,0.043,BMO Short Corporate Bond Index ETF,4333809579.84,0.0396,-0.1464,-0.0163,0.02,Short Term Mid Quality,119821.47,4.16,0.1
+ZDB.TO,0.076,BMO Discount Bond Index ETF,1151782415.0,0.0197,-0.1664,-0.0279,0.04,Long Term High Quality,48969.0,1.85,0.09
+ZFL.TO,0.1403,BMO Long Federal Bond Index ETF,1254259020.0,0.029,-0.2417,-0.0668,0.1,Long Term High Quality,37441.5,2.94,0.2
+ZFM.TO,0.0646,BMO Mid Federal Bond Index ETF,816470224.43,0.0258,-0.1691,-0.0308,0.05,Long Term High Quality,14193.33,3.11,0.2
+ZFS.TO,0.0202,BMO Short Federal Bond Index ETF,365235980.18,0.0256,-0.8019,-0.015,0.02,Intermediate Term Government Bond,10030.5,2.68,0.2
+ZGB.TO,0.0648,BMO Government Bond Index ETF,1463462000.0,0.0262,-0.1966,-0.0276,0.04,Long Term High Quality,5120.0,3.13,0.15
+ZLC.TO,0.1747,BMO Long Corporate Bond Index ETF,461655761.01,0.0465,0.0354,-0.0464,0.07,Long Term Mid Quality,18889.43,4.78,0.3
+ZLSC.TO,0.3474,BMO Long Short Canadian Equity ETF,90034043.6,0.0114,1.9493,-0.0475,0.08,Equity,1746.77,,0.65
+ZMBS.TO,0.0052,BMO Canadian MBS Index ETF,439654700.0,0.0284,-1.0232,-0.0191,0.02,Investment Grade Bond,513.33,3.37,0.15
+ZMMK.TO,0.0008,BMO Money Market Fund,5692476596.8,0.0246,-5.7959,-0.0003,0.0,Money Market,234567.67,0.1,0.12
+ZMP.TO,0.0845,BMO Mid Provincial Bond Index ETF,721494012.72,0.0319,0.1524,-0.0301,0.04,Long Term High Quality,16866.67,3.84,0.25
+ZPL.TO,0.1748,BMO Long Provincial Bond Index ETF,309803767.0,0.0363,-0.0003,-0.0506,0.09,Long Term High Quality,5503.33,3.82,0.25
+ZPR.TO,0.2474,BMO Laddered Preferred Share Index ETF,1517293784.07,0.0505,2.9586,-0.0247,0.04,Preferred Stock,100137.47,5.0,0.45
+ZPS.TO,0.0299,BMO Short Provincial Bond Index ETF,380565973.77,0.0268,-0.5764,-0.0144,0.02,Intermediate Term Government Bond,4470.0,2.7,0.25
+ZQB.TO,0.0221,BMO High Quality Corporate Bond Index ETF,43508580.0,0.0394,-0.1832,-0.0179,0.02,Intermediate Term High Quality,3236.67,4.14,0.1
+ZRR.TO,0.0993,BMO Real Return Bond Index ETF,100786200.0,0.0424,0.1679,-0.04,0.06,Long Term High Quality,4683.33,2.41,0.25
+ZSB.TO,0.0124,BMO Short-Term Bond Index ETF,157461840.0,0.0318,-0.4559,-0.0146,0.02,Intermediate Term Bond,3020.0,3.18,0.09
+ZSDB.TO,0.0216,BMO Short-Term Discount Bond ETF,252890311.56,0.0135,-1.0453,-0.0193,0.02,Intermediate Term High Quality,6626.67,1.52,0.09
+ZST.TO,0.007,BMO Ultra Short-Term Bond ETF,4104307800.0,0.0254,-2.1034,-0.0101,0.01,Ultra Short-Low Risk,63031.13,2.31,0.15
+ZXCO.TO,-0.0108,BMO Target 2027 Canadian Corporate Bond ETF,8112010.14,0.0375,-0.2273,-0.0079,0.02,Investment Grade Bond,2557.37,2.93,0.15
+ZXCP.TO,0.0182,BMO Target 2028 Canadian Corporate Bond ETF,6018010.03,0.0204,-1.3318,-0.0119,0.02,Investment Grade Bond,2426.67,3.14,0.15
+ZXCQ.TO,0.0381,BMO Target 2029 Canadian Corporate Bond ETF,8048010.06,0.0408,0.0041,-0.0196,0.03,Investment Grade Bond,1811.77,3.19,0.15

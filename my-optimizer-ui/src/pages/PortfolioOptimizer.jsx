@@ -6,16 +6,48 @@ import SavePortfolioButton from "../components/save_button.jsx";
 // FastAPI backend (uvicorn defaults to port 8000). Override with VITE_API_URL in .env.
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
+// Selectable ETF universes. Mirrors the backend's /markets endpoint; both share
+// the same schema, so only the ticker universe changes.
+const MARKETS = [
+    { code: "US", label: "United States" },
+    { code: "CA", label: "Canada" },
+];
+
 function PortfolioOptimizerPage(){
-    // Selected style is owned here; the form is remounted (key={style}) whenever it
-    // changes, so all its inputs re-seed from that profile's defaults.
+    // Selected style/market are owned here; the form is remounted (key) whenever
+    // either changes, so inputs re-seed and stale results are cleared.
     const [style, setStyle] = useState("conservative");
+    const [market, setMarket] = useState("US");
     return(
     <div className='portfolioOptimizerPage'>
         <h1>Develop a Portfolio</h1>
+        <MarketSwitch market={market} setMarket={setMarket} />
         <PortfolioStyleDropDown style={style} setStyle={setStyle} className="portfolio_drop_box"/>
-        <OptimizerForm key={style} style={style} />
+        <OptimizerForm key={`${market}-${style}`} style={style} market={market} />
     </div>
+    );
+}
+
+// US / Canada toggle. Chooses which ETF universe the optimizer screens.
+function MarketSwitch({ market, setMarket }){
+    return (
+        <div className="market_switch">
+            <label>ETF Universe</label>
+            <p>Which market's ETFs to screen and optimize</p>
+            <div role="group" aria-label="ETF universe">
+                {MARKETS.map((m) => (
+                    <button
+                        key={m.code}
+                        type="button"
+                        onClick={() => setMarket(m.code)}
+                        aria-pressed={market === m.code}
+                        className={market === m.code ? "market_btn active" : "market_btn"}
+                    >
+                        {m.label}
+                    </button>
+                ))}
+            </div>
+        </div>
     );
 }
 
@@ -34,7 +66,7 @@ function PortfolioStyleDropDown({ style, setStyle }){
 }
 
 // Holds every editable value for the selected style, plus the API call and results.
-function OptimizerForm({ style }){
+function OptimizerForm({ style, market = "US" }){
     const navigate = useNavigate();
     const profile = PORTFOLIO_PROFILES[style];
     const cfg = OPTIMIZER_CONFIG[style];
@@ -54,7 +86,7 @@ function OptimizerForm({ style }){
     const [result, setResult] = useState(null);
 
     // The values that produced the result — saved with the portfolio and passed forward.
-    const inputs = { profile: style, screening, score_weights: scoreWeights, optimizer_weights: slsqpWeights };
+    const inputs = { profile: style, market, screening, score_weights: scoreWeights, optimizer_weights: slsqpWeights };
 
     async function runOptimization(){
         setLoading(true);
@@ -66,6 +98,7 @@ function OptimizerForm({ style }){
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     profile: style,
+                    market,                           // "US" | "CA" — which ETF universe
                     screening,                        // { aum_min, max_expense, max_duration }
                     score_weights: scoreWeights,      // selection weights
                     optimizer_weights: slsqpWeights,  // SLSQP objective weights
