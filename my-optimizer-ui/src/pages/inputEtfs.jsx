@@ -1,5 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SavePortfolioButton from "../components/save_button.jsx";
+import {
+  setCurrentInputPortfolio,
+  toCanonicalHoldings,
+} from "../config/cashAnalysisState";
 
 // FastAPI backend (uvicorn defaults to port 8000). Override with VITE_API_URL in .env.
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
@@ -13,6 +18,24 @@ function InputEtfsPage() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  // Persist the entered portfolio so Cash Analysis' "Current Input Portfolio"
+  // source can pick it up without re-entering the holdings.
+  useEffect(() => {
+    const holdings = toCanonicalHoldings(
+      etfs.filter((r) => r.ticker.trim() !== "" && r.weight.trim() !== "")
+    );
+    if (holdings.length) setCurrentInputPortfolio(holdings);
+  }, [etfs]);
+
+  function goToCashAnalysis() {
+    const holdings = toCanonicalHoldings(
+      etfs.filter((r) => r.ticker.trim() !== "" && r.weight.trim() !== "")
+    );
+    navigate("/cash-analysis", { state: { holdings, source: "input" } });
+  }
 
   function addTicker() {
     setEtfs([...etfs, { ticker: "", weight: "" }]);
@@ -141,9 +164,14 @@ function InputEtfsPage() {
         setRf={setRf}
       />
 
-      <button onClick={evaluate} disabled={loading}>
-        {loading ? "Evaluating..." : "Evaluate Portfolio"}
-      </button>
+      <div className="ca-handoff-row">
+        <button onClick={evaluate} disabled={loading}>
+          {loading ? "Evaluating..." : "Evaluate Portfolio"}
+        </button>
+        <button className="ca-secondary" onClick={goToCashAnalysis}>
+          Use in Cash Analysis →
+        </button>
+      </div>
 
       {error && <p className="error">{error}</p>}
       {result && (

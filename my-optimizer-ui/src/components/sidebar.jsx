@@ -7,6 +7,7 @@ function Sidebar() {
       <Link to="/build">Build</Link>
       <Link to="/inputEtfs">Use ETFs</Link>
       <Link to="/PortfolioOptimizer">Optimizer</Link>
+      <Link to="/cash-analysis">Cash Analysis</Link>
       <Link to="/saved">Saved Portfolios</Link>
     </aside>
   );

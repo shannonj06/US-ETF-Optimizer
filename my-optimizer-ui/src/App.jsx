@@ -12,6 +12,7 @@ import PortfolioOptimizerPage from "./pages/PortfolioOptimizer.jsx";
 import ResultsPage from "./pages/results.jsx";
 import GraphsPage from "./pages/graphs.jsx";
 import SavedPortfoliosPage from "./pages/savedPortfolios.jsx";
+import CashAnalysisPage from "./pages/CashAnalysis.jsx";
 
 // Layout renders the Header once, then the active page in its place (<Outlet />).
 function Layout(){
@@ -53,6 +54,7 @@ function App() {
           <Route path="/inputEtfs" element={<InputEtfsPage />} />
           <Route path="/PortfolioOptimizer" element={<PortfolioOptimizerPage />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="/cash-analysis" element={<CashAnalysisPage />} />
           <Route path="/graphs" element={<GraphsPage />} />
           <Route path="/saved" element={<SavedPortfoliosPage />} />
         </Route>

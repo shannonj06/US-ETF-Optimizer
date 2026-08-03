@@ -7,6 +7,8 @@ import core
 from fastapi import HTTPException
 from fastapi.responses import Response
 
+from api.routes.cash_analysis import router as cash_analysis_router
+
 app = FastAPI()
 
 # let the React dev server (localhost:5173 / 3000) call this API from the browser
@@ -17,6 +19,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+# Cash Analysis: POST /api/cash-analysis (service + schemas live under backend/).
+app.include_router(cash_analysis_router)
+
+
 @app.get("/")
 def root():
     return {"message": "US ETF Optimizer API is running"}

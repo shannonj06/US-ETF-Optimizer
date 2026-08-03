@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import {
+  setLatestOptimizedPortfolio,
+  toCanonicalHoldings,
+} from "../config/cashAnalysisState";
 
 function ResultsPage(){
     const location = useLocation();
@@ -36,6 +40,24 @@ function ResultsPage(){
 
 function ResultsTab({result}){
     const [activeTab, setActiveTab] = useState("cvxpy");
+    const navigate = useNavigate();
+
+    // Keep the "Latest Optimized Portfolio" hand-off in sync with the method the
+    // user is looking at, so Cash Analysis can pick it up without re-entry.
+    const activeHoldings = toCanonicalHoldings(
+        result.methods?.[activeTab]?.weights ?? []
+    );
+    useEffect(() => {
+        if (activeHoldings.length) {
+            setLatestOptimizedPortfolio(activeHoldings, {
+                method: activeTab,
+                profile: result.profile,
+                market: result.market,
+            });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activeTab, result]);
+
     return(
         <div>
         < div className="tabs">
@@ -60,6 +82,16 @@ function ResultsTab({result}){
             HRP
             </button>
         </div>
+        <button
+            className="ca-secondary"
+            onClick={() =>
+                navigate("/cash-analysis", {
+                    state: { holdings: activeHoldings, source: "optimized" },
+                })
+            }
+        >
+            Analyze {activeTab.toUpperCase()} in Cash Analysis →
+        </button>
         {activeTab == "cvxpy" && (
             <>
                 <CVXPY4Table result={result}/>
