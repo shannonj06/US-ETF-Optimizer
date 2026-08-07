@@ -274,46 +274,52 @@ export default function CashAnalysisPage() {
         and total value over time.
       </p>
 
-      <PortfolioSource source={source} onSelect={applySource} />
+      <section className="ca-region">
+        <div className="ca-region-head">
+          <span className="ca-region-eyebrow">Configuration</span>
+        </div>
 
-      {source === "saved" && (
-        <SavedPicker
-          savedList={savedList}
-          savedError={savedError}
-          selectedSavedId={selectedSavedId}
-          onPick={pickSaved}
-          onReload={loadSaved}
+        <PortfolioSource source={source} onSelect={applySource} />
+
+        {source === "saved" && (
+          <SavedPicker
+            savedList={savedList}
+            savedError={savedError}
+            selectedSavedId={selectedSavedId}
+            onPick={pickSaved}
+            onReload={loadSaved}
+          />
+        )}
+
+        <HoldingsEditor
+          rows={rows}
+          weightSum={weightSum}
+          updateRow={updateRow}
+          addRow={addRow}
+          removeRow={removeRow}
         />
-      )}
 
-      <HoldingsEditor
-        rows={rows}
-        weightSum={weightSum}
-        updateRow={updateRow}
-        addRow={addRow}
-        removeRow={removeRow}
-      />
+        <InvestmentSettings
+          initialCash={initialCash}
+          setInitialCash={setInitialCash}
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate}
+          setEndDate={setEndDate}
+          allowFractional={allowFractional}
+          setAllowFractional={setAllowFractional}
+          dividendTreatment={dividendTreatment}
+          setDividendTreatment={setDividendTreatment}
+          frequency={frequency}
+          setFrequency={setFrequency}
+        />
 
-      <InvestmentSettings
-        initialCash={initialCash}
-        setInitialCash={setInitialCash}
-        startDate={startDate}
-        setStartDate={setStartDate}
-        endDate={endDate}
-        setEndDate={setEndDate}
-        allowFractional={allowFractional}
-        setAllowFractional={setAllowFractional}
-        dividendTreatment={dividendTreatment}
-        setDividendTreatment={setDividendTreatment}
-        frequency={frequency}
-        setFrequency={setFrequency}
-      />
+        <button className="ca-run" onClick={runAnalysis} disabled={loading}>
+          {loading ? "Running Cash Analysis…" : "Run Cash Analysis"}
+        </button>
 
-      <button className="ca-run" onClick={runAnalysis} disabled={loading}>
-        {loading ? "Running Cash Analysis…" : "Run Cash Analysis"}
-      </button>
-
-      {error && <p className="error">{error}</p>}
+        {error && <p className="error">{error}</p>}
+      </section>
 
       {loading && <LoadingState />}
 
@@ -535,7 +541,10 @@ function EmptyState() {
 // ── Results ───────────────────────────────────────────────────────────────────
 function Results({ result }) {
   return (
-    <div className="ca-results">
+    <div className="ca-results ca-region ca-region-analytics">
+      <div className="ca-region-head">
+        <span className="ca-region-eyebrow">Analysis</span>
+      </div>
       <ExecutionNotice execution={result.execution} />
       <SummaryCards summary={result.summary} />
       <HoldingsTable holdings={result.holdings} />

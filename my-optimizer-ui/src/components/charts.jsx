@@ -8,10 +8,9 @@
 import { useRef, useState } from "react";
 import { fmtCompact, fmtCurrency } from "./chartUtils.js";
 
-// Chart chrome (light surface).
-const MUTED = "#898781";
-const GRID = "#e1e0d9";
-const AXIS = "#c3c2b7";
+// Chart chrome resolves from CSS variables (via classes styled in App.css), so
+// grid / axis / label tones follow the active theme. Series colors stay explicit
+// (they carry identity and read on both light and dark surfaces).
 
 // "nice" axis ticks spanning [min, max].
 function niceTicks(min, max, count = 5) {
@@ -137,7 +136,7 @@ export function LineChart({
             x2={W - padR}
             y1={yAt(t)}
             y2={yAt(t)}
-            stroke={GRID}
+            className="ca-grid"
             strokeWidth="1"
           />
           <text
@@ -145,7 +144,7 @@ export function LineChart({
             y={yAt(t) + 4}
             textAnchor="end"
             fontSize="11"
-            fill={MUTED}
+            className="ca-axis-label"
           >
             {valueFormat(t)}
           </text>
@@ -160,7 +159,7 @@ export function LineChart({
             y={H - padB + 20}
             textAnchor="middle"
             fontSize="11"
-            fill={MUTED}
+            className="ca-axis-label"
           >
             {lbl}
           </text>
@@ -172,9 +171,33 @@ export function LineChart({
         x2={W - padR}
         y1={padT + plotH}
         y2={padT + plotH}
-        stroke={AXIS}
+        className="ca-axis"
         strokeWidth="1"
       />
+      {/* subtle area fills under solid lines (gradient to transparent) */}
+      <defs>
+        {visible.map((s) =>
+          s.dashed ? null : (
+            <linearGradient key={s.key} id={`area-${s.key}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={s.color} stopOpacity="0.18" />
+              <stop offset="100%" stopColor={s.color} stopOpacity="0" />
+            </linearGradient>
+          )
+        )}
+      </defs>
+      {visible.map((s) => {
+        if (s.dashed) return null;
+        const pts = s.values
+          .map((v, i) => (v == null || Number.isNaN(v) ? null : [xAt(i), yAt(v)]))
+          .filter(Boolean);
+        if (pts.length < 2) return null;
+        const base = padT + plotH;
+        const area =
+          `M${pts[0][0]},${base} ` +
+          pts.map(([x, y]) => `L${x},${y}`).join(" ") +
+          ` L${pts[pts.length - 1][0]},${base} Z`;
+        return <path key={`fill-${s.key}`} d={area} fill={`url(#area-${s.key})`} stroke="none" />;
+      })}
       {/* series lines */}
       {visible.map((s) => {
         const d = s.values
@@ -206,7 +229,7 @@ export function LineChart({
             x2={xAt(hover)}
             y1={padT}
             y2={padT + plotH}
-            stroke={AXIS}
+            className="ca-axis"
             strokeWidth="1"
             strokeDasharray="3 3"
           />
@@ -351,7 +374,7 @@ export function BarChart({
             x2={W - padR}
             y1={yAt(t)}
             y2={yAt(t)}
-            stroke={GRID}
+            className="ca-grid"
             strokeWidth="1"
           />
           <text
@@ -359,7 +382,7 @@ export function BarChart({
             y={yAt(t) + 4}
             textAnchor="end"
             fontSize="11"
-            fill={MUTED}
+            className="ca-axis-label"
           >
             {valueFormat(t)}
           </text>
@@ -371,7 +394,7 @@ export function BarChart({
         x2={W - padR}
         y1={zeroY}
         y2={zeroY}
-        stroke={AXIS}
+        className="ca-axis"
         strokeWidth="1.5"
       />
       {/* bars */}
@@ -462,7 +485,7 @@ export function BarChart({
             y={H - padB + 18}
             textAnchor="middle"
             fontSize="10"
-            fill={MUTED}
+            className="ca-axis-label"
           >
             {cat}
           </text>

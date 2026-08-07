@@ -1,60 +1,274 @@
 /* ============================================================
    InvestMint — design system
-   Mint-forward, clean, professional fintech theme.
+   Layered, dimensional, restrained. Depth comes from a surface
+   hierarchy (L0 app → L1 panel → L2 card → L3 control → L4 overlay),
+   a graded elevation scale, bright top edges, recessed insets, and
+   a soft mint glow on active elements — not from big shadows or glass.
+   Light + dark are both hand-tuned (not an auto-invert).
    ============================================================ */
 
 :root {
-  /* Brand — mint */
-  --mint-50:  #eafaf3;
-  --mint-100: #d0f3e3;
-  --mint-200: #a5e8cb;
-  --mint-300: #6fd7ac;
-  --mint-400: #37c08b;
-  --mint-500: #12a575;   /* primary */
+  /* ---- Brand: mint ---- */
+  --mint-50:  #ecfbf4;
+  --mint-100: #d3f4e4;
+  --mint-200: #a8e8cb;
+  --mint-300: #71d6ac;
+  --mint-400: #38bf8b;
+  --mint-500: #12a575;
   --mint-600: #0c8a61;
   --mint-700: #0a6f4f;
   --mint-800: #0a5740;
   --mint-900: #083f30;
+  --accent:        var(--mint-500);
+  --accent-strong: var(--mint-600);
 
-  /* Neutrals */
-  --ink:      #0f1c18;   /* headings */
-  --text:     #40504a;   /* body */
-  --muted:    #6b7a73;   /* secondary text */
-  --bg:       #f4f8f6;   /* app background */
-  --surface:  #ffffff;   /* cards / panels */
-  --surface-2:#f7faf9;   /* subtle fills */
-  --border:   #e3ebe7;
-  --border-strong: #d3ded9;
+  /* ============ LIGHT THEME (default) ============ */
 
-  --danger:   #d9483b;
-  --danger-bg:#fdecea;
+  /* Surface hierarchy */
+  --bg:        #e9efec;   /* L0 app background — light mint-gray */
+  --panel:     #f1f6f4;   /* L1 workspace region */
+  --sidebar-bg:#eef3f1;   /* sidebar layer */
+  --surface:   #ffffff;   /* L2 card base */
+  --surface-2: #eef3f1;   /* L3 recessed control / inset fill */
+  --surface-3: #e4ebe8;   /* deeper inset / hover fill */
+  --pop:       #ffffff;   /* L4 overlay / menu base */
+  --card-grad:   #ffffff;   /* flat surfaces — depth from borders + tone, not gradients */
+  --card-grad-2: #ffffff;
+  --wash:      rgba(16, 70, 52, 0.05);   /* hover wash over recessed tracks */
 
-  /* Brand gradient for hero / accents */
-  --grad: linear-gradient(135deg, #12a575 0%, #0c8a61 55%, #0a6f4f 100%);
+  /* Text */
+  --ink:   #0c1512;
+  --text:  #38423d;
+  --muted: #71807a;
+  --faint: #a2aea8;
 
-  --radius:    14px;
-  --radius-sm: 9px;
-  --radius-pill: 999px;
+  /* Borders + edges */
+  --border:        rgba(16, 70, 52, 0.10);
+  --border-strong: rgba(16, 70, 52, 0.16);
+  --border-hair:   rgba(16, 70, 52, 0.06);
+  --edge-hi:       rgba(255, 255, 255, 0.9);   /* bright top edge of a card */
 
-  --shadow-sm: 0 1px 2px rgba(9, 40, 30, 0.06), 0 1px 3px rgba(9, 40, 30, 0.05);
-  --shadow-md: 0 6px 16px -6px rgba(9, 40, 30, 0.14), 0 3px 8px -4px rgba(9, 40, 30, 0.08);
-  --shadow-lg: 0 24px 48px -18px rgba(9, 40, 30, 0.22);
+  /* Status */
+  --danger:    #dc4a3d;
+  --danger-bg: #fdecea;
+  --danger-bd: rgba(220, 74, 61, 0.22);
+  --warn:      #b7791f;
+  --warn-bg:   #fdf6e7;
+  --warn-bd:   #f0dcae;
+  --warn-badge-bg: #f6e2b3;
+  --warn-badge-fg: #7a5a12;
+  --pos:       var(--mint-600);
+  --neg:       var(--danger);
 
-  --sans: 'Segoe UI', system-ui, Roboto, -apple-system, sans-serif;
-  --mono: ui-monospace, 'SF Mono', Consolas, monospace;
+  /* Elevation — tight and crisp; depth comes mostly from borders + tone */
+  --elev-1: 0 1px 2px rgba(10, 40, 30, 0.06);
+  --elev-2: 0 1px 1px rgba(10, 40, 30, 0.05), 0 4px 12px -6px rgba(10, 40, 30, 0.12);
+  --elev-3: 0 2px 4px rgba(10, 40, 30, 0.08), 0 12px 28px -12px rgba(10, 40, 30, 0.18);
+  --elev-pop: 0 2px 6px rgba(10, 40, 30, 0.10), 0 16px 40px -14px rgba(10, 40, 30, 0.28);
+  --inset:  inset 0 1px 1px rgba(10, 40, 30, 0.05);
+  --inset-well: inset 0 1px 2px rgba(10, 40, 30, 0.05);
+  --glow-mint: 0 0 0 1px rgba(45, 212, 163, 0.45);
+  --ring: 0 0 0 2px rgba(18, 165, 117, 0.30);
 
-  font: 16px/1.5 var(--sans);
+  /* Buttons — restrained vertical gradient + grounded shadow */
+  --btn-grad:       linear-gradient(180deg, #2fcea0 0%, #10a071 100%);
+  --btn-grad-hover: linear-gradient(180deg, #37d9aa 0%, #14ac7b 100%);
+  --btn-shadow:     0 1px 2px rgba(8, 70, 50, 0.28), 0 4px 12px -4px rgba(10, 120, 85, 0.30);
+  --btn-shadow-hover: 0 2px 4px rgba(8, 70, 50, 0.30), 0 8px 20px -6px rgba(10, 120, 85, 0.36);
+
+  /* Glass (header/sidebar) */
+  --glass:      rgba(246, 250, 248, 0.72);
+  --glass-blur: saturate(150%) blur(14px);
+
+  /* Tooltip / floating popovers */
+  --tooltip-bg: rgba(14, 26, 22, 0.95);
+  --tooltip-fg: #eef6f2;
+  --tooltip-bd: rgba(255, 255, 255, 0.08);
+
+  /* Chart chrome (consumed by inline SVG via var()) */
+  --chart-grid:  rgba(16, 70, 52, 0.09);
+  --chart-axis:  rgba(16, 70, 52, 0.20);
+  --chart-muted: #8a968f;
+  --chart-fill:  rgba(18, 165, 117, 0.12);
+
+  /* Ambient tint behind the app */
+  --ambient:
+    radial-gradient(1100px 480px at 8% -12%, rgba(56, 191, 139, 0.08), transparent 62%),
+    radial-gradient(900px 420px at 96% -8%, rgba(70, 120, 200, 0.05), transparent 58%);
+
+  /* Legacy aliases (map old shadow/grad names onto the elevation scale so
+     they resolve per-theme). Prefer --elev-* / --card-grad in new rules. */
+  --shadow-xs: var(--elev-1);
+  --shadow-sm: var(--elev-1);
+  --shadow-md: var(--elev-2);
+  --shadow-lg: var(--elev-3);
+  --grad:        linear-gradient(135deg, var(--mint-500), var(--mint-700));
+  --grad-accent: linear-gradient(180deg, var(--mint-400), var(--mint-600));
+
+  /* Radii — sharp. The whole product is squared off (quant terminal). */
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius:    3px;
+  --radius-lg: 4px;
+  --radius-pill: 3px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Type — Geist (sleek, technical) + Geist Mono for all numerics */
+  --display: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sans:    'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:    'Geist Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+
+  font: 14px/1.55 var(--sans);
   color: var(--text);
   background: var(--bg);
   color-scheme: light;
-  letter-spacing: 0.1px;
+  letter-spacing: -0.006em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  accent-color: var(--mint-500);
+}
+
+/* ============ DARK THEME ============ */
+/* System-dark applies unless the user forced light; the toggle wins both ways. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; }
+}
+:root[data-theme="dark"] { color-scheme: dark; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #07110f;
+    --panel:     #0a1613;
+    --sidebar-bg:#091512;
+    --surface:   #122420;
+    --surface-2: #0d1c17;   /* recessed control (darker than card) */
+    --surface-3: #183129;   /* raised control / hover (lighter) */
+    --pop:       #172f27;
+    --card-grad:   linear-gradient(180deg, #13261f 0%, #0d1d18 100%);
+    --card-grad-2: linear-gradient(180deg, #122320 0%, #0e1c17 100%);
+    --wash:      rgba(255, 255, 255, 0.05);
+
+    --ink:   #eaf3ee;
+    --text:  #b7c6bf;
+    --muted: #7d9188;
+    --faint: #5a6d64;
+
+    --border:        rgba(105, 210, 170, 0.11);
+    --border-strong: rgba(105, 210, 170, 0.18);
+    --border-hair:   rgba(105, 210, 170, 0.06);
+    --edge-hi:       rgba(255, 255, 255, 0.045);
+
+    --danger:    #f0776b;
+    --danger-bg: rgba(220, 74, 61, 0.15);
+    --danger-bd: rgba(240, 119, 107, 0.28);
+    --warn:      #e6b866;
+    --warn-bg:   rgba(230, 184, 102, 0.12);
+    --warn-bd:   rgba(230, 184, 102, 0.24);
+    --warn-badge-bg: rgba(230, 184, 102, 0.20);
+    --warn-badge-fg: #e6b866;
+    --pos: var(--mint-400);
+    --neg: #f0776b;
+
+    --elev-1: 0 1px 2px rgba(0, 0, 0, 0.30);
+    --elev-2: 0 2px 6px rgba(0, 0, 0, 0.30), 0 12px 30px -10px rgba(0, 0, 0, 0.40);
+    --elev-3: 0 4px 10px rgba(0, 0, 0, 0.35), 0 20px 44px -12px rgba(0, 0, 0, 0.55);
+    --elev-pop: 0 6px 14px rgba(0, 0, 0, 0.40), 0 28px 60px -16px rgba(0, 0, 0, 0.65);
+    --inset:  inset 0 1px 2px rgba(0, 0, 0, 0.40);
+    --inset-well: inset 0 1px 3px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.20);
+    --glow-mint: 0 0 0 1px rgba(45, 212, 163, 0.22), 0 8px 28px -6px rgba(10, 120, 85, 0.28);
+    --ring: 0 0 0 3.5px rgba(45, 212, 163, 0.22);
+
+    --btn-grad:       linear-gradient(180deg, #23c493 0%, #0f9d70 100%);
+    --btn-grad-hover: linear-gradient(180deg, #2bd29f 0%, #12ab7b 100%);
+    --btn-shadow:     0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px -4px rgba(0, 0, 0, 0.5);
+    --btn-shadow-hover: 0 2px 5px rgba(0, 0, 0, 0.45), 0 10px 24px -6px rgba(0, 0, 0, 0.55);
+
+    --glass:  rgba(9, 21, 18, 0.72);
+
+    --tooltip-bg: rgba(23, 47, 39, 0.96);
+    --tooltip-fg: #eaf3ee;
+    --tooltip-bd: rgba(105, 210, 170, 0.16);
+
+    --chart-grid:  rgba(105, 210, 170, 0.10);
+    --chart-axis:  rgba(105, 210, 170, 0.22);
+    --chart-muted: #7d9188;
+    --chart-fill:  rgba(45, 212, 163, 0.12);
+
+    --ambient:
+      radial-gradient(1100px 520px at 10% -14%, rgba(18, 165, 117, 0.10), transparent 60%),
+      radial-gradient(900px 460px at 96% -8%, rgba(20, 90, 140, 0.06), transparent 58%);
+  }
+}
+
+/* Explicit dark (toggle) — same values, wins over any system setting. */
+:root[data-theme="dark"] {
+  --bg:        #07110f;
+  --panel:     #0a1613;
+  --sidebar-bg:#091512;
+  --surface:   #122420;
+  --surface-2: #0d1c17;
+  --surface-3: #183129;
+  --pop:       #172f27;
+  --card-grad:   linear-gradient(180deg, #13261f 0%, #0d1d18 100%);
+  --card-grad-2: linear-gradient(180deg, #122320 0%, #0e1c17 100%);
+  --wash:      rgba(255, 255, 255, 0.05);
+
+  --ink:   #eaf3ee;
+  --text:  #b7c6bf;
+  --muted: #7d9188;
+  --faint: #5a6d64;
+
+  --border:        rgba(105, 210, 170, 0.11);
+  --border-strong: rgba(105, 210, 170, 0.18);
+  --border-hair:   rgba(105, 210, 170, 0.06);
+  --edge-hi:       rgba(255, 255, 255, 0.045);
+
+  --danger:    #f0776b;
+  --danger-bg: rgba(220, 74, 61, 0.15);
+  --danger-bd: rgba(240, 119, 107, 0.28);
+  --warn:      #e6b866;
+  --warn-bg:   rgba(230, 184, 102, 0.12);
+  --warn-bd:   rgba(230, 184, 102, 0.24);
+  --warn-badge-bg: rgba(230, 184, 102, 0.20);
+  --warn-badge-fg: #e6b866;
+  --pos: var(--mint-400);
+  --neg: #f0776b;
+
+  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.30);
+  --elev-2: 0 2px 6px rgba(0, 0, 0, 0.30), 0 12px 30px -10px rgba(0, 0, 0, 0.40);
+  --elev-3: 0 4px 10px rgba(0, 0, 0, 0.35), 0 20px 44px -12px rgba(0, 0, 0, 0.55);
+  --elev-pop: 0 6px 14px rgba(0, 0, 0, 0.40), 0 28px 60px -16px rgba(0, 0, 0, 0.65);
+  --inset:  inset 0 1px 2px rgba(0, 0, 0, 0.40);
+  --inset-well: inset 0 1px 3px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.20);
+  --glow-mint: 0 0 0 1px rgba(45, 212, 163, 0.22), 0 8px 28px -6px rgba(10, 120, 85, 0.28);
+  --ring: 0 0 0 3.5px rgba(45, 212, 163, 0.22);
+
+  --btn-grad:       linear-gradient(180deg, #23c493 0%, #0f9d70 100%);
+  --btn-grad-hover: linear-gradient(180deg, #2bd29f 0%, #12ab7b 100%);
+  --btn-shadow:     0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 14px -4px rgba(0, 0, 0, 0.5);
+  --btn-shadow-hover: 0 2px 5px rgba(0, 0, 0, 0.45), 0 10px 24px -6px rgba(0, 0, 0, 0.55);
+
+  --glass:  rgba(9, 21, 18, 0.72);
+
+  --tooltip-bg: rgba(23, 47, 39, 0.96);
+  --tooltip-fg: #eaf3ee;
+  --tooltip-bd: rgba(105, 210, 170, 0.16);
+
+  --chart-grid:  rgba(105, 210, 170, 0.10);
+  --chart-axis:  rgba(105, 210, 170, 0.22);
+  --chart-muted: #7d9188;
+  --chart-fill:  rgba(45, 212, 163, 0.12);
+
+  --ambient:
+    radial-gradient(1100px 520px at 10% -14%, rgba(18, 165, 117, 0.10), transparent 60%),
+    radial-gradient(900px 460px at 96% -8%, rgba(20, 90, 140, 0.06), transparent 58%);
 }
 
 * { box-sizing: border-box; }
-
 body { margin: 0; }
 
 #root {
@@ -63,113 +277,228 @@ body { margin: 0; }
   display: flex;
   flex-direction: column;
   text-align: left;
-  background: var(--bg);
+  background: var(--ambient), var(--bg);
+  background-attachment: fixed;
+  transition: background-color .25s var(--ease);
 }
+
+/* Scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::selection { background: var(--mint-200); color: var(--mint-900); }
 
 /* ---------- Typography ---------- */
 h1, h2, h3, h4 {
-  font-family: var(--sans);
+  font-family: var(--display);
   color: var(--ink);
-  font-weight: 650;
-  line-height: 1.2;
+  font-weight: 600;
+  line-height: 1.18;
   margin: 0 0 0.5em;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
 }
-h1 { font-size: clamp(28px, 4vw, 44px); }
-h2 { font-size: 22px; }
-h3 { font-size: 18px; }
-h4 { font-size: 15px; color: var(--mint-700); text-transform: uppercase; letter-spacing: 0.06em; }
-p  { margin: 0 0 0.4em; }
+h1 { font-size: clamp(27px, 3.2vw, 35px); letter-spacing: -0.02em; }
+h2 { font-size: 19px; }
+h3 { font-size: 16px; }
+h4 {
+  font-size: 12px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+}
+p { margin: 0 0 0.4em; }
 
 a {
   color: var(--mint-600);
   text-decoration: none;
-  font-weight: 550;
+  font-weight: 500;
+  transition: color .15s var(--ease);
 }
-a:hover { color: var(--mint-700); }
+:root[data-theme="dark"] a,
+:root:not([data-theme="light"]) a { }
+a:hover { color: var(--mint-500); }
 
-/* ---------- Buttons (default = primary mint) ---------- */
+/* ---------- Buttons: primary = restrained gradient + depth ---------- */
+/* Flat, crisp accent — no gloss, no gradient, no fake bevel. */
 button {
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--mint-500);
-  border: 1px solid transparent;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #051611;
+  background: var(--mint-400);
+  border: 1px solid var(--mint-500);
   border-radius: var(--radius-sm);
-  padding: 10px 18px;
+  padding: 8px 15px;
   cursor: pointer;
-  transition: background .18s ease, box-shadow .18s ease, transform .04s ease;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
+  transition: background .14s var(--ease), border-color .14s var(--ease), transform .08s var(--ease), box-shadow .14s var(--ease);
 }
-button:hover   { background: var(--mint-600); }
-button:active  { transform: translateY(1px); }
-button:disabled{ background: var(--mint-200); color: #eafaf3; cursor: not-allowed; box-shadow: none; }
-button:focus-visible { outline: 3px solid var(--mint-200); outline-offset: 2px; }
+button:hover  { background: var(--mint-300); border-color: var(--mint-400); }
+button:active { transform: translateY(1px); background: var(--mint-500); }
+button:disabled {
+  background: var(--surface-3); color: var(--faint);
+  cursor: not-allowed; transform: none;
+  border-color: var(--border);
+}
+button:focus-visible { outline: none; box-shadow: var(--ring); }
 
-/* ---------- Form controls ---------- */
+/* ---------- Form controls: recessed inside their parent ---------- */
 input, select, textarea {
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--ink);
-  background: var(--surface);
+  background: var(--surface-2);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   padding: 9px 12px;
-  transition: border-color .15s ease, box-shadow .15s ease;
+  box-shadow: var(--inset);
+  transition: border-color .15s var(--ease), box-shadow .15s var(--ease), background .15s var(--ease);
 }
-input::placeholder { color: #a6b2ac; }
+input::placeholder { color: var(--faint); }
+input:hover, select:hover, textarea:hover { border-color: var(--border-strong); }
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--mint-400);
-  box-shadow: 0 0 0 3px var(--mint-100);
+  background: var(--surface);
+  box-shadow: var(--ring);
 }
-label { color: var(--text); font-size: 14px; }
+label { color: var(--text); font-size: 13.5px; }
 
 /* ---------- Tables ---------- */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   overflow: hidden;
   margin: 8px 0 20px;
-  font-size: 14px;
+  font-size: 13.5px;
 }
 thead th {
-  background: var(--mint-50);
-  color: var(--mint-800);
+  background: var(--surface-2);
+  color: var(--muted);
   text-align: left;
-  font-weight: 650;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 10px 14px;
+  letter-spacing: 0.08em;
+  padding: 11px 15px;
   border-bottom: 1px solid var(--border);
 }
-tbody td { padding: 9px 14px; border-bottom: 1px solid var(--border); color: var(--text); }
+tbody td { padding: 11px 15px; border-bottom: 1px solid var(--border-hair); color: var(--text); }
 tbody tr:last-child td { border-bottom: none; }
+tbody tr { transition: background .12s var(--ease); }
 tbody tr:hover { background: var(--surface-2); }
 
 /* ---------- Utility text ---------- */
-.hint { font-size: 13px; color: var(--muted); margin: 4px 0; }
+.hint { font-size: 12.5px; color: var(--muted); margin: 4px 0; }
 .error, .error-message {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--danger);
   background: var(--danger-bg);
-  border: 1px solid #f4c9c4;
+  border: 1px solid var(--danger-bd);
   border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  margin: 8px 0;
+  padding: 10px 13px;
+  margin: 10px 0;
 }
 
 pre {
-  background: var(--ink);
+  background: #0c1a15;
   color: #d7f5e8;
   font-family: var(--mono);
   font-size: 12.5px;
   padding: 16px;
   border-radius: var(--radius-sm);
   overflow-x: auto;
+}
+
+/* ---------- Motion primitives ---------- */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============================================================
+   DARK — quant terminal (final override; wins over the blocks
+   above). Near-black green, flat surfaces, crisp borders,
+   high-contrast text. This is the default ship theme.
+   ============================================================ */
+:root[data-theme="dark"],
+:root:not([data-theme="light"]) {
+  --bg:        #050d0b;
+  --panel:     #08110e;
+  --sidebar-bg:#070f0d;
+  --surface:   #0d1714;
+  --surface-2: #0a120f;   /* recessed control */
+  --surface-3: #16221d;   /* raised control / hover */
+  --pop:       #131f1a;
+  --card-grad:   #0d1714;
+  --card-grad-2: #0d1714;
+  --wash:      rgba(255, 255, 255, 0.045);
+
+  --ink:   #f1f7f4;
+  --text:  #bccdc5;
+  --muted: #7d8f86;
+  --faint: #55655c;
+
+  --border:        rgba(120, 225, 185, 0.13);
+  --border-strong: rgba(120, 225, 185, 0.20);
+  --border-hair:   rgba(120, 225, 185, 0.07);
+  --edge-hi:       rgba(255, 255, 255, 0.05);
+
+  --danger:    #f0776b;
+  --danger-bg: rgba(240, 119, 107, 0.13);
+  --danger-bd: rgba(240, 119, 107, 0.30);
+  --warn:      #e6b866;
+  --warn-bg:   rgba(230, 184, 102, 0.12);
+  --warn-bd:   rgba(230, 184, 102, 0.26);
+  --warn-badge-bg: rgba(230, 184, 102, 0.20);
+  --warn-badge-fg: #e6b866;
+  --pos: var(--mint-400);
+  --neg: #f0776b;
+
+  --elev-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --elev-2: 0 1px 1px rgba(0, 0, 0, 0.5), 0 4px 14px -6px rgba(0, 0, 0, 0.55);
+  --elev-3: 0 2px 6px rgba(0, 0, 0, 0.5), 0 14px 34px -12px rgba(0, 0, 0, 0.7);
+  --elev-pop: 0 4px 10px rgba(0, 0, 0, 0.55), 0 20px 48px -14px rgba(0, 0, 0, 0.8);
+  --inset:  inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  --inset-well: inset 0 1px 3px rgba(0, 0, 0, 0.45);
+  --glow-mint: 0 0 0 1px rgba(45, 212, 163, 0.5);
+  --ring: 0 0 0 2px rgba(45, 212, 163, 0.4);
+
+  --btn-grad:       linear-gradient(180deg, #1cc793 0%, #0f9d70 100%);
+  --btn-grad-hover: linear-gradient(180deg, #26d29e 0%, #12ab7b 100%);
+  --btn-shadow:     0 1px 2px rgba(0, 0, 0, 0.5);
+  --btn-shadow-hover: 0 2px 10px -3px rgba(0, 0, 0, 0.55);
+
+  --glass:  rgba(7, 15, 13, 0.78);
+
+  --tooltip-bg: rgba(9, 17, 14, 0.97);
+  --tooltip-fg: #eaf3ee;
+  --tooltip-bd: rgba(120, 225, 185, 0.18);
+
+  --chart-grid:  rgba(120, 225, 185, 0.10);
+  --chart-axis:  rgba(120, 225, 185, 0.24);
+  --chart-muted: #7d8f86;
+  --chart-fill:  rgba(45, 212, 163, 0.14);
+
+  --ambient:
+    radial-gradient(1100px 520px at 12% -14%, rgba(18, 165, 117, 0.09), transparent 60%),
+    radial-gradient(900px 460px at 96% -8%, rgba(20, 90, 140, 0.05), transparent 58%);
 }
