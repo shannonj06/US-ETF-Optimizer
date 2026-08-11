@@ -118,10 +118,6 @@ class portfolio_optimizer:
         if custom_weights: #include the caller's portfolio as one more seed, not the only one
             starts.append(feasible(np.array([custom_weights.get(t, 0) for t in self.tickers])))
 
-        print("returns shape:", self.returns.shape)
-        print("yield shape:", self.etf_yields.shape)
-        print("expense shape:", self.etf_expenses.shape)
-        print("x0 shape:", initial_weights.shape)
         result = None
         for x0 in starts:
             candidate = minimize(

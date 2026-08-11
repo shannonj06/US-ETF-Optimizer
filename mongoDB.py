@@ -2,7 +2,6 @@ import certifi
 from pymongo import MongoClient
 from configuration import MONGODB_URL
 from pathlib import Path
-import pandas as pd
 from update import update
 
 BASE = Path(__file__).resolve().parent

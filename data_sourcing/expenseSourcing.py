@@ -98,5 +98,5 @@ df["er_source"]     = sources
 df.to_csv("etfs_with_er.csv", index=False)
 
 missing = [t for t, (er, _) in seen.items() if er is None]
-print(f"\nDone. Saved -> etfs_with_er.csv")
+print("\nDone. Saved -> etfs_with_er.csv")
 print(f"{len(missing)} ticker(s) had no expense ratio: {missing}")
