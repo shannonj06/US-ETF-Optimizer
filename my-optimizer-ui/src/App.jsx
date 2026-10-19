@@ -13,6 +13,7 @@ import ResultsPage from "./pages/results.jsx";
 import GraphsPage from "./pages/graphs.jsx";
 import SavedPortfoliosPage from "./pages/savedPortfolios.jsx";
 import CashAnalysisPage from "./pages/CashAnalysis.jsx";
+import RequireAuth from "./components/requireAuth.jsx";
 
 // Layout renders the Header once, then the active page in its place (<Outlet />).
 function Layout(){
@@ -56,7 +57,12 @@ function App() {
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/cash-analysis" element={<CashAnalysisPage />} />
           <Route path="/graphs" element={<GraphsPage />} />
-          <Route path="/saved" element={<SavedPortfoliosPage />} />
+
+          {/* Saved portfolios are per-account, so guests get an explanation
+              and a sign-up link rather than an empty list. */}
+          <Route element={<RequireAuth />}>
+            <Route path="/saved" element={<SavedPortfoliosPage />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

@@ -3,32 +3,48 @@
 // unchanged. Icons are inline stroke SVGs (Lucide-style) for crisp, dependency-
 // free iconography.
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../config/auth.js";
 
+// `account: true` marks a destination that needs a signed-in user. The link
+// stays visible for guests - hiding it would make the feature undiscoverable -
+// but it is labelled so the requirement is clear before the click.
 const NAV = [
   { to: "/build", label: "Build", icon: IconLayers },
   { to: "/inputEtfs", label: "Use ETFs", icon: IconList },
   { to: "/PortfolioOptimizer", label: "Optimizer", icon: IconSliders },
   { to: "/cash-analysis", label: "Cash Analysis", icon: IconTrend },
-  { to: "/saved", label: "Saved Portfolios", icon: IconBookmark },
+  { to: "/saved", label: "Saved Portfolios", icon: IconBookmark, account: true },
 ];
 
 function Sidebar() {
+  const { isGuest } = useAuth();
   return (
     <aside className="sidebar">
       <span className="sidebar-eyebrow">Workspace</span>
       <nav className="sidebar-nav">
-        {NAV.map(({ to, label, icon: Icon }) => (
-          <NavLink
-            key={to}
-            to={to}
-            className={({ isActive }) => `nav-item${isActive ? " active" : ""}`}
-          >
-            <span className="nav-icon">
-              <Icon />
-            </span>
-            <span className="nav-label">{label}</span>
-          </NavLink>
-        ))}
+        {NAV.map(({ to, label, icon: Icon, account }) => {
+          const locked = account && isGuest;
+          return (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                `nav-item${isActive ? " active" : ""}${locked ? " nav-item-locked" : ""}`
+              }
+              title={locked ? "Requires a free account" : undefined}
+            >
+              <span className="nav-icon">
+                <Icon />
+              </span>
+              <span className="nav-label">{label}</span>
+              {locked && (
+                <span className="nav-lock" aria-label="requires an account">
+                  ○
+                </span>
+              )}
+            </NavLink>
+          );
+        })}
       </nav>
     </aside>
   );

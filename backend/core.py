@@ -9,14 +9,12 @@ import matplotlib
 matplotlib.use("Agg")            # headless: a server has no display
 import matplotlib.pyplot as plt
 
-# This file lives in US Optimization/backend/. The pipeline + config packages live
-# at the project root one level up; storage.py and pdf_export.py live in frontend/.
+# This file lives in US Optimization/backend/. The pipeline + config packages
+# live at the project root one level up.
 _BACKEND = Path(__file__).resolve().parent
 _ROOT = _BACKEND.parent
-_FRONTEND = _ROOT / "frontend"
-for _p in (_ROOT, _FRONTEND):
-    if str(_p) not in sys.path:
-        sys.path.insert(0, str(_p))
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
 
 # ── Pipeline + config (project root) ─────────────────────────────────────────
 from build_portfolios import (
@@ -25,18 +23,17 @@ from build_portfolios import (
 from config.profiles import PORTFOLIO_PROFILES
 from Optimizer_Class.optimizer_weights import OPTIMIZER_CONFIG
 
-# ── Saved-portfolio storage + PDF (reused from frontend/, both streamlit-free) ─
-from storage import load_portfolios, save_portfolio, delete_portfolio, obj_to_df
-from pdf_export import build_pdf
+# Saved portfolios are NOT handled here. The client stores them in Supabase,
+# scoped to their owner by row-level security. frontend/storage.py still backs
+# the Streamlit app's local JSON store, but the API no longer touches it.
 
 __all__ = [
     "build_portfolios", "evaluate_custom_weights", "load_etf_data",
     "PORTFOLIO_PROFILES", "OPTIMIZER_CONFIG",
-    "load_portfolios", "save_portfolio", "delete_portfolio", "obj_to_df", "build_pdf",
     "df_records", "fig_to_b64", "figs_to_b64",
     "profile_names", "profile_defaults",
     "serialize_optimize", "serialize_evaluate",
-    "ALLOWED_ORIGINS", "MARKETS", "market_options",
+    "MARKETS", "market_options",
 ]
 
 # ── Markets ──────────────────────────────────────────────────────────────────
@@ -50,14 +47,8 @@ def market_options():
     """[{code, label}] for the frontend's market switch."""
     return [{"code": c, "label": MARKET_LABELS.get(c, c)} for c in MARKETS]
 
-# ── API settings ─────────────────────────────────────────────────────────────
-# Origins allowed to call the API (your React dev servers). Tighten for prod.
-ALLOWED_ORIGINS = [
-    "http://localhost:5173",   # Vite
-    "http://localhost:3000", 
-    "https://us-etf-optimizer.vercel.app",
-        # Create React App / Next
-]
+# API settings (CORS origins, auth, limits) live in backend/settings.py, which
+# reads them from the environment so they differ per deployment.
 
 # Which charts to ship per portfolio, and their display labels.
 CHART_LABELS = {

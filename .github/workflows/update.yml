@@ -4,11 +4,26 @@ on:
   schedule:
     - cron: "0 6 * * 1"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Fetch and validate only; do not modify the collection"
+        type: boolean
+        default: false
+      force:
+        description: "Bypass the shrink guard (intentional universe reduction only)"
+        type: boolean
+        default: false
+
+# One refresh at a time. Two overlapping runs would each snapshot the other's
+# half-written state.
+concurrency:
+  group: etf-universe-refresh
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout Repository
@@ -18,6 +33,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: pip
 
       - name: Install Dependencies
         run: |
@@ -27,4 +43,19 @@ jobs:
       - name: Update ETF Data and Upload to MongoDB
         env:
           MONGODB_URL: ${{ secrets.MONGODB_URL }}
-        run: python mongoDB.py
+        run: |
+          python mongoDB.py \
+            ${{ inputs.dry_run && '--dry-run' || '' }} \
+            ${{ inputs.force && '--force' || '' }}
+
+      # Uploaded even when the refresh fails, so the pre-refresh snapshot is
+      # recoverable from the run page. mongoDB.py also mirrors it into the
+      # US_ETF_DATA_backup collection.
+      - name: Upload pre-refresh backup
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: etf-universe-backup
+          path: data_sourcing/backups/*.json
+          if-no-files-found: ignore
+          retention-days: 30

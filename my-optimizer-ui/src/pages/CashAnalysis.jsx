@@ -16,8 +16,18 @@ import {
   fmtSignedCurrency,
   seriesColor,
 } from "../components/chartUtils.js";
-
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import {
+  ApiErrorMessage,
+  GuestAllowanceBanner,
+  GuestUpgradePrompt,
+} from "../components/guestNotice.jsx";
+import { api } from "../config/api.js";
+import { useGuestAccess } from "../config/useGuestAccess.js";
+import {
+  GUEST_MAX_HOLDINGS,
+  GUEST_MAX_INITIAL_CASH,
+  guestEarliestStartDate,
+} from "../config/guestPolicy.js";
 
 const SOURCES = [
   { id: "input", label: "Current Input Portfolio" },
@@ -114,8 +124,20 @@ export default function CashAnalysisPage() {
   const [selectedSavedId, setSelectedSavedId] = useState("");
 
   const [loading, setLoading] = useState(false);
+  // `error` holds local validation messages (strings); `apiError` holds a
+  // typed ApiError from the server, which renders differently when it is a
+  // spent guest allowance rather than a real failure.
   const [error, setError] = useState("");
+  const [apiError, setApiError] = useState(null);
   const [result, setResult] = useState(null);
+
+  const guest = useGuestAccess();
+  const maxHoldings = guest.isGuest ? GUEST_MAX_HOLDINGS : Infinity;
+  const atHoldingLimit = rows.length >= maxHoldings;
+  const outOfRuns = guest.isGuest && !guest.canUse("cash_analysis");
+  // Guests look back a limited number of years; the date input enforces it so
+  // the picker cannot offer a date the server will refuse.
+  const earliestStart = guest.isGuest ? guestEarliestStartDate() : "";
 
   // ── persist form state (not the heavy result) across navigation ─────────────
   useEffect(() => {
@@ -188,7 +210,8 @@ export default function CashAnalysisPage() {
       copy[i] = { ...copy[i], [field]: field === "ticker" ? value.toUpperCase() : value };
       return copy;
     });
-  const addRow = () => setRows((prev) => [...prev, emptyRow()]);
+  const addRow = () =>
+    setRows((prev) => (prev.length >= maxHoldings ? prev : [...prev, emptyRow()]));
   const removeRow = (i) => setRows((prev) => (prev.length > 1 ? prev.filter((_, j) => j !== i) : prev));
 
   const weightSum = useMemo(
@@ -215,6 +238,21 @@ export default function CashAnalysisPage() {
     if (!startDate) return "Choose a portfolio start date.";
     if (startDate > TODAY) return "The start date must not be in the future.";
     if (endDate && endDate <= startDate) return "The end date must be after the start date.";
+
+    // Guest ceilings, mirrored from the server so the run isn't spent on a
+    // request that will be refused.
+    if (guest.isGuest) {
+      const filledCount = filled.length;
+      if (filledCount > GUEST_MAX_HOLDINGS) {
+        return `Guest preview: up to ${GUEST_MAX_HOLDINGS} ETFs. Create a free account for larger portfolios.`;
+      }
+      if (cash > GUEST_MAX_INITIAL_CASH) {
+        return `Guest preview: up to ${GUEST_MAX_INITIAL_CASH.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })} of initial cash.`;
+      }
+      if (earliestStart && startDate < earliestStart) {
+        return `Guest preview: the start date must be on or after ${earliestStart}. Create a free account for the full history.`;
+      }
+    }
     return null;
   }
 
@@ -226,6 +264,7 @@ export default function CashAnalysisPage() {
       return;
     }
     setError("");
+    setApiError(null);
     setLoading(true);
     setResult(null);
     try {
@@ -241,33 +280,24 @@ export default function CashAnalysisPage() {
         dividend_treatment: dividendTreatment,
         frequency,
       };
-      const res = await fetch(`${API_URL}/api/cash-analysis`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        const detail = err.detail;
-        throw new Error(
-          typeof detail === "string"
-            ? detail
-            : Array.isArray(detail)
-            ? detail.map((d) => d.msg).join("; ")
-            : `Request failed (${res.status})`
-        );
-      }
-      setResult(await res.json());
+      setResult(await api.cashAnalysis(body));
     } catch (e) {
-      setError(e.message);
+      setApiError(e);
     } finally {
       setLoading(false);
+      guest.refresh();
     }
   }
 
   return (
     <div className="cash-analysis">
       <h1>Cash Analysis</h1>
+
+      <GuestAllowanceBanner
+        isGuest={guest.isGuest}
+        left={guest.left}
+        action="cash_analysis"
+      />
       <p className="ca-intro">
         See what a specific dollar amount would have done in a portfolio bought on
         a historical date — shares purchased, dividends received, gains and losses,
@@ -297,6 +327,8 @@ export default function CashAnalysisPage() {
           updateRow={updateRow}
           addRow={addRow}
           removeRow={removeRow}
+          atLimit={atHoldingLimit}
+          maxHoldings={maxHoldings}
         />
 
         <InvestmentSettings
@@ -312,19 +344,27 @@ export default function CashAnalysisPage() {
           setDividendTreatment={setDividendTreatment}
           frequency={frequency}
           setFrequency={setFrequency}
+          minStartDate={earliestStart}
+          maxInitialCash={guest.isGuest ? GUEST_MAX_INITIAL_CASH : null}
         />
 
-        <button className="ca-run" onClick={runAnalysis} disabled={loading}>
+        <button className="ca-run" onClick={runAnalysis} disabled={loading || outOfRuns}>
           {loading ? "Running Cash Analysis…" : "Run Cash Analysis"}
         </button>
 
         {error && <p className="error">{error}</p>}
+        <ApiErrorMessage error={apiError} />
+        <GuestUpgradePrompt
+          isGuest={guest.isGuest}
+          left={guest.left}
+          action="cash_analysis"
+        />
       </section>
 
       {loading && <LoadingState />}
 
       {result && !loading && <Results result={result} />}
-      {!result && !loading && !error && <EmptyState />}
+      {!result && !loading && !error && !apiError && <EmptyState />}
     </div>
   );
 }
@@ -383,7 +423,7 @@ function SavedPicker({ savedList, savedError, selectedSavedId, onPick, onReload 
 }
 
 // ── Holdings editor ───────────────────────────────────────────────────────────
-function HoldingsEditor({ rows, weightSum, updateRow, addRow, removeRow }) {
+function HoldingsEditor({ rows, weightSum, updateRow, addRow, removeRow, atLimit, maxHoldings }) {
   const off = Math.abs(weightSum - 100);
   const sumClass = off < 0.5 ? "ok" : off <= 2 ? "warn" : "bad";
   return (
@@ -425,8 +465,19 @@ function HoldingsEditor({ rows, weightSum, updateRow, addRow, removeRow }) {
           </button>
         </div>
       ))}
+      {atLimit && Number.isFinite(maxHoldings) && (
+        <p className="locked-note">
+          Guest preview: up to {maxHoldings} ETFs. Create a free account for
+          larger portfolios.
+        </p>
+      )}
       <div className="ca-editor-footer">
-        <button type="button" className="ca-secondary" onClick={addRow}>
+        <button
+          type="button"
+          className="ca-secondary"
+          onClick={addRow}
+          disabled={atLimit}
+        >
           + Add ETF
         </button>
         <span className={`ca-weight-sum ${sumClass}`}>
@@ -444,6 +495,9 @@ function InvestmentSettings(props) {
     initialCash, setInitialCash, startDate, setStartDate, endDate, setEndDate,
     allowFractional, setAllowFractional, dividendTreatment, setDividendTreatment,
     frequency, setFrequency,
+    // Guest ceilings; null/"" for a signed-in user, which leaves the inputs
+    // unconstrained.
+    minStartDate, maxInitialCash,
   } = props;
   return (
     <section className="ca-card">
@@ -457,19 +511,31 @@ function InvestmentSettings(props) {
             type="number"
             min="0"
             step="100"
+            max={maxInitialCash ?? undefined}
             value={initialCash}
             onChange={(e) => setInitialCash(e.target.value)}
           />
+          {maxInitialCash && (
+            <span className="ca-optional">
+              up to ${maxInitialCash.toLocaleString("en-US")} in guest mode
+            </span>
+          )}
         </label>
         <label className="ca-field">
           Start date
           <Info text="If this isn't a trading day, the analysis uses the next day all holdings had prices." />
           <input
             type="date"
+            min={minStartDate || undefined}
             max={TODAY}
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
           />
+          {minStartDate && (
+            <span className="ca-optional">
+              from {minStartDate} in guest mode
+            </span>
+          )}
         </label>
         <label className="ca-field">
           End date <span className="ca-optional">optional</span>

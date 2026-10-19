@@ -1,1 +1,27 @@
+# Secrets
 .env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+.venv/
+
+# Generated data. The ETF CSVs are refreshed by update.py and the collection
+# snapshots by mongoDB.py -- none of it belongs in version control.
+data_sourcing/backups/
+*.bak
+*.bak.csv
+
+# User data. Saved portfolios live in Supabase; this file is the Streamlit
+# app's local store and is specific to whoever ran it.
+frontend/saved_portfolios.json
+
+# Node
+node_modules/
+dist/

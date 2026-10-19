@@ -5,9 +5,14 @@ import {
   setCurrentInputPortfolio,
   toCanonicalHoldings,
 } from "../config/cashAnalysisState";
-
-// FastAPI backend (uvicorn defaults to port 8000). Override with VITE_API_URL in .env.
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import {
+  ApiErrorMessage,
+  GuestAllowanceBanner,
+  GuestUpgradePrompt,
+} from "../components/guestNotice.jsx";
+import { api } from "../config/api.js";
+import { useGuestAccess } from "../config/useGuestAccess.js";
+import { GUEST_MAX_HOLDINGS } from "../config/guestPolicy.js";
 
 function InputEtfsPage() {
   // Each holding is { ticker, weight }. weight is a string so "" means "not entered".
@@ -16,10 +21,16 @@ function InputEtfsPage() {
   const [rf, setRf] = useState(0.04);
 
   const [result, setResult] = useState(null);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const guest = useGuestAccess();
+
+  // Guests evaluate a small portfolio, once. Both are enforced server-side too.
+  const maxHoldings = guest.isGuest ? GUEST_MAX_HOLDINGS : Infinity;
+  const atHoldingLimit = etfs.length >= maxHoldings;
+  const outOfRuns = guest.isGuest && !guest.canUse("evaluate");
 
   // Persist the entered portfolio so Cash Analysis' "Current Input Portfolio"
   // source can pick it up without re-entering the holdings.
@@ -38,6 +49,7 @@ function InputEtfsPage() {
   }
 
   function addTicker() {
+    if (atHoldingLimit) return;
     setEtfs([...etfs, { ticker: "", weight: "" }]);
   }
 
@@ -111,38 +123,25 @@ function InputEtfsPage() {
   }
 
   async function evaluate() {
-    setError("");
+    setError(null);
     setResult(null);
 
     const { weights, error: weightError } = buildWeights();
     if (weightError) {
-      setError(weightError);
+      // A local validation message, not a server error - wrap it in the same
+      // shape so one renderer handles both.
+      setError({ message: weightError, status: 0 });
       return;
     }
 
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/evaluate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          weights: weights,
-          period: period,
-          rf: rf,
-        }),
-      });
-
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.detail || `Request failed (${res.status})`);
-      }
-
-      const data = await res.json();
-      setResult(data);
+      setResult(await api.evaluate({ weights, period, rf }));
     } catch (e) {
-      setError(e.message);
+      setError(e);
     } finally {
       setLoading(false);
+      guest.refresh();
     }
   }
 
@@ -150,11 +149,19 @@ function InputEtfsPage() {
     <div className="input-your-portfolio">
       <h1>Use Existing ETFs</h1>
 
+      <GuestAllowanceBanner
+        isGuest={guest.isGuest}
+        left={guest.left}
+        action="evaluate"
+      />
+
       <AddHoldings
         etfs={etfs}
         addTicker={addTicker}
         updateTicker={updateTicker}
         updateWeight={updateWeight}
+        atLimit={atHoldingLimit}
+        maxHoldings={maxHoldings}
       />
 
       <Settings
@@ -165,7 +172,7 @@ function InputEtfsPage() {
       />
 
       <div className="ca-handoff-row">
-        <button onClick={evaluate} disabled={loading}>
+        <button onClick={evaluate} disabled={loading || outOfRuns}>
           {loading ? "Evaluating..." : "Evaluate Portfolio"}
         </button>
         <button className="ca-secondary" onClick={goToCashAnalysis}>
@@ -173,7 +180,12 @@ function InputEtfsPage() {
         </button>
       </div>
 
-      {error && <p className="error">{error}</p>}
+      <ApiErrorMessage error={error} />
+      <GuestUpgradePrompt
+        isGuest={guest.isGuest}
+        left={guest.left}
+        action="evaluate"
+      />
       {result && (
         <>
           <PortfolioResults result={result} />
@@ -189,7 +201,7 @@ function InputEtfsPage() {
   );
 }
 
-function AddHoldings({ etfs, addTicker, updateTicker, updateWeight }) {
+function AddHoldings({ etfs, addTicker, updateTicker, updateWeight, atLimit, maxHoldings }) {
   return (
     <div>
       <p>
@@ -220,9 +232,15 @@ function AddHoldings({ etfs, addTicker, updateTicker, updateWeight }) {
         </div>
       ))}
 
-      <button className="add-ticker-button" onClick={addTicker}>
+      <button className="add-ticker-button" onClick={addTicker} disabled={atLimit}>
         Add Ticker
       </button>
+      {atLimit && Number.isFinite(maxHoldings) && (
+        <p className="locked-note">
+          Guest preview: up to {maxHoldings} ETFs. Create a free account for
+          larger portfolios.
+        </p>
+      )}
     </div>
   );
 }
