@@ -26,7 +26,8 @@ success over a damaged collection.
 
 Usage
 -----
-    python mongoDB.py                 # refresh, with all guards active
+    python mongoDB.py                 # refresh US, with all guards active
+    python mongoDB.py --market CA     # refresh Canada instead
     python mongoDB.py --dry-run       # fetch + validate only, touch nothing
     python mongoDB.py --force         # bypass the shrink guard (intentional
                                       # universe reductions only)
@@ -44,6 +45,7 @@ import certifi
 import pandas as pd
 from pymongo import MongoClient
 
+from build_portfolios import MARKET_COLLECTIONS
 from configuration import MONGODB_URL
 from update import OUTPUT_COLS, update
 
@@ -51,11 +53,19 @@ BASE = Path(__file__).resolve().parent
 BACKUP_DIR = BASE / "data_sourcing" / "backups"
 
 DB_NAME = "etf_data"
-COLLECTION_NAME = "US_ETF_DATA"
-BACKUP_COLLECTION_NAME = f"{COLLECTION_NAME}_backup"
 
 # A refresh smaller than this is treated as a failed fetch, not a real universe.
+# US's live universe runs ~400 tickers; CA's is ~188 (see
+# CANADIAN_OPTIMIZER_BUILDOUT_BRIEF.md) -- the same 100-row floor that's a
+# generous ~25% guard band for US would be a much tighter ~53% guard band for
+# CA, so CA gets its own, proportionally comparable floor instead of
+# inheriting US's number.
 DEFAULT_MIN_ROWS = 100
+MARKET_MIN_ROWS = {"CA": 80}
+
+
+def default_min_rows(market: str) -> int:
+    return MARKET_MIN_ROWS.get(market, DEFAULT_MIN_ROWS)
 
 # Reject a refresh that loses more than this fraction of the existing rows.
 DEFAULT_MAX_SHRINK = 0.10
@@ -136,7 +146,7 @@ def check_shrink(new_rows: int, existing_rows: int, max_shrink: float) -> str | 
 
 
 # -- Backup / restore --------------------------------------------------------
-def snapshot_to_file(documents: list[dict]) -> Path | None:
+def snapshot_to_file(documents: list[dict], collection_name: str) -> Path | None:
     """Write the pre-refresh collection to a timestamped JSON file.
 
     The GitHub Action uploads this as an artifact, so a bad run is recoverable
@@ -146,18 +156,18 @@ def snapshot_to_file(documents: list[dict]) -> Path | None:
         return None
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%SZ")
-    path = BACKUP_DIR / f"{COLLECTION_NAME}.{stamp}.json"
+    path = BACKUP_DIR / f"{collection_name}.{stamp}.json"
     path.write_text(
         json.dumps(documents, indent=2, default=str), encoding="utf-8"
     )
     return path
 
 
-def snapshot_to_collection(db, documents: list[dict]) -> None:
+def snapshot_to_collection(db, documents: list[dict], backup_collection_name: str) -> None:
     """Mirror the pre-refresh documents into the backup collection."""
     if not documents:
         return
-    backup = db[BACKUP_COLLECTION_NAME]
+    backup = db[backup_collection_name]
     backup.delete_many({})
     backup.insert_many(documents)
 
@@ -171,15 +181,26 @@ def restore(collection, documents: list[dict]) -> None:
 
 
 # -- Main --------------------------------------------------------------------
-def refresh(dry_run: bool = False, force: bool = False,
-            min_rows: int = DEFAULT_MIN_ROWS,
+def refresh(market: str = "US", dry_run: bool = False, force: bool = False,
+            min_rows: int | None = None,
             max_shrink: float = DEFAULT_MAX_SHRINK) -> int:
-    """Fetch, validate and (unless dry-run) swap in the new universe.
+    """Fetch, validate and (unless dry-run) swap in the new universe for `market`.
+
+    min_rows=None uses the market's own default (see default_min_rows) --
+    pass an explicit value to override it.
 
     Returns the number of rows written (0 for a dry run).
     """
-    print("Fetching the refreshed ETF universe...")
-    df = update(write=False)
+    market = str(market).upper()
+    if market not in MARKET_COLLECTIONS:
+        raise RefreshAborted(f"Unknown market {market!r}. Expected one of {sorted(MARKET_COLLECTIONS)}.")
+    collection_name = MARKET_COLLECTIONS[market]
+    backup_collection_name = f"{collection_name}_backup"
+    if min_rows is None:
+        min_rows = default_min_rows(market)
+
+    print(f"Fetching the refreshed {market} ETF universe...")
+    df = update(market=market, write=False)
 
     problems = validate_frame(df, min_rows)
     if problems:
@@ -199,11 +220,11 @@ def refresh(dry_run: bool = False, force: bool = False,
     client = MongoClient(MONGODB_URL, tlsCAFile=certifi.where())
     try:
         db = client[DB_NAME]
-        collection = db[COLLECTION_NAME]
+        collection = db[collection_name]
 
         existing = list(collection.find({}))
         existing_rows = len(existing)
-        print(f"The collection currently holds {existing_rows} rows.")
+        print(f"The {collection_name} collection currently holds {existing_rows} rows.")
 
         shrink_problem = check_shrink(len(df), existing_rows, max_shrink)
         if shrink_problem:
@@ -216,10 +237,10 @@ def refresh(dry_run: bool = False, force: bool = False,
             print("--dry-run: validation passed, the collection was not modified.")
             return 0
 
-        backup_path = snapshot_to_file(existing)
+        backup_path = snapshot_to_file(existing, collection_name)
         if backup_path:
             print(f"Backed up {existing_rows} rows -> {backup_path.name}")
-        snapshot_to_collection(db, existing)
+        snapshot_to_collection(db, existing, backup_collection_name)
 
         records = df.to_dict("records")
         try:
@@ -234,7 +255,7 @@ def refresh(dry_run: bool = False, force: bool = False,
                 print(
                     "CRITICAL: the restore also failed "
                     f"({restore_exc}). Recover from {backup_path} or the "
-                    f"'{BACKUP_COLLECTION_NAME}' collection."
+                    f"'{backup_collection_name}' collection."
                 )
             raise
 
@@ -246,7 +267,7 @@ def refresh(dry_run: bool = False, force: bool = False,
                 "the previous rows have been restored."
             )
 
-        print(f"Success: the collection now holds {written} rows.")
+        print(f"Success: {collection_name} now holds {written} rows.")
         return written
     finally:
         client.close()
@@ -254,6 +275,10 @@ def refresh(dry_run: bool = False, force: bool = False,
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument(
+        "--market", choices=sorted(MARKET_COLLECTIONS), default="US",
+        help="Which ETF universe to refresh (default US).",
+    )
     parser.add_argument(
         "--dry-run", action="store_true",
         help="Fetch and validate without modifying the collection.",
@@ -263,8 +288,11 @@ def main(argv: list[str] | None = None) -> int:
         help="Bypass the shrink guard (for a genuine universe reduction).",
     )
     parser.add_argument(
-        "--min-rows", type=int, default=DEFAULT_MIN_ROWS,
-        help=f"Reject a refresh with fewer rows than this (default {DEFAULT_MIN_ROWS}).",
+        "--min-rows", type=int, default=None,
+        help=(
+            f"Reject a refresh with fewer rows than this (default {DEFAULT_MIN_ROWS} "
+            f"for US, {MARKET_MIN_ROWS['CA']} for CA -- see default_min_rows)."
+        ),
     )
     parser.add_argument(
         "--max-shrink", type=float, default=DEFAULT_MAX_SHRINK,
@@ -277,6 +305,7 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         refresh(
+            market=args.market,
             dry_run=args.dry_run,
             force=args.force,
             min_rows=args.min_rows,
