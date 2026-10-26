@@ -194,7 +194,13 @@ def classify_etf_name(etf_name):
         return "Multi Alternative"
 
     # 8) Multi-asset / unconstrained / go-anywhere strategies ---------------
-    if _has(s, "multi-asset", "multi asset", "real return", "multi-strategy"):
+    # "long/short" here specifically (not just "long"+"short" each matched elsewhere)
+    # because rule 22's generic duration-bucket fallback below has a bare 'short '
+    # substring check that otherwise misreads "Long/Short Alternative Fund" as a
+    # short-*duration* fund -- caught via Arrow Long/Short Alternative Fund (ACAA.TO)
+    # while validating the Canadian sourcing script.
+    if _has(s, "multi-asset", "multi asset", "real return", "multi-strategy",
+            "long/short", "long short", "long-short"):
         return "Multi Alternative"
 
     # 9) Senior / bank / leveraged loans -> Short Term Low Quality ---------

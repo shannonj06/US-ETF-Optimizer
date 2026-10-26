@@ -9,7 +9,22 @@ import pandas as pd
 import yfinance as yf
 
 BASE_DIR = Path(__file__).resolve().parent
-OUT_CSV = BASE_DIR / "data_sourcing" / "US_Final_ETF_Data.csv"
+
+# One market-aware script instead of a parallel US/CA copy — mirrors the same
+# per-market pattern build_portfolios.py already uses for MARKET_COLLECTIONS /
+# MARKET_CSV_FALLBACK. fetch_metrics/compute_beta/expense_ratio below were
+# already 100% ticker-agnostic; only the universe, benchmark, and output path
+# actually differ by market.
+MARKET_OUT_CSV = {
+    "US": BASE_DIR / "data_sourcing" / "US_Final_ETF_Data.csv",
+    "CA": BASE_DIR / "data_sourcing" / "CA_Final_ETF_Data.csv",
+}
+# Beta benchmark per market. XIC.TO (S&P/TSX Composite) rather than XIU.TO
+# (TSX 60) for Canada -- broader market-cap coverage, same choice this
+# project already uses as "the market" elsewhere (see the Investment Cockpit
+# pipeline's benchmark config).
+MARKET_BENCHMARK = {"US": "SPY", "CA": "XIC.TO"}
+OUT_CSV = MARKET_OUT_CSV["US"]  # kept for any external import expecting the old name
 
 # Import the helpers from the data_sourcing package (resolves cleanly for the
 # type checker). We ALSO put data_sourcing on sys.path so durationSourcing's own
@@ -23,10 +38,26 @@ OUTPUT_COLS = ["Symbol", "BETA", "Name", "AUM", "YIELD", "SHARPE", "MAX_DD",
                "ANNUAL_VOL", "STYLE", "AVG_VOLUME_30", "DURATION", "ER"]
 
 
-def load_etf_universe():
-    """Symbol + Name for the universe to refresh, from the static seed file."""
-    excel_path = BASE_DIR / "datasets" / "US_ETF_DF.xlsx - US ETF Data.csv"
-    df = pd.read_csv(excel_path)
+def load_etf_universe(market="US"):
+    """Symbol + Name for `market`'s universe to refresh.
+
+    US has a dedicated seed file (ticker list curated separately from the
+    metrics this script computes). CA has no such seed file yet -- there's
+    never been a Canadian data-sourcing script before this one -- so it
+    bootstraps its own universe from CA_Final_ETF_Data.csv's existing
+    Symbol/Name columns (the 188 tickers Shannon's one-off July 2026 pull
+    established). Expanding the CA universe beyond those 188 is a separate,
+    deliberate decision -- see CANADIAN_OPTIMIZER_BUILDOUT_BRIEF.md -- not
+    something this function does silently.
+    """
+    market = str(market).upper()
+    if market == "US":
+        path = BASE_DIR / "datasets" / "US_ETF_DF.xlsx - US ETF Data.csv"
+    elif market == "CA":
+        path = MARKET_OUT_CSV["CA"]
+    else:
+        raise ValueError(f"Unknown market {market!r}. Expected 'US' or 'CA'.")
+    df = pd.read_csv(path)
     df.columns = df.columns.str.strip()
     df = df[["Symbol", "Name"]].copy()
     df["Symbol"] = df["Symbol"].astype(str).str.strip().str.upper()
@@ -133,20 +164,28 @@ def fetch_metrics(ticker, name, market_returns, period="1y", beta_period="5y",
     }
 
 
-def update(period="1y", beta_period="5y", benchmark="SPY", rf=0.04, symbols=None,
-           out_csv=OUT_CSV, sleep=1.0, write=True, backup=True):
-    """Refresh every ticker and (optionally) write the CSV.
+def update(market="US", period="1y", beta_period="5y", benchmark=None, rf=0.04,
+           symbols=None, out_csv=None, sleep=1.0, write=True, backup=True):
+    """Refresh every ticker in `market`'s universe and (optionally) write its CSV.
 
+    market      : "US" or "CA" -- selects the universe, beta benchmark, and
+                  output path via MARKET_BENCHMARK/MARKET_OUT_CSV above.
     period      : window for return/vol/Sharpe/drawdown ("1y"/"3y"/"5y").
     beta_period : window for beta only (default 5y — closest to the prior source).
-    benchmark   : market leg for beta (default SPY).
+    benchmark   : market leg for beta; defaults to MARKET_BENCHMARK[market]
+                  (SPY for US, XIC.TO for CA) -- override only to experiment.
     symbols     : optional subset; defaults to the whole universe.
+    out_csv     : defaults to MARKET_OUT_CSV[market].
     write       : set False to compute without touching disk (tests/cloud dry-run).
     backup      : if writing, copy the existing CSV to a timestamped .bak first.
 
     Returns the refreshed DataFrame.
     """
-    universe = load_etf_universe()
+    market = str(market).upper()
+    benchmark = benchmark or MARKET_BENCHMARK[market]
+    out_csv = out_csv or MARKET_OUT_CSV[market]
+
+    universe = load_etf_universe(market)
     name_by_sym = dict(zip(universe["Symbol"], universe["Name"]))
     tickers = symbols if symbols is not None else universe["Symbol"].tolist()
 
@@ -187,4 +226,4 @@ def update(period="1y", beta_period="5y", benchmark="SPY", rf=0.04, symbols=None
 
 
 if __name__ == "__main__":
-    update()
+    update(market=sys.argv[1] if len(sys.argv) > 1 else "US")

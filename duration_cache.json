@@ -3046,5 +3046,1127 @@
     "duration": 0.2,
     "source": "name_estimate",
     "confidence": "medium"
+  },
+  "AGG.TO": {
+    "ticker": "AGG.TO",
+    "duration": 3.51,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CPD.TO": {
+    "ticker": "CPD.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "ACAA.TO": {
+    "ticker": "ACAA.TO",
+    "duration": 6.62,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ATSX.TO": {
+    "ticker": "ATSX.TO",
+    "duration": 4.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "BESG.TO": {
+    "ticker": "BESG.TO",
+    "duration": 4.68,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "BSKT.TO": {
+    "ticker": "BSKT.TO",
+    "duration": 3.96,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "BXF.TO": {
+    "ticker": "BXF.TO",
+    "duration": 2.89,
+    "source": "name_estimate",
+    "confidence": "medium"
+  },
+  "CACB.TO": {
+    "ticker": "CACB.TO",
+    "duration": 4.79,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CAGG.TO": {
+    "ticker": "CAGG.TO",
+    "duration": 3.53,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CAGS.TO": {
+    "ticker": "CAGS.TO",
+    "duration": 3.23,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CALB.TO": {
+    "ticker": "CALB.TO",
+    "duration": 2.66,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CBH.TO": {
+    "ticker": "CBH.TO",
+    "duration": 3.91,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CBIL.TO": {
+    "ticker": "CBIL.TO",
+    "duration": 0.13,
+    "source": "name_estimate",
+    "confidence": "medium"
+  },
+  "CBND.TO": {
+    "ticker": "CBND.TO",
+    "duration": 4.62,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CBO.TO": {
+    "ticker": "CBO.TO",
+    "duration": 3.97,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CCAD.TO": {
+    "ticker": "CCAD.TO",
+    "duration": null,
+    "source": null,
+    "confidence": null
+  },
+  "CCBI.TO": {
+    "ticker": "CCBI.TO",
+    "duration": 3.64,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CCNS.TO": {
+    "ticker": "CCNS.TO",
+    "duration": 4.14,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CCRE.TO": {
+    "ticker": "CCRE.TO",
+    "duration": 4.43,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CEQY.TO": {
+    "ticker": "CEQY.TO",
+    "duration": null,
+    "source": null,
+    "confidence": null
+  },
+  "CLF.TO": {
+    "ticker": "CLF.TO",
+    "duration": 2.58,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CLG.TO": {
+    "ticker": "CLG.TO",
+    "duration": 2.9,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CMNY.TO": {
+    "ticker": "CMNY.TO",
+    "duration": 0.1,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "CMR.TO": {
+    "ticker": "CMR.TO",
+    "duration": 0.1,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "CORE.TO": {
+    "ticker": "CORE.TO",
+    "duration": 3.02,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CSBI.TO": {
+    "ticker": "CSBI.TO",
+    "duration": 3.3,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CTMA.TO": {
+    "ticker": "CTMA.TO",
+    "duration": 3.53,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CTMB.TO": {
+    "ticker": "CTMB.TO",
+    "duration": 3.76,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CTMC.TO": {
+    "ticker": "CTMC.TO",
+    "duration": 3.61,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CVD.TO": {
+    "ticker": "CVD.TO",
+    "duration": 5.59,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "CXF.TO": {
+    "ticker": "CXF.TO",
+    "duration": 6.02,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DCBC.TO": {
+    "ticker": "DCBC.TO",
+    "duration": 4.37,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DCC.TO": {
+    "ticker": "DCC.TO",
+    "duration": 3.92,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DCG.TO": {
+    "ticker": "DCG.TO",
+    "duration": 2.54,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DCP.TO": {
+    "ticker": "DCP.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "DCS.TO": {
+    "ticker": "DCS.TO",
+    "duration": 3.06,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DCU.TO": {
+    "ticker": "DCU.TO",
+    "duration": 3.45,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DIVS.TO": {
+    "ticker": "DIVS.TO",
+    "duration": 8.33,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DRCU.TO": {
+    "ticker": "DRCU.TO",
+    "duration": 3.89,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXB.TO": {
+    "ticker": "DXB.TO",
+    "duration": 3.48,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXBB.TO": {
+    "ticker": "DXBB.TO",
+    "duration": 4.49,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXBC.TO": {
+    "ticker": "DXBC.TO",
+    "duration": 4.0,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXBG.TO": {
+    "ticker": "DXBG.TO",
+    "duration": 5.85,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXCB.TO": {
+    "ticker": "DXCB.TO",
+    "duration": 5.36,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXDB.TO": {
+    "ticker": "DXDB.TO",
+    "duration": 3.9,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXO.TO": {
+    "ticker": "DXO.TO",
+    "duration": 5.95,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXP.TO": {
+    "ticker": "DXP.TO",
+    "duration": 5.97,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "DXV.TO": {
+    "ticker": "DXV.TO",
+    "duration": 3.37,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ESGB.TO": {
+    "ticker": "ESGB.TO",
+    "duration": 4.22,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "FCMI.TO": {
+    "ticker": "FCMI.TO",
+    "duration": 4.1,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "FGOV.TO": {
+    "ticker": "FGOV.TO",
+    "duration": 3.59,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "FHIS.TO": {
+    "ticker": "FHIS.TO",
+    "duration": 4.12,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "FIE.TO": {
+    "ticker": "FIE.TO",
+    "duration": 4.41,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "FLCI.TO": {
+    "ticker": "FLCI.TO",
+    "duration": 5.33,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "FLCP.TO": {
+    "ticker": "FLCP.TO",
+    "duration": 4.56,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "FLSD.TO": {
+    "ticker": "FLSD.TO",
+    "duration": 4.33,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "GCBD.TO": {
+    "ticker": "GCBD.TO",
+    "duration": 3.75,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "GCTB.TO": {
+    "ticker": "GCTB.TO",
+    "duration": 0.1,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "GIGC.TO": {
+    "ticker": "GIGC.TO",
+    "duration": 4.79,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "HAD.TO": {
+    "ticker": "HAD.TO",
+    "duration": 3.72,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "HBB.TO": {
+    "ticker": "HBB.TO",
+    "duration": 3.41,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "HFR.TO": {
+    "ticker": "HFR.TO",
+    "duration": 3.74,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "HLPR.TO": {
+    "ticker": "HLPR.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "HMP.TO": {
+    "ticker": "HMP.TO",
+    "duration": 3.11,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "HPR.TO": {
+    "ticker": "HPR.TO",
+    "duration": 5.63,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "HSAV.TO": {
+    "ticker": "HSAV.TO",
+    "duration": 6.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "ICCB.TO": {
+    "ticker": "ICCB.TO",
+    "duration": 5.14,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ICPB.TO": {
+    "ticker": "ICPB.TO",
+    "duration": 5.17,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "IFRF.TO": {
+    "ticker": "IFRF.TO",
+    "duration": 0.2,
+    "source": "name_estimate",
+    "confidence": "medium"
+  },
+  "IGCF.TO": {
+    "ticker": "IGCF.TO",
+    "duration": 4.98,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ISIF.TO": {
+    "ticker": "ISIF.TO",
+    "duration": 5.55,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "LYCT.TO": {
+    "ticker": "LYCT.TO",
+    "duration": 5.5,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "LYFR.TO": {
+    "ticker": "LYFR.TO",
+    "duration": 0.2,
+    "source": "name_estimate",
+    "confidence": "medium"
+  },
+  "MCOR.TO": {
+    "ticker": "MCOR.TO",
+    "duration": 4.73,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "MCSB.TO": {
+    "ticker": "MCSB.TO",
+    "duration": 3.38,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "MKB.TO": {
+    "ticker": "MKB.TO",
+    "duration": 3.98,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NCPB.TO": {
+    "ticker": "NCPB.TO",
+    "duration": 3.67,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NPRF.TO": {
+    "ticker": "NPRF.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "NSCB.TO": {
+    "ticker": "NSCB.TO",
+    "duration": 4.03,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NSCC.TO": {
+    "ticker": "NSCC.TO",
+    "duration": 4.09,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NSSB.TO": {
+    "ticker": "NSSB.TO",
+    "duration": 3.72,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NTGA.TO": {
+    "ticker": "NTGA.TO",
+    "duration": 2.27,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NTGB.TO": {
+    "ticker": "NTGB.TO",
+    "duration": 2.03,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NTGC.TO": {
+    "ticker": "NTGC.TO",
+    "duration": 2.12,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NTGD.TO": {
+    "ticker": "NTGD.TO",
+    "duration": 2.71,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NTGE.TO": {
+    "ticker": "NTGE.TO",
+    "duration": 2.34,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "NTGF.TO": {
+    "ticker": "NTGF.TO",
+    "duration": 2.46,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PAYL.TO": {
+    "ticker": "PAYL.TO",
+    "duration": 3.08,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PAYM.TO": {
+    "ticker": "PAYM.TO",
+    "duration": 3.07,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PAYS.TO": {
+    "ticker": "PAYS.TO",
+    "duration": 3.05,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PCON.TO": {
+    "ticker": "PCON.TO",
+    "duration": 4.83,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PCOR.TO": {
+    "ticker": "PCOR.TO",
+    "duration": 4.86,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PFL.TO": {
+    "ticker": "PFL.TO",
+    "duration": 0.2,
+    "source": "name_estimate",
+    "confidence": "medium"
+  },
+  "PLDI.TO": {
+    "ticker": "PLDI.TO",
+    "duration": 5.11,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PMIF.TO": {
+    "ticker": "PMIF.TO",
+    "duration": 5.12,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PMNT.TO": {
+    "ticker": "PMNT.TO",
+    "duration": 4.27,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PR.TO": {
+    "ticker": "PR.TO",
+    "duration": 3.93,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "PREF.TO": {
+    "ticker": "PREF.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "PSA.TO": {
+    "ticker": "PSA.TO",
+    "duration": null,
+    "source": null,
+    "confidence": null
+  },
+  "PSB.TO": {
+    "ticker": "PSB.TO",
+    "duration": 3.8,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "QASH.TO": {
+    "ticker": "QASH.TO",
+    "duration": 3.52,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "QBB.TO": {
+    "ticker": "QBB.TO",
+    "duration": 3.37,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "QLB.TO": {
+    "ticker": "QLB.TO",
+    "duration": 3.3,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "QSB.TO": {
+    "ticker": "QSB.TO",
+    "duration": 3.04,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RATE.TO": {
+    "ticker": "RATE.TO",
+    "duration": 4.61,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RBO.TO": {
+    "ticker": "RBO.TO",
+    "duration": 3.93,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RGQO.TO": {
+    "ticker": "RGQO.TO",
+    "duration": 1.81,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RGQP.TO": {
+    "ticker": "RGQP.TO",
+    "duration": 2.35,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RGQQ.TO": {
+    "ticker": "RGQQ.TO",
+    "duration": 2.8,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RGQR.TO": {
+    "ticker": "RGQR.TO",
+    "duration": 3.0,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RGQS.TO": {
+    "ticker": "RGQS.TO",
+    "duration": 1.97,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RGQT.TO": {
+    "ticker": "RGQT.TO",
+    "duration": 1.88,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RIFI.TO": {
+    "ticker": "RIFI.TO",
+    "duration": 3.91,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RIRA.TO": {
+    "ticker": "RIRA.TO",
+    "duration": 2.97,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RLB.TO": {
+    "ticker": "RLB.TO",
+    "duration": 3.49,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RPF.TO": {
+    "ticker": "RPF.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "RQO.TO": {
+    "ticker": "RQO.TO",
+    "duration": 3.03,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RQP.TO": {
+    "ticker": "RQP.TO",
+    "duration": 3.69,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RQQ.TO": {
+    "ticker": "RQQ.TO",
+    "duration": 4.19,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RQR.TO": {
+    "ticker": "RQR.TO",
+    "duration": 4.17,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RQS.TO": {
+    "ticker": "RQS.TO",
+    "duration": 3.91,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RQT.TO": {
+    "ticker": "RQT.TO",
+    "duration": 3.7,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "RUST.TO": {
+    "ticker": "RUST.TO",
+    "duration": 3.22,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "SPFD.TO": {
+    "ticker": "SPFD.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "SPLT.TO": {
+    "ticker": "SPLT.TO",
+    "duration": 5.33,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TBCF.TO": {
+    "ticker": "TBCF.TO",
+    "duration": 2.65,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TBCG.TO": {
+    "ticker": "TBCG.TO",
+    "duration": 2.53,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TBCH.TO": {
+    "ticker": "TBCH.TO",
+    "duration": 2.26,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TBCI.TO": {
+    "ticker": "TBCI.TO",
+    "duration": 2.95,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TBCJ.TO": {
+    "ticker": "TBCJ.TO",
+    "duration": 3.01,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TBIL.TO": {
+    "ticker": "TBIL.TO",
+    "duration": 0.1,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "TCLB.TO": {
+    "ticker": "TCLB.TO",
+    "duration": 2.9,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TCSB.TO": {
+    "ticker": "TCSB.TO",
+    "duration": 4.7,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TCSH.TO": {
+    "ticker": "TCSH.TO",
+    "duration": 3.3,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TDB.TO": {
+    "ticker": "TDB.TO",
+    "duration": 3.47,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TERM.TO": {
+    "ticker": "TERM.TO",
+    "duration": 4.22,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "TPRF.TO": {
+    "ticker": "TPRF.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "VAB.TO": {
+    "ticker": "VAB.TO",
+    "duration": 3.48,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "VCB.TO": {
+    "ticker": "VCB.TO",
+    "duration": 4.3,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "VGV.TO": {
+    "ticker": "VGV.TO",
+    "duration": 3.25,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "VLB.TO": {
+    "ticker": "VLB.TO",
+    "duration": 3.83,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "VSB.TO": {
+    "ticker": "VSB.TO",
+    "duration": 3.12,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "VSC.TO": {
+    "ticker": "VSC.TO",
+    "duration": 4.09,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "VVSG.TO": {
+    "ticker": "VVSG.TO",
+    "duration": 0.4,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "XBB.TO": {
+    "ticker": "XBB.TO",
+    "duration": 3.52,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XCB.TO": {
+    "ticker": "XCB.TO",
+    "duration": 4.41,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XCBG.TO": {
+    "ticker": "XCBG.TO",
+    "duration": 4.28,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XFLB.TO": {
+    "ticker": "XFLB.TO",
+    "duration": 2.75,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XFR.TO": {
+    "ticker": "XFR.TO",
+    "duration": 0.2,
+    "source": "name_estimate",
+    "confidence": "medium"
+  },
+  "XGB.TO": {
+    "ticker": "XGB.TO",
+    "duration": 3.22,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XHB.TO": {
+    "ticker": "XHB.TO",
+    "duration": 5.15,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XLB.TO": {
+    "ticker": "XLB.TO",
+    "duration": 3.88,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XQB.TO": {
+    "ticker": "XQB.TO",
+    "duration": 3.57,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XRB.TO": {
+    "ticker": "XRB.TO",
+    "duration": 2.2,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XSAB.TO": {
+    "ticker": "XSAB.TO",
+    "duration": 3.47,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XSB.TO": {
+    "ticker": "XSB.TO",
+    "duration": 3.18,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XSH.TO": {
+    "ticker": "XSH.TO",
+    "duration": 4.11,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XSHG.TO": {
+    "ticker": "XSHG.TO",
+    "duration": 4.02,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XSMB.TO": {
+    "ticker": "XSMB.TO",
+    "duration": 3.35,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XSTB.TO": {
+    "ticker": "XSTB.TO",
+    "duration": 3.03,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "XTR.TO": {
+    "ticker": "XTR.TO",
+    "duration": 5.15,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZAG.TO": {
+    "ticker": "ZAG.TO",
+    "duration": 3.5,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZCB.TO": {
+    "ticker": "ZCB.TO",
+    "duration": 4.34,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZCDB.TO": {
+    "ticker": "ZCDB.TO",
+    "duration": 2.34,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZCM.TO": {
+    "ticker": "ZCM.TO",
+    "duration": 4.67,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZCS.TO": {
+    "ticker": "ZCS.TO",
+    "duration": 4.15,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZDB.TO": {
+    "ticker": "ZDB.TO",
+    "duration": 1.86,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZFL.TO": {
+    "ticker": "ZFL.TO",
+    "duration": 3.04,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZFM.TO": {
+    "ticker": "ZFM.TO",
+    "duration": 3.11,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZFS.TO": {
+    "ticker": "ZFS.TO",
+    "duration": 2.7,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZGB.TO": {
+    "ticker": "ZGB.TO",
+    "duration": 3.16,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZLC.TO": {
+    "ticker": "ZLC.TO",
+    "duration": 4.79,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZLSC.TO": {
+    "ticker": "ZLSC.TO",
+    "duration": 4.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "ZMBS.TO": {
+    "ticker": "ZMBS.TO",
+    "duration": 3.41,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZMMK.TO": {
+    "ticker": "ZMMK.TO",
+    "duration": 0.1,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "ZMP.TO": {
+    "ticker": "ZMP.TO",
+    "duration": 4.0,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZPL.TO": {
+    "ticker": "ZPL.TO",
+    "duration": 3.8,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZPR.TO": {
+    "ticker": "ZPR.TO",
+    "duration": 5.0,
+    "source": "style_estimate",
+    "confidence": "low"
+  },
+  "ZPS.TO": {
+    "ticker": "ZPS.TO",
+    "duration": 2.66,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZQB.TO": {
+    "ticker": "ZQB.TO",
+    "duration": 4.13,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZRR.TO": {
+    "ticker": "ZRR.TO",
+    "duration": 2.13,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZSB.TO": {
+    "ticker": "ZSB.TO",
+    "duration": 3.17,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZSDB.TO": {
+    "ticker": "ZSDB.TO",
+    "duration": 1.57,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZST.TO": {
+    "ticker": "ZST.TO",
+    "duration": 2.35,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZXCO.TO": {
+    "ticker": "ZXCO.TO",
+    "duration": 2.95,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZXCP.TO": {
+    "ticker": "ZXCP.TO",
+    "duration": 3.13,
+    "source": "yahoo",
+    "confidence": "high"
+  },
+  "ZXCQ.TO": {
+    "ticker": "ZXCQ.TO",
+    "duration": 3.18,
+    "source": "yahoo",
+    "confidence": "high"
   }
 }
